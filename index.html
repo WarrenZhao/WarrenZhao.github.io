@@ -62,6 +62,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cpp基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/03/cpp基础/" class="article-date">
+  <time datetime="2019-09-03T09:15:14.000Z" itemprop="datePublished">2019-09-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/中文/">中文</a>►<a class="article-category-link" href="/categories/中文/C/">C++</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/03/cpp基础/">cpp基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="&#x53D8;&#x91CF;&#x7684;&#x4F7F;&#x7528;&#x53CA;&#x5176;&#x4F5C;&#x7528;&#x57DF;"><a href="#&#x53D8;&#x91CF;&#x7684;&#x4F7F;&#x7528;&#x53CA;&#x5176;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x53D8;&#x91CF;&#x7684;&#x4F7F;&#x7528;&#x53CA;&#x5176;&#x4F5C;&#x7528;&#x57DF;"></a>&#x53D8;&#x91CF;&#x7684;&#x4F7F;&#x7528;&#x53CA;&#x5176;&#x4F5C;&#x7528;&#x57DF;</h1><ol>
+<li>&#x5BC4;&#x5B58;&#x5668;&#x53D8;&#x91CF;</li>
+<li>&#x9759;&#x6001;&#x53D8;&#x91CF;</li>
+<li>&#x5916;&#x90E8;&#x53D8;&#x91CF;</li>
+<li>&#x81EA;&#x52A8;&#x53D8;&#x91CF;</li>
+</ol>
+<h1 id="&#x5F15;&#x5165;&#x5934;&#x90E8;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x548C;&#x533A;&#x522B;"><a href="#&#x5F15;&#x5165;&#x5934;&#x90E8;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x548C;&#x533A;&#x522B;" class="headerlink" title="&#x5F15;&#x5165;&#x5934;&#x90E8;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x548C;&#x533A;&#x522B;"></a>&#x5F15;&#x5165;&#x5934;&#x90E8;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x548C;&#x533A;&#x522B;</h1><h2 id="&#x7B2C;&#x4E00;&#x79CD;&#xFF1A;&#x201C;&#x201D;"><a href="#&#x7B2C;&#x4E00;&#x79CD;&#xFF1A;&#x201C;&#x201D;" class="headerlink" title="&#x7B2C;&#x4E00;&#x79CD;&#xFF1A;&#x201C;&#x201D;"></a>&#x7B2C;&#x4E00;&#x79CD;&#xFF1A;&#x201C;&#x201D;</h2><p>&#x8BE5;&#x79CD;&#x65B9;&#x6CD5;&#x5F15;&#x7528;&#x7684;&#x5934;&#x6587;&#x4EF6;&#x4E00;&#x822C;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5934;&#x6587;&#x4EF6;&#xFF0C;&#x5F15;&#x7528;&#x7684;&#x662F;&#x7A0B;&#x5E8F;&#x76EE;&#x5F55;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;&#x5934;&#x6587;&#x4EF6;&#x3002;<br><br>&#x6BD4;&#x5982;&#xFF1A;&#x9879;&#x76EE;&#x7684;&#x76EE;&#x5F55;&#x662F;&#x5728;D:\Program\tmp\&#xFF0C;&#x5219;#include &#x201C;my.h&#x201D;&#x5F15;&#x7528;&#x7684;&#x5C31;&#x662F;D:\Progam\tem\my.h&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;</p>
+<h2 id="&#x7B2C;&#x4E8C;&#x79CD;&#xFF1A;-lt-gt"><a href="#&#x7B2C;&#x4E8C;&#x79CD;&#xFF1A;-lt-gt" class="headerlink" title="&#x7B2C;&#x4E8C;&#x79CD;&#xFF1A;&lt;&gt;"></a>&#x7B2C;&#x4E8C;&#x79CD;&#xFF1A;&lt;&gt;</h2><p>&#x8BE5;&#x79CD;&#x65B9;&#x6CD5;&#x5F15;&#x7528;&#x7684;&#x662F;&#x7F16;&#x8BD1;&#x5668;&#x7684;&#x7C7B;&#x5E93;&#x8DEF;&#x5F84;&#x91CC;&#x7684;&#x5934;&#x6587;&#x4EF6;&#xFF0C;&#x65E0;&#x8BBA;&#x9879;&#x76EE;&#x7684;&#x76EE;&#x5F55;&#x662F;&#x54EA;&#x4E2A;&#xFF0C;&#x53EA;&#x8981;&#x7F16;&#x8BD1;&#x5668;&#x8DEF;&#x5F84;&#x4E0D;&#x53D8;&#x66F4;&#x5373;&#x53EF;&#x3002;</p>
+<h2 id="&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x7EC8;&#x7AEF;&#x8C03;&#x8BD5;c-&#x7A0B;&#x5E8F;"><a href="#&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x7EC8;&#x7AEF;&#x8C03;&#x8BD5;c-&#x7A0B;&#x5E8F;" class="headerlink" title="&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x7EC8;&#x7AEF;&#x8C03;&#x8BD5;c++&#x7A0B;&#x5E8F;"></a>&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x7EC8;&#x7AEF;&#x8C03;&#x8BD5;c++&#x7A0B;&#x5E8F;</h2><h3 id="&#x95EE;&#x9898;"><a href="#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</h3><ul>
+<li>string&#x8D4B;&#x503C;&#xFF0C;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x6570;&#x7EC4;&#xFF0C;&#x4F46;&#x662F;&#x6700;&#x540E;&#x4E00;&#x4F4D;&#x8981;&#x5B58;&#x50A8;&#x7ED3;&#x675F;&#x7B26;&#xFF1F;<br>&#x5728;c++z&#x4E2D;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x5B9E;&#x9645;&#x4E0A;&#x4F7F;&#x7528;<strong>null</strong>&#x5B57;&#x7B26;&#x2019;&#x3001;&#x2019;\0&#x2019;&#x7EC8;&#x6B62;&#x7684;&#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;&#x4E0B;&#x9762;&#x58F0;&#x660E;&#x548C;&#x521D;&#x59CB;&#x5316;&#x521B;&#x5EFA;&#x7684;&#x4E00;&#x4E2A;&#x201C;Hello&#x201D;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7531;&#x4E8E;&#x5728;&#x6570;&#x7EC4;&#x7684;&#x672B;&#x5C3E;&#x5B58;&#x50A8;&#x4E86;&#x7A7A;&#x5B57;&#x7B26;&#xFF0C;&#x6240;&#x4EE5;&#x5B57;&#x7B26;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#x6BD4;&#x5355;&#x8BCD;&#x201C;Hello&#x201D;&#x7684;&#x5B57;&#x7B26;&#x6570;&#x591A;&#x4E00;&#x4E2A;&#x3002;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char greeting[6] = {&apos;H&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;,&apos;\o&apos;};</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>&#x4F9D;&#x636E;&#x6570;&#x7EC4;&#x7684;&#x521D;&#x59CB;&#x5316;&#x89C4;&#x5219;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x628A;&#x8BED;&#x53E5;&#x5199;&#x6210;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char greeting[] = &quot;Hello&quot;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>c++&#x4E2D;&#x201D;.&#x201D;&#x3001;&#x201D;-&gt;&#x201D;&#x3001;&#x201D;::&#x201D;&#x7684;&#x533A;&#x522B;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;<br>A.B&#x4E2D;A&#x4E3A;&#x5BF9;&#x8C61;&#x6216;&#x8005;&#x7ED3;&#x6784;&#x4F53;&#x3002;<br><br>A-&gt;B&#x5219;A&#x4E3A;&#x6307;&#x9488;&#xFF0C;-&gt;&#x662F;&#x6210;&#x5458;&#x63D0;&#x53D6;&#xFF0C;A-&gt;B&#x662F;&#x63D0;&#x53D6;A&#x4E2D;&#x7684;&#x6210;&#x5458;B&#xFF0C;A&#x53EA;&#x80FD;&#x662F;&#x6307;&#x5411;&#x7C7B;&#x3001;&#x7ED3;&#x6784;&#x3001;&#x8054;&#x5408;&#x7684;&#x6307;&#x9488;&#x3002;<br><br>::&#x662F;&#x4F5C;&#x7528;&#x57DF;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;A::B&#x8868;&#x793A;&#x4F5C;&#x7528;&#x57DF;A&#x4E2D;&#x7684;&#x540D;&#x79F0;B&#xFF0C;A&#x53EF;&#x4EE5;&#x662F;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x3001;&#x7C7B;&#x3001;&#x7ED3;&#x6784;.<br></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/03/cpp基础/" data-id="ck03quq2q00047or1pjfqzyb7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中文/">中文</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-博客显示图片" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/09/01/博客显示图片/" class="article-date">
@@ -104,96 +165,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/01/博客显示图片/" data-id="ck00x5ls6000244r1bqc8kcn1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/01/博客显示图片/" data-id="ck03quq2h00017or12071gpto" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中文/">中文</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-testmyblog" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/01/testmyblog/" class="article-date">
-  <time datetime="2019-09-01T10:19:44.000Z" itemprop="datePublished">2019-09-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/01/testmyblog/">testmyblog</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/01/testmyblog/" data-id="ck00x5lsf000544r1fs3vsuau" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/01/hello-world/" class="article-date">
-  <time datetime="2019-09-01T10:18:26.355Z" itemprop="datePublished">2019-09-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/01/hello-world/" data-id="ck00x5lru000044r1bzfgmwcl" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -296,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/18/Mysql/" data-id="ck00x5ls0000144r14892apkl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/18/Mysql/" data-id="ck03quq2c00007or11azm5hgf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中文/">中文</a></li></ul>
@@ -318,7 +294,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/中文/">中文</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/中文/Mysql/">Mysql</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/中文/">中文</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/中文/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/中文/Mysql/">Mysql</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -328,7 +304,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中文/">中文</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中文/">中文</a></li></ul>
     </div>
   </div>
 
@@ -338,7 +314,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/中文/" style="font-size: 10px;">中文</a>
+      <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Mysql/" style="font-size: 15px;">Mysql</a> <a href="/tags/中文/" style="font-size: 20px;">中文</a>
     </div>
   </div>
 
@@ -360,15 +336,11 @@
       <ul>
         
           <li>
+            <a href="/2019/09/03/cpp基础/">cpp基础</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/01/博客显示图片/">博客显示图片</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/01/testmyblog/">testmyblog</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/01/hello-world/">Hello World</a>
           </li>
         
           <li>
