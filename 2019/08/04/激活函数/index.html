@@ -1,270 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  
+extends base
 
-  
-  <title>激活函数 | Warren Zhao&#39; blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x6FC0;&amp;#x6D3B;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x52A0;&amp;#x5165;&amp;#x975E;&amp;#x7EBF;&amp;#x6027;&amp;#x56E0;&amp;#x7D20;&amp;#xFF0C;&amp;#x5DF2;&amp;#x89E3;&amp;#x51B3;&amp;#x7EBF;&amp;#x6027;&amp;#x6A21;&amp;#x578B;&amp;#x8868;&amp;#x8FBE;&amp;#x80FD;">
-<meta name="keywords" content="中文,AI">
-<meta property="og:type" content="article">
-<meta property="og:title" content="激活函数">
-<meta property="og:url" content="http://yoursite.com/2019/08/04/激活函数/index.html">
-<meta property="og:site_name" content="Warren Zhao&#39; blog">
-<meta property="og:description" content="&amp;#x6FC0;&amp;#x6D3B;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x52A0;&amp;#x5165;&amp;#x975E;&amp;#x7EBF;&amp;#x6027;&amp;#x56E0;&amp;#x7D20;&amp;#xFF0C;&amp;#x5DF2;&amp;#x89E3;&amp;#x51B3;&amp;#x7EBF;&amp;#x6027;&amp;#x6A21;&amp;#x578B;&amp;#x8868;&amp;#x8FBE;&amp;#x80FD;">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-04T11:05:58.652Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="激活函数">
-<meta name="twitter:description" content="&amp;#x6FC0;&amp;#x6D3B;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x52A0;&amp;#x5165;&amp;#x975E;&amp;#x7EBF;&amp;#x6027;&amp;#x56E0;&amp;#x7D20;&amp;#xFF0C;&amp;#x5DF2;&amp;#x89E3;&amp;#x51B3;&amp;#x7EBF;&amp;#x6027;&amp;#x6A21;&amp;#x578B;&amp;#x8868;&amp;#x8FBE;&amp;#x80FD;">
-  
-    <link rel="alternate" href="/atom.xml" title="Warren Zhao&#39; blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Warren Zhao&#39; blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-激活函数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/04/激活函数/" class="article-date">
-  <time datetime="2019-08-04T03:20:41.000Z" itemprop="datePublished">2019-08-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/中文/">中文</a>►<a class="article-category-link" href="/categories/中文/AI/">AI</a>
-  </div>
+block title
+  title= page.title + ' | ' + config.title
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      激活函数
-    </h1>
-  
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+      if theme.wordcount == true
+        include _partial/wordcount.pug
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if theme.changyan
+      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
+        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
+        span= ' ' + __('Comment')
+      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
+    if theme.valine.enable
+      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
+        span.valine-comment-count(data-xid=url_for(page.path))
+        span= ' ' + __('Comment')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content, {list_number: theme.toc_number})
+    .post-content
+      != page.content
+    if theme.donate.enable == true
+      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;"><a href="#&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;" class="headerlink" title="&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;"></a>&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;</h2><p>&#x52A0;&#x5165;&#x975E;&#x7EBF;&#x6027;&#x56E0;&#x7D20;&#xFF0C;&#x5DF2;&#x89E3;&#x51B3;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x8868;&#x8FBE;&#x80FD;&#x529B;&#x4E0D;&#x8DB3;&#x7684;&#x7F3A;&#x9677;&#xFF0C;&#x5728;&#x6574;&#x4E2A;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x91CC;&#x8D77;&#x5230;&#x4E86;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x7684;&#x4F5C;&#x7528;&#x3002;</p>
-<h2 id="&#x5E38;&#x7528;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;"><a href="#&#x5E38;&#x7528;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;" class="headerlink" title="&#x5E38;&#x7528;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;"></a>&#x5E38;&#x7528;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;</h2><h3 id="Sigmoid&#x51FD;&#x6570;"><a href="#Sigmoid&#x51FD;&#x6570;" class="headerlink" title="Sigmoid&#x51FD;&#x6570;"></a>Sigmoid&#x51FD;&#x6570;</h3><h4 id="&#x6570;&#x5B66;&#x5F62;&#x5F0F;"><a href="#&#x6570;&#x5B66;&#x5F62;&#x5F0F;" class="headerlink" title="&#x6570;&#x5B66;&#x5F62;&#x5F0F;"></a>&#x6570;&#x5B66;&#x5F62;&#x5F0F;</h4><p>$$sigmoid(x)=\frac{1}{[1+e^{-x}]}$$<br>&#x5176;&#x4E2D;&#xFF0C;$x$&#x53EF;&#x4EE5;&#x662F;&#x8D1F;&#x65E0;&#x7A77;&#x5230;&#x6B63;&#x65E0;&#x7A77;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x5E94;&#x7684;$y$&#x5374;&#x53EA;&#x6709;0<del>1&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x5373;Sigmoid&#x51FD;&#x6570;&#x80FD;&#x591F;&#x628A;&#x8F93;&#x5165;&#x503C;&#x201C;&#x538B;&#x7F29;&#x201D;&#x5230;0</del>1&#x4E4B;&#x95F4;&#x3002;</p>
-<h4 id="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"><a href="#&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;" class="headerlink" title="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"></a>&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.sigmoid(x, name=None)</span><br></pre></td></tr></table></figure>
+    if theme.post_copyright.enable == true && page.copyright != false
+      div
+        ul.post-copyright
+          li.post-copyright-author
+            strong= __('copyright_author_prefix')
+            = theme.post_copyright.author
+          li.post-copyright-link
+            strong= __('copyright_link_prefix')
+            a(href='/' + page.path)= page.permalink
+          li.post-copyright-license
+            strong= __('copyright_declare_prefix')
+            if theme.post_copyright.copyright_text
+              != theme.post_copyright.copyright_text
+            else
+              != __('copyright_default_text')
+      br
 
-<h4 id="&#x51FD;&#x6570;&#x7F3A;&#x9677;"><a href="#&#x51FD;&#x6570;&#x7F3A;&#x9677;" class="headerlink" title="&#x51FD;&#x6570;&#x7F3A;&#x9677;"></a>&#x51FD;&#x6570;&#x7F3A;&#x9677;</h4><p>Sigmoid&#x51FD;&#x6570;&#x5B58;&#x5728;<font color="red">&#x9971;&#x548C;&#x95EE;&#x9898;</font>&#xFF0C;&#x5373;$x$&#x7684;&#x503C;&#x8D8A;&#x5927;&#xFF0C;$y$&#x7684;&#x503C;&#x8D8A;&#x8D8B;&#x8FD1;&#x4E8E;1&#xFF0C;&#x5904;&#x4E8E;&#x9971;&#x548C;&#x72B6;&#x6001;&#x7684;&#x51FD;&#x6570;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5F53;$x=100$&#x548C;$x=1000$&#x65F6;&#xFF0C;&#x53CD;&#x5E94;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x8FD9;&#x6837;&#x76F8;&#x5F53;&#x4E8E;&#x5C06;1000&#x5927;&#x4E8E;100&#x5341;&#x500D;&#x8FD9;&#x4E2A;&#x4FE1;&#x606F;&#x4E22;&#x5931;&#x4E86;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x4F7F;&#x7528;Sigmoid&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x8F93;&#x5165;&#x503C;&#x7684;&#x7EDD;&#x5BF9;&#x503C;&#x4E0D;&#x80FD;&#x8FC7;&#x5927;&#xFF0C;&#x5426;&#x5219;&#x6A21;&#x578B;&#x65E0;&#x6CD5;&#x8BAD;&#x7EC3;&#x3002;</p>
-<h3 id="Tanh&#x51FD;&#x6570;"><a href="#Tanh&#x51FD;&#x6570;" class="headerlink" title="Tanh&#x51FD;&#x6570;"></a>Tanh&#x51FD;&#x6570;</h3><h4 id="&#x6570;&#x5B66;&#x5F62;&#x5F0F;-1"><a href="#&#x6570;&#x5B66;&#x5F62;&#x5F0F;-1" class="headerlink" title="&#x6570;&#x5B66;&#x5F62;&#x5F0F;"></a>&#x6570;&#x5B66;&#x5F62;&#x5F0F;</h4><p>$$tanh(x)=\frac{e^x-e^{-x}}{e^{x}+e{-x}}$$<br>&#x5176;&#x4E2D;&#xFF0C;$x$&#x53EF;&#x4EE5;&#x662F;&#x8D1F;&#x65E0;&#x7A77;&#x5230;&#x6B63;&#x65E0;&#x7A77;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x5E94;&#x7684;$y$&#x7684;&#x8303;&#x56F4;&#x662F;-1~1&#xFF0C;Tanh&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;Sigmoid&#x51FD;&#x6570;&#x7684;&#x5347;&#x7EA7;&#x7248;&#xFF0C;&#x4E8C;&#x8005;&#x7684;&#x5173;&#x7CFB;&#x4E3A;&#xFF1A;<br>$$tanh(x)=2sigmoid(2x)-1$$<br>&#x6CE8;&#x610F;&#xFF0C;Tanh&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x66FF;&#x4EE3;Sigmoid&#x51FD;&#x6570;&#x3002;</p>
-<h4 id="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-1"><a href="#&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-1" class="headerlink" title="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"></a>&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.tanh(x, name=None)</span><br></pre></td></tr></table></figure>
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-<h4 id="&#x51FD;&#x6570;&#x7F3A;&#x9677;-1"><a href="#&#x51FD;&#x6570;&#x7F3A;&#x9677;-1" class="headerlink" title="&#x51FD;&#x6570;&#x7F3A;&#x9677;"></a>&#x51FD;&#x6570;&#x7F3A;&#x9677;</h4><p>Tanh&#x51FD;&#x6570;&#x548C;Sigmoid&#x51FD;&#x6570;&#x6709;&#x4E00;&#x6837;&#x7684;&#x7F3A;&#x9677;&#xFF0C;&#x4E5F;&#x662F;&#x9971;&#x548C;&#x95EE;&#x9898;&#xFF0C;&#x6B64;&#x5904;&#x4E0D;&#x518D;&#x8D58;&#x8FF0;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x4F7F;&#x7528;Tanh&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x4E5F;&#x5E94;&#x8BE5;&#x63A7;&#x5236;&#x8F93;&#x5165;&#x503C;&#x7684;&#x7EDD;&#x5BF9;&#x503C;&#xFF0C;&#x4EE5;&#x514D;&#x53D1;&#x751F;&#x6A21;&#x578B;&#x65E0;&#x6CD5;&#x8BAD;&#x7EC3;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
-<h3 id="ReLU&#x51FD;&#x6570;"><a href="#ReLU&#x51FD;&#x6570;" class="headerlink" title="ReLU&#x51FD;&#x6570;"></a>ReLU&#x51FD;&#x6570;</h3><h4 id="&#x6570;&#x5B66;&#x5F62;&#x5F0F;-2"><a href="#&#x6570;&#x5B66;&#x5F62;&#x5F0F;-2" class="headerlink" title="&#x6570;&#x5B66;&#x5F62;&#x5F0F;"></a>&#x6570;&#x5B66;&#x5F62;&#x5F0F;</h4><p>$$relu(x)=max(0,x)$$<br>ReLU&#x51FD;&#x6570;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5373;&#x5927;&#x4E8E;0&#x7684;&#x4FDD;&#x7559;&#xFF0C;&#x5C0F;&#x4E8E;0&#x7684;&#x4E00;&#x5F8B;&#x6309;0&#x5904;&#x7406;&#x3002;&#x8FD9;&#x79CD;&#x5BF9;&#x6B63;&#x5411;&#x4FE1;&#x53F7;&#x7684;&#x91CD;&#x89C6;&#x800C;&#x5FFD;&#x7565;&#x4E86;&#x8D1F;&#x5411;&#x4FE1;&#x53F7;&#x7684;&#x7279;&#x70B9;&#xFF0C;&#x5728;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#x53D6;&#x5F97;&#x4E86;&#x5F88;&#x597D;&#x7684;&#x62DF;&#x5408;&#x6548;&#x679C;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x7531;&#x4E8E;ReLU&#x51FD;&#x6570;&#x8FD0;&#x7B97;&#x7B80;&#x5355;&#xFF0C;&#x5927;&#x5927;&#x63D0;&#x5347;&#x4E86;&#x673A;&#x5668;&#x7684;&#x8FD0;&#x884C;&#x6548;&#x7387;&#x3002;</p>
-<h4 id="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-2"><a href="#&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-2" class="headerlink" title="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"></a>&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.relu(features,name=None)&#xFF1A;&#x4E00;&#x822C;&#x7684;ReLU&#x51FD;&#x6570;&#xFF0C;&#x5373;max(features,0);&lt;br/&gt;</span><br><span class="line">tf.nn.relu6(feartures,name=None)&#xFF1A;&#x662F;&#x4EE5;6&#x4E3A;&#x503C;&#x57DF;&#x7684;ReLU&#x51FD;&#x6570;&#xFF0C;&#x5373;min(max(features,0),6).</span><br></pre></td></tr></table></figure>
+    include _partial/tag.pug
+    include _partial/post_nav.pug
 
-<h4 id="&#x51FD;&#x6570;&#x7F3A;&#x9677;-2"><a href="#&#x51FD;&#x6570;&#x7F3A;&#x9677;-2" class="headerlink" title="&#x51FD;&#x6570;&#x7F3A;&#x9677;"></a>&#x51FD;&#x6570;&#x7F3A;&#x9677;</h4><p>ReLU&#x4F1A;&#x5C06;&#x5F15;&#x5165;&#x7684;&#x8D1F;&#x503C;&#x5168;&#x90E8;&#x53D8;&#x4E3A;0&#x3002;</p>
-<h3 id="ReLU&#x51FD;&#x6570;&#x7684;&#x53D8;&#x79CD;"><a href="#ReLU&#x51FD;&#x6570;&#x7684;&#x53D8;&#x79CD;" class="headerlink" title="ReLU&#x51FD;&#x6570;&#x7684;&#x53D8;&#x79CD;"></a>ReLU&#x51FD;&#x6570;&#x7684;&#x53D8;&#x79CD;</h3><h4 id="Noisy-relus&#x51FD;&#x6570;"><a href="#Noisy-relus&#x51FD;&#x6570;" class="headerlink" title="Noisy relus&#x51FD;&#x6570;"></a>Noisy relus&#x51FD;&#x6570;</h4><p>&#x4E3A;max&#x4E2D;&#x7684;$x$&#x52A0;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x7684;&#x566A;&#x58F0;&#x3002;<br>$$f(x)=max(0,x+Y),Y\in(0,\sigma(x))$$</p>
-<h4 id="Leaky-relus&#x51FD;&#x6570;"><a href="#Leaky-relus&#x51FD;&#x6570;" class="headerlink" title="Leaky relus&#x51FD;&#x6570;"></a>Leaky relus&#x51FD;&#x6570;</h4><p>&#x5728;ReLU&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x4FDD;&#x7559;&#x4E00;&#x90E8;&#x5206;&#x590D;&#x5236;&#xFF0C;&#x8BA9;&#x8D1F;&#x503C;&#x7F29;&#x5C0F;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x5473;&#x7684;&#x62D2;&#x7EDD;&#x8D1F;&#x503C;&#x3002;<br>$$<br>f(x)=<br>\begin{cases}<br>x(x&gt;0)\<br>0.01x(otherwise)<br>\end{cases}<br>$$</p>
-<h4 id="Elus&#x51FD;&#x6570;"><a href="#Elus&#x51FD;&#x6570;" class="headerlink" title="Elus&#x51FD;&#x6570;"></a>Elus&#x51FD;&#x6570;</h4><p>&#x5728;$x&lt;0$&#x65F6;&#x505A;&#x4E86;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;&#x53D8;&#x6362;&#x3002;<br>$$<br>f(x)=<br>\begin{cases}<br>x(x&gt;0)\<br>a(e^x-1)(otherwise)<br>\end{cases}<br>$$</p>
-<h4 id="Softplus&#x51FD;&#x6570;"><a href="#Softplus&#x51FD;&#x6570;" class="headerlink" title="Softplus&#x51FD;&#x6570;"></a>Softplus&#x51FD;&#x6570;</h4><p>&#x4E0E;ReLU&#x51FD;&#x6570;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x66F4;&#x52A0;&#x5E73;&#x6ED1;&#xFF0C;&#x5BF9;&#x4E8E;&#x5C0F;&#x4E8E;0&#x7684;&#x503C;&#x4FDD;&#x7559;&#x591A;&#x4E00;&#x70B9;&#x3002;<br>$$f(x)=ln(1+e^x)$$</p>
-<h4 id="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-3"><a href="#&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-3" class="headerlink" title="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"></a>&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;</h4><ul>
-<li>Leaky relus&#x51FD;&#x6570;TensorFlow&#x4E2D;&#x6CA1;&#x6709;&#x4E13;&#x95E8;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x51FD;&#x6570;&#x7B80;&#x5355;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E5F;&#x80FD;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x4F7F;&#x7528;&#x3002;</li>
-<li>Elus&#x51FD;&#x6570;</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.elu(features, name=None)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Softplus</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.softplus(features, name=None)</span><br></pre></td></tr></table></figure>
-
-<h3 id="Swish&#x51FD;&#x6570;"><a href="#Swish&#x51FD;&#x6570;" class="headerlink" title="Swish&#x51FD;&#x6570;"></a>Swish&#x51FD;&#x6570;</h3><p>Swish&#x51FD;&#x6570;&#x662F;&#x8C37;&#x6B4C;&#x516C;&#x53F8;&#x53D1;&#x73B0;&#x7684;&#x4E00;&#x4E2A;&#x6548;&#x679C;&#x66F4;&#x4F18;&#x4E8E;ReLU&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x3002;</p>
-<h4 id="&#x6570;&#x5B66;&#x516C;&#x5F0F;"><a href="#&#x6570;&#x5B66;&#x516C;&#x5F0F;" class="headerlink" title="&#x6570;&#x5B66;&#x516C;&#x5F0F;"></a>&#x6570;&#x5B66;&#x516C;&#x5F0F;</h4><p>$$swish(x)=x\times sigmoid(\beta x)$$</p>
-<h4 id="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-4"><a href="#&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-4" class="headerlink" title="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"></a>&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;</h4><p>Swish&#x51FD;&#x6570;&#x5728;TensorFlow&#x4E2D;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x5C01;&#x88C5;&#x3002;</p>
-<h3 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h3><p>Tanh&#x51FD;&#x6570;&#x5728;&#x7279;&#x5F81;&#x76F8;&#x67E5;&#x660E;&#x663E;&#x65F6;&#x7684;&#x6548;&#x679C;&#x4F1A;&#x5F88;&#x597D;&#xFF0C;&#x5728;&#x5FAA;&#x73AF;&#x8FC7;&#x7A0B;&#x4E2D;&#x5176;&#x4F1A;&#x4E0D;&#x65AD;&#x6269;&#x5927;&#x7279;&#x5F81;&#x6548;&#x679C;&#x5E76;&#x663E;&#x793A;&#x51FA;&#x6765;&#x3002;Sigmoid&#x51FD;&#x6570;&#x5728;&#x7279;&#x5F81;&#x95F4;&#x7684;&#x76F8;&#x5DEE;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x5374;&#x6CA1;&#x6709;&#x660E;&#x663E;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x7279;&#x5F81;&#x95F4;&#x7684;&#x76F8;&#x5DEE;&#x4E0D;&#x662F;&#x7279;&#x522B;&#x5927;&#x65F6;&#x6548;&#x679C;&#x826F;&#x597D;&#x3002;ReLU&#x51FD;&#x6570;&#x7684;&#x4F18;&#x52BF;&#x5728;&#x4E8E;&#x7ECF;&#x8FC7;&#x5176;&#x5904;&#x7406;&#x540E;&#x7684;&#x6570;&#x636E;&#x80FD;&#x591F;&#x6709;&#x66F4;&#x597D;&#x7684;&#x7A00;&#x758F;&#x6027;&#xFF0C;&#x80FD;&#x591F;&#x8FD1;&#x4F3C;&#x7A0B;&#x5EA6;&#x5730;&#x6700;&#x5927;&#x4FDD;&#x7559;&#x6570;&#x636E;&#x7279;&#x5F81;&#xFF0C;&#x7528;&#x5927;&#x591A;&#x6570;&#x5143;&#x7D20;&#x4E3A;0&#x7684;&#x7A00;&#x758F;&#x77E9;&#x9635;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/04/激活函数/" data-id="ck0b6cvtn0004mgr12jc13plk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中文/">中文</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2019/09/01/博客显示图片/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          博客显示图片
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/05/18/Mysql/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Mysql</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/中文/">中文</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/中文/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/中文/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/中文/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/中文/设计模式/">设计模式</a></li></ul></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中文/">中文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Mysql/" style="font-size: 15px;">Mysql</a> <a href="/tags/中文/" style="font-size: 20px;">中文</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/09/03/cpp基础/">cpp基础</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/01/博客显示图片/">博客显示图片</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/04/激活函数/">激活函数</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/18/Mysql/">Mysql</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/12/DesignPattern/">设计模式总结</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
-</body>
-</html>
+    if page.comments
+      include _partial/comments.pug
