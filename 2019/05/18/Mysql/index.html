@@ -1,68 +1,756 @@
-extends base
+<!DOCTYPE html>
 
-block title
-  title= page.title + ' | ' + config.title
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
 
-    if theme.post_copyright.enable == true && page.copyright != false
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
+<!-- comment -->
 
-    if page.comments
-      include _partial/comments.pug
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>Mysql | Warren Zhao&#39; blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="&amp;#x76EE;&amp;#x5F55...">
+
+<!-- Keywords -->
+<meta name="keywords" content=", 中文, Mysql">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Warren Zhao&#39; blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Warren Zhao&#39; blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Mysql | Warren Zhao&#39; blog">
+<meta property="og:site_name" content="Warren Zhao&#39; blog">
+
+<meta property="og:locale" content="en">
+
+<meta property="og:url" content="http://yoursite.com/2019/05/18/Mysql/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content="&amp;#x76EE;&amp;#x5F55...">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2019-05-18T10:44:34.000Z">
+    <meta property="article:modified_time" content="2019-05-18T10:44:34.000Z">
+    <meta property="article:author" content="Warren Zhao">
+    <meta property="og:article:tag" content=", 中文, Mysql"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2019/05/18/Mysql/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2019/05/18/Mysql/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2019/05/18/Mysql/"
+    },
+    "headline": "Mysql | Warren Zhao&#39; blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-05-18T10:44:34.000Z",
+    "dateModified": "2019-09-01T11:11:08.519Z",
+    "author": {
+        "@type": "Person",
+        "name": "Warren Zhao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Warren Zhao&#39; blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 中文, Mysql",
+    "description": "&amp;#x76EE;&amp;#x5F55..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Warren Zhao&#39; blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Warren Zhao' blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Warren Zhao' blog&url=http://yoursite.com&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=Mysql" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Mysql&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=Mysql" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABjElEQVR42u3awa7CMAxE0f7/T8OKDcSeMa3oBN1uHoKn9FSykonT4xFwHSBAgNgCcTTX63f19/V59X01LohsxLJo3m4mi6zAV+OCyEd0Bfn+/arIPm4gxgWxL2JVfNVkVBU2iP9CrBaoclCzsEHsgegWmioArW4+GRdELuJs0O0C8M/SNojLEJMQOy28S3flIH6GqBanLqyo8OsEXhC5CBVMVLhxF7blA4GIRlgLThN4v5ncQGQjunCrNkEqyMigCyIKoRYhtYhVD3K6mQriVoRqdEwDsPtAIDIRVTE5hXemoQZiD4Q6PFFN0+7BQOyDmDbYVeg51SQBEYNwgq5bfE5TBcQeCHWApjY9ziRnHbqAiEGol3XUy11qAmubJCBiEV0TVYVY5wBuNGOCuA3hHMK5m2D3/0FkI5wD+8lLwpOgDCIXoTY16jcn6MruHYg4hPNCj3sgf8mhC4hohHOA7xY3iP0R6rNa6NqmPYhohAq4bjNNLWwg9kA4QddtpE4a7SAyEXdeIECAiEY8AUaACTjuN5nrAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Mysql</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Warren Zhao's Avatar">
+        <span>2019-05-18</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/中文/">中文</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/中文/Mysql/">Mysql</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Mysql&url=http://yoursite.com/2019/05/18/Mysql/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Mysql&url=http://yoursite.com/2019/05/18/Mysql/&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/18/Mysql/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2019/05/18/Mysql/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/05/18/Mysql/&title=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Warren Zhao' blog&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2019/05/18/Mysql/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2019/05/18/Mysql/&text=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABjElEQVR42u3awa7CMAxE0f7/T8OKDcSeMa3oBN1uHoKn9FSykonT4xFwHSBAgNgCcTTX63f19/V59X01LohsxLJo3m4mi6zAV+OCyEd0Bfn+/arIPm4gxgWxL2JVfNVkVBU2iP9CrBaoclCzsEHsgegWmioArW4+GRdELuJs0O0C8M/SNojLEJMQOy28S3flIH6GqBanLqyo8OsEXhC5CBVMVLhxF7blA4GIRlgLThN4v5ncQGQjunCrNkEqyMigCyIKoRYhtYhVD3K6mQriVoRqdEwDsPtAIDIRVTE5hXemoQZiD4Q6PFFN0+7BQOyDmDbYVeg51SQBEYNwgq5bfE5TBcQeCHWApjY9ziRnHbqAiEGol3XUy11qAmubJCBiEV0TVYVY5wBuNGOCuA3hHMK5m2D3/0FkI5wD+8lLwpOgDCIXoTY16jcn6MruHYg4hPNCj3sgf8mhC4hohHOA7xY3iP0R6rNa6NqmPYhohAq4bjNNLWwg9kA4QddtpE4a7SAyEXdeIECAiEY8AUaACTjuN5nrAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#目录"><span class="post-toc-number">1.</span> <span class="post-toc-text">目录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mysql引擎"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Mysql引擎</span></a></li></ol></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="&#x76EE;&#x5F55;"><a href="#&#x76EE;&#x5F55;" class="headerlink" title="&#x76EE;&#x5F55;"></a>&#x76EE;&#x5F55;</h1><ol>
+<li>Mysql&#x5F15;&#x64CE;</li>
+<li>Mysql&#x6570;&#x636E;&#x5E93;&#x57FA;&#x7840;</li>
+<li>&#x7D22;&#x5F15;&#x539F;&#x7406;</li>
+<li>&#x67E5;&#x8BE2;&#x4F18;&#x5316;</li>
+<li>&#x5206;&#x5E93;&#x5206;&#x8868;</li>
+<li>&#x4E3B;&#x4ECE;&#x590D;&#x5236;</li>
+<li>Mysql&#x4F7F;&#x7528;</li>
+</ol>
+<h2 id="Mysql&#x5F15;&#x64CE;"><a href="#Mysql&#x5F15;&#x64CE;" class="headerlink" title="Mysql&#x5F15;&#x64CE;"></a>Mysql&#x5F15;&#x64CE;</h2><p><strong>&#x547D;&#x4EE4;&#xFF1A;</strong> <code>show engines;</code><br><br>Mysql&#x4E2D;&#x652F;&#x6301;&#x7684;&#x5F15;&#x64CE;&#x6709;&#xFF1A;InnoDB, MRG_MYISAM, MEMORY, BLACKHOLE, MyISAM, CSV, ARCHIVE, PERFORMANCE_SCHEMA, FEDERATED&#x5171;&#x4E5D;&#x79CD;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;<br><br><img src="/2019/05/18/Mysql/engines.png" alt="&#x5F15;&#x64CE;"></p>
+<img src="/2019/05/18/Mysql/2019/05/18/Mysql/engines.png">
+<br>
+&#x6839;&#x636E;&#x4E0A;&#x56FE;&#x8BF4;&#x660E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x77E5;&#xFF1A;<br>
+
+<ol>
+<li>InnoDB: &#x652F;&#x6301;&#x4E8B;&#x52A1;&#xFF0C;&#x652F;&#x6301;&#x884C;&#x7EA7;&#x9501;&#xFF0C;&#x652F;&#x6301;&#x5E76;&#x53D1;&#x3002;</li>
+<li>MRG_MYISAM: &#x4E5F;&#x79F0;&#x4F5C;merge&#x5F15;&#x64CE;&#xFF0C;&#x662F;&#x76F8;&#x540C;&#x7684;MyISAM&#x8868;&#x7684;&#x96C6;&#x5408;&#x3002;</li>
+<li>MEMORY: &#x57FA;&#x4E8E;&#x54C8;&#x5E0C;&#x7684;&#xFF0C;&#x5B58;&#x50A8;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x7528;&#x4E8E;&#x4E34;&#x65F6;&#x8868;&#x3002;</li>
+<li>BLACKHOLE: &#x5B58;&#x50A8;&#x5F15;&#x64CE;&#xFF0C;&#x5B58;&#x4EC0;&#x4E48;&#x90FD;&#x4F1A;&#x6D88;&#x5931;&#x3002;</li>
+<li>MyISAM: MyISAM&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x3002;</li>
+<li>CSV: CSV&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x3002;</li>
+<li>ARCHIVE: Archive&#x5B58;&#x50A8;&#x5F15;&#x64CE;</li>
+<li>performance_SCHEMA: &#x7528;&#x4E8E;&#x76D1;&#x89C6;Mysql&#x670D;&#x52A1;&#x5668;&#x6267;&#x884C;&#x6548;&#x679C;&#xFF0C;&#x6536;&#x96C6;Mysql&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;&#x53C2;&#x6570;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;</li>
+<li>FEDERATED: &#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x8BBF;&#x95EE;&#x5728;&#x8FDC;&#x7A0B;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8868;&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x672C;&#x5730;&#x7684;&#x8868;&#x3002;</li>
+</ol>
+<p>&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF1A;<br></p>
+<table>
+<thead>
+<tr>
+<th>&#x5F15;&#x64CE;</th>
+<th>&#x7279;&#x70B9;</th>
+<th>&#x4F7F;&#x7528;&#x573A;&#x666F;</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>InnoDB</td>
+<td>&#x4E8B;&#x52A1;&#x6027;&#xFF0C;&#x652F;&#x6301;ACID&#xFF1B;<br>redo log&#x5B9E;&#x73B0;&#x4E8B;&#x52A1;&#x7684;&#x6301;&#x4E45;&#x6027;&#xFF0C;undo log&#x5B9E;&#x73B0;&#x4E8B;&#x52A1;&#x7684;&#x539F;&#x5B50;&#x6027;&#xFF0C;&#x5B58;&#x50A8;&#x672A;&#x5B8C;&#x6210;&#x7684;&#x4E8B;&#x52A1;log&#xFF1B;<br>&#x652F;&#x6301;&#x884C;&#x7EA7;&#x9501;&#xFF0C;&#x6700;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x652F;&#x6301;&#x4E86;&#x5E76;&#x53D1;&#x3002;</td>
+<td>&#x8981;&#x6C42;&#x4E8B;&#x52A1;&#x3001;&#x53EF;&#x9760;&#x6027;&#x9AD8;&#x3001;&#x66F4;&#x65B0;&#x548C;&#x67E5;&#x8BE2;&#x9891;&#x7E41;&#x4E14;&#x9501;&#x884C;&#x7684;&#x673A;&#x4F1A;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x573A;&#x666F;</td>
+</tr>
+<tr>
+<td>MyISAM</td>
+<td>&#x7531;.myd&#x6570;&#x636E;&#x6587;&#x4EF6;&#x548C;.myi&#x7D22;&#x5F15;&#x6587;&#x4EF6;&#x7EC4;&#x6210;&#xFF1B;<br> &#x8868;&#x7EA7;&#x522B;&#x9501;&#xFF0C;&#x5199;&#x5165;&#x4E0E;&#x8BFB;&#x4E92;&#x65A5;&#xFF1B;<br> &#x652F;&#x6301;&#x5168;&#x6587;&#x7D22;&#x5F15;&#xFF0C;&#x652F;&#x6301;&#x8868;&#x538B;&#x7F29;&#xFF0C;&#x53EA;&#x8BFB;&#x4E0D;&#x53EF;&#x4EE5;&#x5199;&#x5165;&#x3002;</td>
+<td>&#x6CA1;&#x6709;&#x4E8B;&#x52A1;&#x3001;&#x53EA;&#x8BFB;&#x7C7B;&#x7684;&#x5E94;&#x7528;&#x3001;&#x7A7A;&#x95F4;&#x7C7B;&#x578B;&#x5E94;&#x7528;&#xFF0C;&#x505A;&#x5F88;&#x591A;Count&#x8BA1;&#x7B97;&#x7684;</td>
+</tr>
+<tr>
+<td>CSV</td>
+<td>&#x4EE5;CSV&#x683C;&#x5F0F;&#x8FDB;&#x884C;&#x5B58;&#x50A8;&#xFF0C;&#x4EE5;&#x6587;&#x672C;&#x65B9;&#x5F0F;&#x5B58;&#x50A8;&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#xFF1B;<br> .csv&#x5B58;&#x5185;&#x5BB9;&#xFF0C;.csm&#x5B58;&#x50A8;&#x5143;&#x6570;&#x636E;&#xFF0C;.frm&#x5B58;&#x50A8;&#x8868;&#x7ED3;&#x6784;&#xFF1B;<br> &#x5217;&#x4E0D;&#x4E3A;NULL&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x7D22;&#x5F15;</td>
+<td>&#x6570;&#x636E;&#x4EA4;&#x6362;&#x7684;&#x4E2D;&#x95F4;&#x8868;</td>
+</tr>
+<tr>
+<td>Archive</td>
+<td>&#x4EE5;zlib&#x5BF9;&#x6807;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#xFF0C;&#x78C1;&#x76D8;IO&#x66F4;&#x597D;&#xFF1B;<br> &#x8868;&#x6587;&#x4EF6;&#x683C;&#x5F0F;.arz, a.frm;<br>&#x53EA;&#x652F;&#x6301;insert&#x548C;select&#x64CD;&#x4F5C;&#xFF0C;&#x5141;&#x8BB8;&#x5728;&#x81EA;&#x589E;id&#x5217;&#x4E0A;&#x52A0;&#x7D22;&#x5F15;&#x3002;</td>
+<td>&#x65E5;&#x5FD7;&#x548C;&#x6570;&#x636E;&#x91C7;&#x96C6;&#x7C7B;&#x5E94;&#x7528;</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>heap&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#xFF0C;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x91CD;&#x542F;&#x540E;&#x6570;&#x636E;&#x4E22;&#x5931;&#xFF1B;<br>&#x652F;&#x6301;hash&#x7D22;&#x5F15;&#x548C;BTree&#x7D22;&#x5F15;&#xFF1B;<br>&#x4F7F;&#x7528;&#x8868;&#x7EA7;&#x9501;&#xFF1B;<br> &#x4E0D;&#x652F;&#x6301;blob&#x548C;text&#x7B49;&#x5927;&#x5B57;&#x6BB5;&#xFF0C;&#x9ED8;&#x8BA4;&#x8868;&#x5927;&#x5C0F;16M</td>
+<td>&#x67E5;&#x627E;&#x6620;&#x5C04;&#x8868;&#xFF0C;&#x4FDD;&#x5B58;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#x8868;&#x548C;&#x7F13;&#x5B58;&#x7ED3;&#x679C;&#x8868;</td>
+</tr>
+<tr>
+<td>FEDERATED</td>
+<td>&#x672C;&#x5730;&#x4E4B;&#x5B58;&#x50A8;&#x8868;&#x7ED3;&#x6784;&#xFF0C;&#x67E5;&#x8BE2;&#x65F6;&#x901A;&#x8FC7;&#x5EFA;&#x8868;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x94FE;&#x63A5;&#x7B26;&#x53BB;&#x83B7;&#x53D6;&#x8FDC;&#x7A0B;&#x5E93;&#x7684;&#x6570;&#x636E;&#x8FD4;&#x56DE;&#x5230;&#x672C;&#x5730;.</td>
+<td>&#x5E94;&#x7528;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x591A;&#x5E93;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x60F3;&#x8BBE;&#x8BA1;&#x4E3A;&#x94FE;&#x63A5;&#x591A;&#x5E93;&#xFF0C;&#x8BBE;&#x8BA1;&#x4F7F;&#x7528;&#x4E3A;&#x8868;&#x6620;&#x5C04;.</td>
+</tr>
+</tbody></table>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2019-09-01");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-05-18T10:44:34.000Z" itemprop="datePublished">2019-05-18</time>
+
+    , Updated at&nbsp;<time datetime="2019-09-01T11:11:08.519Z" itemprop="dateModified">2019-09-01</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/中文/'>中文</a>
+
+<a class="post-categories-list-item" href='/categories/中文/Mysql/'>Mysql</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/中文/" rel="tag">#&nbsp;中文</a>
+
+<a class="post-tags-list-item" href="/tags/Mysql/" rel="tag">#&nbsp;Mysql</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2019/08/04/激活函数/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">激活函数</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/03/12/DesignPattern/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">设计模式总结</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">Warren Zhao&#39; blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

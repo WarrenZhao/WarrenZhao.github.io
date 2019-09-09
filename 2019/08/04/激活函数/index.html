@@ -1,68 +1,721 @@
-extends base
+<!DOCTYPE html>
 
-block title
-  title= page.title + ' | ' + config.title
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
 
-    if theme.post_copyright.enable == true && page.copyright != false
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
+<!-- comment -->
 
-    if page.comments
-      include _partial/comments.pug
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>激活函数 | Warren Zhao&#39; blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content>
+
+<!-- Keywords -->
+<meta name="keywords" content=", 中文, AI">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Warren Zhao&#39; blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Warren Zhao&#39; blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="激活函数 | Warren Zhao&#39; blog">
+<meta property="og:site_name" content="Warren Zhao&#39; blog">
+
+<meta property="og:locale" content="en">
+
+<meta property="og:url" content="http://yoursite.com/2019/08/04/激活函数/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content>
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2019-08-04T03:20:41.000Z">
+    <meta property="article:modified_time" content="2019-08-04T03:20:41.000Z">
+    <meta property="article:author" content="Warren Zhao">
+    <meta property="og:article:tag" content=", 中文, AI"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2019/08/04/激活函数/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2019/08/04/激活函数/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2019/08/04/激活函数/"
+    },
+    "headline": "激活函数 | Warren Zhao&#39; blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-08-04T03:20:41.000Z",
+    "dateModified": "2019-08-04T11:05:58.652Z",
+    "author": {
+        "@type": "Person",
+        "name": "Warren Zhao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Warren Zhao&#39; blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 中文, AI",
+    "description": ""
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Warren Zhao&#39; blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Warren Zhao' blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Warren Zhao' blog&url=http://yoursite.com&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=激活函数" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=激活函数&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=激活函数" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3ElEQVR42u3aQW7DMAxEUd//0u2qQFKInGHihTT+3jRJbesZMCiJ5PWz4XGBAgUK1AJ1NcfbBS/f////77M6R40DKge1fOmKQVc3XN2je6hyHFBRqGqgCtRduxpUjQPqWahqsCrITh4A1HNRKkCqz6Ceh1JBr1rEuQ9x6yoB1PaobkF/59/bdjOgtkbJpEPxok8C5u1ZF1Bbo9RGUy3cJou5LoECKhfV/aZeXBU4q4QaqCxUdfNuo7n63uHVRgJUFmq6oGtvKg4ZpEFFoaoL1cvfPdwkOIPKQXWDVthpItZ+cFARqOnk65yvgmw5cYOKQKlEhIN1ArGVlAUVgZoWsDuoUyhoNxWgIlBOUsxtrnEbwazkPqjjUW4y1i1UThp7QOWh3GK1k6RVG1irWQLU0aiuOdkpLKpFntPoBSoPNSlyTyfuW5u6QB2HcibWyebCCa7yRQd1PEot7rrgp5IiqjgOKg/lTsiq4c85X1axQB2L+mQSdgpF7gYWVB7KajQeJjacwtFXXdagtkc5TX+fTLxuUAWViVIbAbcA6TZ6WasEULEo54WeIOwEB6hYlExMGAVvNcmDykOpydZa+JvNgeMEB6jjUOpGk83qJHFmdS+COg610wEKFChQL8cvdARRYDvB/R0AAAAASUVORK5CYII=" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">激活函数</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Warren Zhao's Avatar">
+        <span>2019-08-04</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/中文/">中文</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/中文/AI/">AI</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=激活函数&url=http://yoursite.com/2019/08/04/激活函数/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=激活函数&url=http://yoursite.com/2019/08/04/激活函数/&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/08/04/激活函数/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2019/08/04/激活函数/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/08/04/激活函数/&title=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Warren Zhao' blog&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2019/08/04/激活函数/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2019/08/04/激活函数/&text=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3ElEQVR42u3aQW7DMAxEUd//0u2qQFKInGHihTT+3jRJbesZMCiJ5PWz4XGBAgUK1AJ1NcfbBS/f////77M6R40DKge1fOmKQVc3XN2je6hyHFBRqGqgCtRduxpUjQPqWahqsCrITh4A1HNRKkCqz6Ceh1JBr1rEuQ9x6yoB1PaobkF/59/bdjOgtkbJpEPxok8C5u1ZF1Bbo9RGUy3cJou5LoECKhfV/aZeXBU4q4QaqCxUdfNuo7n63uHVRgJUFmq6oGtvKg4ZpEFFoaoL1cvfPdwkOIPKQXWDVthpItZ+cFARqOnk65yvgmw5cYOKQKlEhIN1ArGVlAUVgZoWsDuoUyhoNxWgIlBOUsxtrnEbwazkPqjjUW4y1i1UThp7QOWh3GK1k6RVG1irWQLU0aiuOdkpLKpFntPoBSoPNSlyTyfuW5u6QB2HcibWyebCCa7yRQd1PEot7rrgp5IiqjgOKg/lTsiq4c85X1axQB2L+mQSdgpF7gYWVB7KajQeJjacwtFXXdagtkc5TX+fTLxuUAWViVIbAbcA6TZ6WasEULEo54WeIOwEB6hYlExMGAVvNcmDykOpydZa+JvNgeMEB6jjUOpGk83qJHFmdS+COg610wEKFChQL8cvdARRYDvB/R0AAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#激活函数的作用"><span class="post-toc-number">1.</span> <span class="post-toc-text">激活函数的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用的激活函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">常用的激活函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Sigmoid函数"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Sigmoid函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数学形式"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">数学形式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在TensorFlow中对应的函数"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">在TensorFlow中对应的函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数缺陷"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">函数缺陷</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tanh函数"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Tanh函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数学形式-1"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">数学形式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在TensorFlow中对应的函数-1"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">在TensorFlow中对应的函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数缺陷-1"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">函数缺陷</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ReLU函数"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">ReLU函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数学形式-2"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">数学形式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在TensorFlow中对应的函数-2"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">在TensorFlow中对应的函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数缺陷-2"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">函数缺陷</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ReLU函数的变种"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">ReLU函数的变种</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Noisy-relus函数"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">Noisy relus函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Leaky-relus函数"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">Leaky relus函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Elus函数"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">Elus函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Softplus函数"><span class="post-toc-number">2.4.4.</span> <span class="post-toc-text">Softplus函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在TensorFlow中对应的函数-3"><span class="post-toc-number">2.4.5.</span> <span class="post-toc-text">在TensorFlow中对应的函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Swish函数"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">Swish函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数学公式"><span class="post-toc-number">2.5.1.</span> <span class="post-toc-text">数学公式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在TensorFlow中对应的函数-4"><span class="post-toc-number">2.5.2.</span> <span class="post-toc-text">在TensorFlow中对应的函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">总结</span></a></li></ol></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h2 id="&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;"><a href="#&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;" class="headerlink" title="&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;"></a>&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;</h2><p>&#x52A0;&#x5165;&#x975E;&#x7EBF;&#x6027;&#x56E0;&#x7D20;&#xFF0C;&#x5DF2;&#x89E3;&#x51B3;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x8868;&#x8FBE;&#x80FD;&#x529B;&#x4E0D;&#x8DB3;&#x7684;&#x7F3A;&#x9677;&#xFF0C;&#x5728;&#x6574;&#x4E2A;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x91CC;&#x8D77;&#x5230;&#x4E86;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x7684;&#x4F5C;&#x7528;&#x3002;</p>
+<h2 id="&#x5E38;&#x7528;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;"><a href="#&#x5E38;&#x7528;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;" class="headerlink" title="&#x5E38;&#x7528;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;"></a>&#x5E38;&#x7528;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;</h2><h3 id="Sigmoid&#x51FD;&#x6570;"><a href="#Sigmoid&#x51FD;&#x6570;" class="headerlink" title="Sigmoid&#x51FD;&#x6570;"></a>Sigmoid&#x51FD;&#x6570;</h3><h4 id="&#x6570;&#x5B66;&#x5F62;&#x5F0F;"><a href="#&#x6570;&#x5B66;&#x5F62;&#x5F0F;" class="headerlink" title="&#x6570;&#x5B66;&#x5F62;&#x5F0F;"></a>&#x6570;&#x5B66;&#x5F62;&#x5F0F;</h4><p>$$sigmoid(x)=\frac{1}{[1+e^{-x}]}$$<br>&#x5176;&#x4E2D;&#xFF0C;$x$&#x53EF;&#x4EE5;&#x662F;&#x8D1F;&#x65E0;&#x7A77;&#x5230;&#x6B63;&#x65E0;&#x7A77;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x5E94;&#x7684;$y$&#x5374;&#x53EA;&#x6709;0<del>1&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x5373;Sigmoid&#x51FD;&#x6570;&#x80FD;&#x591F;&#x628A;&#x8F93;&#x5165;&#x503C;&#x201C;&#x538B;&#x7F29;&#x201D;&#x5230;0</del>1&#x4E4B;&#x95F4;&#x3002;</p>
+<h4 id="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"><a href="#&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;" class="headerlink" title="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"></a>&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.sigmoid(x, name=None)</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x51FD;&#x6570;&#x7F3A;&#x9677;"><a href="#&#x51FD;&#x6570;&#x7F3A;&#x9677;" class="headerlink" title="&#x51FD;&#x6570;&#x7F3A;&#x9677;"></a>&#x51FD;&#x6570;&#x7F3A;&#x9677;</h4><p>Sigmoid&#x51FD;&#x6570;&#x5B58;&#x5728;<font color="red">&#x9971;&#x548C;&#x95EE;&#x9898;</font>&#xFF0C;&#x5373;$x$&#x7684;&#x503C;&#x8D8A;&#x5927;&#xFF0C;$y$&#x7684;&#x503C;&#x8D8A;&#x8D8B;&#x8FD1;&#x4E8E;1&#xFF0C;&#x5904;&#x4E8E;&#x9971;&#x548C;&#x72B6;&#x6001;&#x7684;&#x51FD;&#x6570;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5F53;$x=100$&#x548C;$x=1000$&#x65F6;&#xFF0C;&#x53CD;&#x5E94;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x8FD9;&#x6837;&#x76F8;&#x5F53;&#x4E8E;&#x5C06;1000&#x5927;&#x4E8E;100&#x5341;&#x500D;&#x8FD9;&#x4E2A;&#x4FE1;&#x606F;&#x4E22;&#x5931;&#x4E86;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x4F7F;&#x7528;Sigmoid&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x8F93;&#x5165;&#x503C;&#x7684;&#x7EDD;&#x5BF9;&#x503C;&#x4E0D;&#x80FD;&#x8FC7;&#x5927;&#xFF0C;&#x5426;&#x5219;&#x6A21;&#x578B;&#x65E0;&#x6CD5;&#x8BAD;&#x7EC3;&#x3002;</p>
+<h3 id="Tanh&#x51FD;&#x6570;"><a href="#Tanh&#x51FD;&#x6570;" class="headerlink" title="Tanh&#x51FD;&#x6570;"></a>Tanh&#x51FD;&#x6570;</h3><h4 id="&#x6570;&#x5B66;&#x5F62;&#x5F0F;-1"><a href="#&#x6570;&#x5B66;&#x5F62;&#x5F0F;-1" class="headerlink" title="&#x6570;&#x5B66;&#x5F62;&#x5F0F;"></a>&#x6570;&#x5B66;&#x5F62;&#x5F0F;</h4><p>$$tanh(x)=\frac{e^x-e^{-x}}{e^{x}+e{-x}}$$<br>&#x5176;&#x4E2D;&#xFF0C;$x$&#x53EF;&#x4EE5;&#x662F;&#x8D1F;&#x65E0;&#x7A77;&#x5230;&#x6B63;&#x65E0;&#x7A77;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x5E94;&#x7684;$y$&#x7684;&#x8303;&#x56F4;&#x662F;-1~1&#xFF0C;Tanh&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;Sigmoid&#x51FD;&#x6570;&#x7684;&#x5347;&#x7EA7;&#x7248;&#xFF0C;&#x4E8C;&#x8005;&#x7684;&#x5173;&#x7CFB;&#x4E3A;&#xFF1A;<br>$$tanh(x)=2sigmoid(2x)-1$$<br>&#x6CE8;&#x610F;&#xFF0C;Tanh&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x66FF;&#x4EE3;Sigmoid&#x51FD;&#x6570;&#x3002;</p>
+<h4 id="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-1"><a href="#&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-1" class="headerlink" title="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"></a>&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.tanh(x, name=None)</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x51FD;&#x6570;&#x7F3A;&#x9677;-1"><a href="#&#x51FD;&#x6570;&#x7F3A;&#x9677;-1" class="headerlink" title="&#x51FD;&#x6570;&#x7F3A;&#x9677;"></a>&#x51FD;&#x6570;&#x7F3A;&#x9677;</h4><p>Tanh&#x51FD;&#x6570;&#x548C;Sigmoid&#x51FD;&#x6570;&#x6709;&#x4E00;&#x6837;&#x7684;&#x7F3A;&#x9677;&#xFF0C;&#x4E5F;&#x662F;&#x9971;&#x548C;&#x95EE;&#x9898;&#xFF0C;&#x6B64;&#x5904;&#x4E0D;&#x518D;&#x8D58;&#x8FF0;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x4F7F;&#x7528;Tanh&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x4E5F;&#x5E94;&#x8BE5;&#x63A7;&#x5236;&#x8F93;&#x5165;&#x503C;&#x7684;&#x7EDD;&#x5BF9;&#x503C;&#xFF0C;&#x4EE5;&#x514D;&#x53D1;&#x751F;&#x6A21;&#x578B;&#x65E0;&#x6CD5;&#x8BAD;&#x7EC3;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<h3 id="ReLU&#x51FD;&#x6570;"><a href="#ReLU&#x51FD;&#x6570;" class="headerlink" title="ReLU&#x51FD;&#x6570;"></a>ReLU&#x51FD;&#x6570;</h3><h4 id="&#x6570;&#x5B66;&#x5F62;&#x5F0F;-2"><a href="#&#x6570;&#x5B66;&#x5F62;&#x5F0F;-2" class="headerlink" title="&#x6570;&#x5B66;&#x5F62;&#x5F0F;"></a>&#x6570;&#x5B66;&#x5F62;&#x5F0F;</h4><p>$$relu(x)=max(0,x)$$<br>ReLU&#x51FD;&#x6570;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5373;&#x5927;&#x4E8E;0&#x7684;&#x4FDD;&#x7559;&#xFF0C;&#x5C0F;&#x4E8E;0&#x7684;&#x4E00;&#x5F8B;&#x6309;0&#x5904;&#x7406;&#x3002;&#x8FD9;&#x79CD;&#x5BF9;&#x6B63;&#x5411;&#x4FE1;&#x53F7;&#x7684;&#x91CD;&#x89C6;&#x800C;&#x5FFD;&#x7565;&#x4E86;&#x8D1F;&#x5411;&#x4FE1;&#x53F7;&#x7684;&#x7279;&#x70B9;&#xFF0C;&#x5728;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#x53D6;&#x5F97;&#x4E86;&#x5F88;&#x597D;&#x7684;&#x62DF;&#x5408;&#x6548;&#x679C;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x7531;&#x4E8E;ReLU&#x51FD;&#x6570;&#x8FD0;&#x7B97;&#x7B80;&#x5355;&#xFF0C;&#x5927;&#x5927;&#x63D0;&#x5347;&#x4E86;&#x673A;&#x5668;&#x7684;&#x8FD0;&#x884C;&#x6548;&#x7387;&#x3002;</p>
+<h4 id="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-2"><a href="#&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-2" class="headerlink" title="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"></a>&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.relu(features,name=None)&#xFF1A;&#x4E00;&#x822C;&#x7684;ReLU&#x51FD;&#x6570;&#xFF0C;&#x5373;max(features,0);&lt;br/&gt;</span><br><span class="line">tf.nn.relu6(feartures,name=None)&#xFF1A;&#x662F;&#x4EE5;6&#x4E3A;&#x503C;&#x57DF;&#x7684;ReLU&#x51FD;&#x6570;&#xFF0C;&#x5373;min(max(features,0),6).</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x51FD;&#x6570;&#x7F3A;&#x9677;-2"><a href="#&#x51FD;&#x6570;&#x7F3A;&#x9677;-2" class="headerlink" title="&#x51FD;&#x6570;&#x7F3A;&#x9677;"></a>&#x51FD;&#x6570;&#x7F3A;&#x9677;</h4><p>ReLU&#x4F1A;&#x5C06;&#x5F15;&#x5165;&#x7684;&#x8D1F;&#x503C;&#x5168;&#x90E8;&#x53D8;&#x4E3A;0&#x3002;</p>
+<h3 id="ReLU&#x51FD;&#x6570;&#x7684;&#x53D8;&#x79CD;"><a href="#ReLU&#x51FD;&#x6570;&#x7684;&#x53D8;&#x79CD;" class="headerlink" title="ReLU&#x51FD;&#x6570;&#x7684;&#x53D8;&#x79CD;"></a>ReLU&#x51FD;&#x6570;&#x7684;&#x53D8;&#x79CD;</h3><h4 id="Noisy-relus&#x51FD;&#x6570;"><a href="#Noisy-relus&#x51FD;&#x6570;" class="headerlink" title="Noisy relus&#x51FD;&#x6570;"></a>Noisy relus&#x51FD;&#x6570;</h4><p>&#x4E3A;max&#x4E2D;&#x7684;$x$&#x52A0;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x7684;&#x566A;&#x58F0;&#x3002;<br>$$f(x)=max(0,x+Y),Y\in(0,\sigma(x))$$</p>
+<h4 id="Leaky-relus&#x51FD;&#x6570;"><a href="#Leaky-relus&#x51FD;&#x6570;" class="headerlink" title="Leaky relus&#x51FD;&#x6570;"></a>Leaky relus&#x51FD;&#x6570;</h4><p>&#x5728;ReLU&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x4FDD;&#x7559;&#x4E00;&#x90E8;&#x5206;&#x590D;&#x5236;&#xFF0C;&#x8BA9;&#x8D1F;&#x503C;&#x7F29;&#x5C0F;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x5473;&#x7684;&#x62D2;&#x7EDD;&#x8D1F;&#x503C;&#x3002;<br>$$<br>f(x)=<br>\begin{cases}<br>x(x&gt;0)\<br>0.01x(otherwise)<br>\end{cases}<br>$$</p>
+<h4 id="Elus&#x51FD;&#x6570;"><a href="#Elus&#x51FD;&#x6570;" class="headerlink" title="Elus&#x51FD;&#x6570;"></a>Elus&#x51FD;&#x6570;</h4><p>&#x5728;$x&lt;0$&#x65F6;&#x505A;&#x4E86;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;&#x53D8;&#x6362;&#x3002;<br>$$<br>f(x)=<br>\begin{cases}<br>x(x&gt;0)\<br>a(e^x-1)(otherwise)<br>\end{cases}<br>$$</p>
+<h4 id="Softplus&#x51FD;&#x6570;"><a href="#Softplus&#x51FD;&#x6570;" class="headerlink" title="Softplus&#x51FD;&#x6570;"></a>Softplus&#x51FD;&#x6570;</h4><p>&#x4E0E;ReLU&#x51FD;&#x6570;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x66F4;&#x52A0;&#x5E73;&#x6ED1;&#xFF0C;&#x5BF9;&#x4E8E;&#x5C0F;&#x4E8E;0&#x7684;&#x503C;&#x4FDD;&#x7559;&#x591A;&#x4E00;&#x70B9;&#x3002;<br>$$f(x)=ln(1+e^x)$$</p>
+<h4 id="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-3"><a href="#&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-3" class="headerlink" title="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"></a>&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;</h4><ul>
+<li>Leaky relus&#x51FD;&#x6570;TensorFlow&#x4E2D;&#x6CA1;&#x6709;&#x4E13;&#x95E8;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x51FD;&#x6570;&#x7B80;&#x5355;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E5F;&#x80FD;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x4F7F;&#x7528;&#x3002;</li>
+<li>Elus&#x51FD;&#x6570;</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.elu(features, name=None)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Softplus</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.softplus(features, name=None)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Swish&#x51FD;&#x6570;"><a href="#Swish&#x51FD;&#x6570;" class="headerlink" title="Swish&#x51FD;&#x6570;"></a>Swish&#x51FD;&#x6570;</h3><p>Swish&#x51FD;&#x6570;&#x662F;&#x8C37;&#x6B4C;&#x516C;&#x53F8;&#x53D1;&#x73B0;&#x7684;&#x4E00;&#x4E2A;&#x6548;&#x679C;&#x66F4;&#x4F18;&#x4E8E;ReLU&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x3002;</p>
+<h4 id="&#x6570;&#x5B66;&#x516C;&#x5F0F;"><a href="#&#x6570;&#x5B66;&#x516C;&#x5F0F;" class="headerlink" title="&#x6570;&#x5B66;&#x516C;&#x5F0F;"></a>&#x6570;&#x5B66;&#x516C;&#x5F0F;</h4><p>$$swish(x)=x\times sigmoid(\beta x)$$</p>
+<h4 id="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-4"><a href="#&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;-4" class="headerlink" title="&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;"></a>&#x5728;TensorFlow&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;</h4><p>Swish&#x51FD;&#x6570;&#x5728;TensorFlow&#x4E2D;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x5C01;&#x88C5;&#x3002;</p>
+<h3 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h3><p>Tanh&#x51FD;&#x6570;&#x5728;&#x7279;&#x5F81;&#x76F8;&#x67E5;&#x660E;&#x663E;&#x65F6;&#x7684;&#x6548;&#x679C;&#x4F1A;&#x5F88;&#x597D;&#xFF0C;&#x5728;&#x5FAA;&#x73AF;&#x8FC7;&#x7A0B;&#x4E2D;&#x5176;&#x4F1A;&#x4E0D;&#x65AD;&#x6269;&#x5927;&#x7279;&#x5F81;&#x6548;&#x679C;&#x5E76;&#x663E;&#x793A;&#x51FA;&#x6765;&#x3002;Sigmoid&#x51FD;&#x6570;&#x5728;&#x7279;&#x5F81;&#x95F4;&#x7684;&#x76F8;&#x5DEE;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x5374;&#x6CA1;&#x6709;&#x660E;&#x663E;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x7279;&#x5F81;&#x95F4;&#x7684;&#x76F8;&#x5DEE;&#x4E0D;&#x662F;&#x7279;&#x522B;&#x5927;&#x65F6;&#x6548;&#x679C;&#x826F;&#x597D;&#x3002;ReLU&#x51FD;&#x6570;&#x7684;&#x4F18;&#x52BF;&#x5728;&#x4E8E;&#x7ECF;&#x8FC7;&#x5176;&#x5904;&#x7406;&#x540E;&#x7684;&#x6570;&#x636E;&#x80FD;&#x591F;&#x6709;&#x66F4;&#x597D;&#x7684;&#x7A00;&#x758F;&#x6027;&#xFF0C;&#x80FD;&#x591F;&#x8FD1;&#x4F3C;&#x7A0B;&#x5EA6;&#x5730;&#x6700;&#x5927;&#x4FDD;&#x7559;&#x6570;&#x636E;&#x7279;&#x5F81;&#xFF0C;&#x7528;&#x5927;&#x591A;&#x6570;&#x5143;&#x7D20;&#x4E3A;0&#x7684;&#x7A00;&#x758F;&#x77E9;&#x9635;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2019-08-04");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-08-04T03:20:41.000Z" itemprop="datePublished">2019-08-04</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/中文/'>中文</a>
+
+<a class="post-categories-list-item" href='/categories/中文/AI/'>AI</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/中文/" rel="tag">#&nbsp;中文</a>
+
+<a class="post-tags-list-item" href="/tags/AI/" rel="tag">#&nbsp;AI</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2019/09/01/博客显示图片/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">博客显示图片</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/05/18/Mysql/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Mysql</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">Warren Zhao&#39; blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>
