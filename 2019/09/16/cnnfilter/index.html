@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>常见卷积神经网络卷积核总结 | Warren Zhao&#39; blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content>
+
+<!-- Keywords -->
+<meta name="keywords" content=", 中文, AI">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Warren Zhao&#39; blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Warren Zhao&#39; blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="常见卷积神经网络卷积核总结 | Warren Zhao&#39; blog">
+<meta property="og:site_name" content="Warren Zhao&#39; blog">
+
+<meta property="og:locale" content="en">
+
+<meta property="og:url" content="http://yoursite.com/2019/09/16/cnnfilter/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content>
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2019-09-16T13:23:32.000Z">
+    <meta property="article:modified_time" content="2019-09-16T13:23:32.000Z">
+    <meta property="article:author" content="Warren Zhao">
+    <meta property="og:article:tag" content=", 中文, AI"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2019/09/16/cnnfilter/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2019/09/16/cnnfilter/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2019/09/16/cnnfilter/"
+    },
+    "headline": "常见卷积神经网络卷积核总结 | Warren Zhao&#39; blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-09-16T13:23:32.000Z",
+    "dateModified": "2019-09-16T15:16:41.232Z",
+    "author": {
+        "@type": "Person",
+        "name": "Warren Zhao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Warren Zhao&#39; blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 中文, AI",
+    "description": ""
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Warren Zhao&#39; blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Warren Zhao' blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Warren Zhao' blog&url=http://yoursite.com&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=常见卷积神经网络卷积核总结" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=常见卷积神经网络卷积核总结&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=常见卷积神经网络卷积核总结" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABf0lEQVR42u3b0Q6DIBBEUf//p9vnEtiZtUYHc32xsRVPEwK7Cx6fgOMAAQLEFoijOMbf/DQwfD9+ttoFEYuYdpqhsdn12dltF0Q+Yuw4K4TzIKddEO9BjL+ZDUIg3o1YgaprIN6BUANRd8K6dBYFcTuiCkj/OV8WbYO4FSGTVpH0rJKgS7NyELci3ORnFcxUgc6s84PIR6wacRIfFfCqtkDkIuybigesJsT2iAkiElEFKNUAtLoGYj+EMzmppEclR2XyAyIKUd2kCiJV8V39GRC5iCrJcYtn3Q4JYg+E6pzuAl1nEAORiXAfohbvO4v6IPIRZxLgTrHEruiCiESoRMhZgHUXZ0DkIrqFVHfQUoUSENkIpwjqbNSoFvRaGRiIxxBnFuLUxKWCIBDZCHejcAVxNv5YgS6IGESnQ6qk2LkPxB4Ip5DubvSzOziIbRGdlwicl09A7I8488AqcQKxB+JMYd3ZKFYOdCBiEZ1EVhVMO5s5QGQinjxAgAARjfgCKMHYaEGu31EAAAAASUVORK5CYII=" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">常见卷积神经网络卷积核总结</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Warren Zhao's Avatar">
+        <span>2019-09-16</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/中文/">中文</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/中文/AI/">AI</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=常见卷积神经网络卷积核总结&url=http://yoursite.com/2019/09/16/cnnfilter/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=常见卷积神经网络卷积核总结&url=http://yoursite.com/2019/09/16/cnnfilter/&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/09/16/cnnfilter/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2019/09/16/cnnfilter/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/09/16/cnnfilter/&title=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Warren Zhao' blog&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2019/09/16/cnnfilter/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2019/09/16/cnnfilter/&text=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABf0lEQVR42u3b0Q6DIBBEUf//p9vnEtiZtUYHc32xsRVPEwK7Cx6fgOMAAQLEFoijOMbf/DQwfD9+ttoFEYuYdpqhsdn12dltF0Q+Yuw4K4TzIKddEO9BjL+ZDUIg3o1YgaprIN6BUANRd8K6dBYFcTuiCkj/OV8WbYO4FSGTVpH0rJKgS7NyELci3ORnFcxUgc6s84PIR6wacRIfFfCqtkDkIuybigesJsT2iAkiElEFKNUAtLoGYj+EMzmppEclR2XyAyIKUd2kCiJV8V39GRC5iCrJcYtn3Q4JYg+E6pzuAl1nEAORiXAfohbvO4v6IPIRZxLgTrHEruiCiESoRMhZgHUXZ0DkIrqFVHfQUoUSENkIpwjqbNSoFvRaGRiIxxBnFuLUxKWCIBDZCHejcAVxNv5YgS6IGESnQ6qk2LkPxB4Ip5DubvSzOziIbRGdlwicl09A7I8488AqcQKxB+JMYd3ZKFYOdCBiEZ1EVhVMO5s5QGQinjxAgAARjfgCKMHYaEGu31EAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图像处理中常用到的卷积核"><span class="post-toc-number">1.</span> <span class="post-toc-text">图像处理中常用到的卷积核</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#边缘检测"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">边缘检测</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Sobel算子"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Sobel算子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Prewitt算子"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Prewitt算子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Robert算子"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Robert算子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Canny算子"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Canny算子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Laplacian算子"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">Laplacian算子</span></a></li></ol></li></ol></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="&#x56FE;&#x50CF;&#x5904;&#x7406;&#x4E2D;&#x5E38;&#x7528;&#x5230;&#x7684;&#x5377;&#x79EF;&#x6838;"><a href="#&#x56FE;&#x50CF;&#x5904;&#x7406;&#x4E2D;&#x5E38;&#x7528;&#x5230;&#x7684;&#x5377;&#x79EF;&#x6838;" class="headerlink" title="&#x56FE;&#x50CF;&#x5904;&#x7406;&#x4E2D;&#x5E38;&#x7528;&#x5230;&#x7684;&#x5377;&#x79EF;&#x6838;"></a>&#x56FE;&#x50CF;&#x5904;&#x7406;&#x4E2D;&#x5E38;&#x7528;&#x5230;&#x7684;&#x5377;&#x79EF;&#x6838;</h1><h2 id="&#x8FB9;&#x7F18;&#x68C0;&#x6D4B;"><a href="#&#x8FB9;&#x7F18;&#x68C0;&#x6D4B;" class="headerlink" title="&#x8FB9;&#x7F18;&#x68C0;&#x6D4B;"></a>&#x8FB9;&#x7F18;&#x68C0;&#x6D4B;</h2><p>&#x8FB9;&#x7F18;&#x5927;&#x81F4;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E24;&#x79CD;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x9636;&#x8DC3;&#x72B6;&#x8FB9;&#x7F18;&#xFF0C;&#x8FB9;&#x7F18;&#x4E24;&#x8FB9;&#x50CF;&#x7D20;&#x7684;&#x7070;&#x5EA6;&#x503C;&#x660E;&#x663E;&#x4E0D;&#x540C;&#xFF1B;&#x53E6;&#x4E00;&#x79CD;&#x4E3A;&#x5C4B;&#x9876;&#x72B6;&#x8FB9;&#x7F18;&#xFF0C;&#x8FB9;&#x7F18;&#x5904;&#x4E8E;&#x7070;&#x5EA6;&#x503C;&#x7531;&#x5C0F;&#x5230;&#x5927;&#x518D;&#x5230;&#x5C0F;&#x7684;&#x53D8;&#x5316;&#x8F6C;&#x6298;&#x70B9;&#x5904;&#x3002;&#x8FB9;&#x7F18;&#x68C0;&#x6D4B;&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x5177;&#x662F;&#x8FB9;&#x7F18;&#x68C0;&#x6D4B;&#x6A21;&#x677F;&#x3002;</p>
+<p>John Canny&#x7ED9;&#x51FA;&#x4E86;&#x8BC4;&#x4EF7;&#x8FB9;&#x7F18;&#x68C0;&#x6D4B;&#x6027;&#x80FD;&#x4F18;&#x52A3;&#x7684;&#x4E09;&#x4E2A;&#x6307;&#x6807;&#xFF1A;</p>
+<ol>
+<li>&#x597D;&#x7684;&#x4FE1;&#x566A;&#x6BD4;&#xFF0C;&#x5373;&#x5C06;&#x975E;&#x8FB9;&#x7F18;&#x70B9;&#x5224;&#x5B9A;&#x4E3A;&#x8FB9;&#x7F18;&#x70B9;&#x7684;&#x6982;&#x7387;&#x8981;&#x4F4E;&#xFF0C;&#x5C06;&#x8FB9;&#x7F18;&#x70B9;&#x5224;&#x65AD;&#x4E3A;&#x975E;&#x8FB9;&#x7F18;&#x70B9;&#x7684;&#x6982;&#x7387;&#x8981;&#x4F4E;&#xFF1B;</li>
+<li>&#x5B9A;&#x4F4D;&#x6027;&#x80FD;&#x8981;&#x9AD8;&#xFF0C;&#x5373;&#x68C0;&#x6D4B;&#x51FA;&#x7684;&#x8FB9;&#x7F18;&#x70B9;&#x8981;&#x5C3D;&#x53EF;&#x80FD;&#x5728;&#x5B9E;&#x9645;&#x8FB9;&#x7F18;&#x7684;&#x4E2D;&#x5FC3;&#xFF1B;</li>
+<li>&#x5BF9;&#x5355;&#x4E00;&#x8FB9;&#x7F18;&#x4EC5;&#x6709;&#x552F;&#x4E00;&#x54CD;&#x5E94;&#xFF0C;&#x5373;&#x5355;&#x4E2A;&#x8FB9;&#x7F18;&#x4EA7;&#x751F;&#x591A;&#x4E2A;&#x54CD;&#x5E94;&#x7684;&#x6982;&#x7387;&#x8981;&#x4F4E;&#xFF0C;&#x5E76;&#x4E14;&#x865A;&#x5047;&#x54CD;&#x5E94;&#x8FB9;&#x7F18;&#x5E94;&#x8BE5;&#x5F97;&#x5230;&#x6700;&#x5927;&#x6291;&#x5236;&#x3002;</li>
+</ol>
+<h3 id="Sobel&#x7B97;&#x5B50;"><a href="#Sobel&#x7B97;&#x5B50;" class="headerlink" title="Sobel&#x7B97;&#x5B50;"></a>Sobel&#x7B97;&#x5B50;</h3><p>Sobel&#x7B97;&#x5B50;&#x662F;&#x50CF;&#x7D20;&#x56FE;&#x50CF;&#x8FB9;&#x7F18;&#x68C0;&#x6D4B;&#x4E2D;&#x6700;&#x91CD;&#x8981;&#x7684;&#x7B97;&#x5B50;&#x4E4B;&#x4E00;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x4E00;&#x9636;&#x5FAE;&#x5206;&#x7B97;&#x5B50;&#xFF0C;&#x6280;&#x672F;&#x4E0A;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x79BB;&#x6563;&#x7684;&#x4E00;&#x9636;&#x5DEE;&#x5206;&#x7B97;&#x5B50;&#xFF0C;&#x7528;&#x6765;&#x8BA1;&#x7B97;&#x56FE;&#x50CF;&#x4EAE;&#x5EA6;&#x51FD;&#x6570;&#x7684;&#x4E00;&#x9636;&#x68AF;&#x5EA6;&#x7684;&#x8FD1;&#x4F3C;&#x503C;&#x3002;</p>
+<p>Sobel&#x7B97;&#x5B50;&#x5305;&#x542B;&#x4E24;&#x7EC4;3x3&#x7684;&#x77E9;&#x9635;&#xFF0C;&#x5206;&#x522B;&#x4EE3;&#x8868;&#x6A2A;&#x5411;&#x53CA;&#x7EB5;&#x5411;&#x8FB9;&#x7F18;&#x68C0;&#x6D4B;&#x7684;&#x56FE;&#x50CF;&#x3002;&#x7B97;&#x5B50;&#x516C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2019/09/16/cnnfilter/sobel.png" alt="Soble&#x7B97;&#x5B50;&#x6570;&#x5B66;&#x516C;&#x5F0F;&#x8868;&#x793A;"></p>
+<p>Sobel&#x7B97;&#x5B50;&#x5BF9;&#x4E8E;&#x50CF;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;&#x7684;&#x5F71;&#x54CD;&#x505A;&#x4E86;&#x52A0;&#x6743;&#xFF0C;&#x53EF;&#x4EE5;&#x964D;&#x4F4E;&#x8FB9;&#x7F18;&#x6A21;&#x7CCA;&#x7A0B;&#x5EA6;&#xFF0C;&#x56E0;&#x6B64;&#x6548;&#x679C;&#x8F83;&#x597D;&#x3002;Sobel&#x7B97;&#x5B50;&#x7528;&#x4E8E;&#x63D0;&#x53D6;&#x8FB9;&#x7F18;&#xFF0C;&#x4F46;&#x662F;Sobel&#x7B97;&#x5B50;&#x5E76;&#x6CA1;&#x6709;&#x5C06;&#x56FE;&#x50CF;&#x7684;&#x4E3B;&#x4F53;&#x4E0E;&#x80CC;&#x666F;&#x4E25;&#x683C;&#x7684;&#x533A;&#x5206;&#x5F00;&#x6765;&#xFF0C;&#x5373;Sobel&#x7B97;&#x5B50;&#x6CA1;&#x6709;&#x57FA;&#x4E8E;&#x56FE;&#x50CF;&#x7070;&#x5EA6;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;&#x7531;&#x4E8E;Sobel&#x7B97;&#x5B50;&#x6CA1;&#x6709;&#x4E25;&#x683C;&#x5730;&#x6A21;&#x62DF;&#x4EBA;&#x7684;&#x89C6;&#x89C9;&#x751F;&#x7406;&#x7279;&#x5F81;&#xFF0C;&#x6240;&#x4EE5;&#x63D0;&#x53D6;&#x7684;&#x56FE;&#x50CF;&#x8F6E;&#x5ED3;&#x6709;&#x65F6;&#x5019;&#x5E76;&#x4E0D;&#x80FD;&#x4EE4;&#x4EBA;&#x6EE1;&#x610F;&#x3002;</p>
+<h3 id="Prewitt&#x7B97;&#x5B50;"><a href="#Prewitt&#x7B97;&#x5B50;" class="headerlink" title="Prewitt&#x7B97;&#x5B50;"></a>Prewitt&#x7B97;&#x5B50;</h3><p>Prewitt&#x7B97;&#x5B50;&#x662F;&#x4E00;&#x79CD;&#x4E00;&#x9636;&#x5FAE;&#x5206;&#x7B97;&#x5B50;&#xFF0C;&#x5E38;&#x7528;&#x4E8E;&#x8FB9;&#x7F18;&#x68C0;&#x6D4B;&#xFF0C;&#x5229;&#x7528;&#x50CF;&#x7D20;&#x70B9;&#x4E0A;&#x4E0B;&#x3001;&#x5DE6;&#x53F3;&#x4E34;&#x70B9;&#x7684;&#x7070;&#x5EA6;&#x5DEE;&#xFF0C;&#x5728;&#x8FB9;&#x7F18;&#x5904;&#x8FBE;&#x5230;&#x6781;&#x503C;&#x68C0;&#x6D4B;&#x8FB9;&#x7F18;&#xFF0C;&#x53BB;&#x6389;&#x90E8;&#x5206;&#x4F2A;&#x8FB9;&#x7F18;&#xFF0C;&#x5BF9;&#x566A;&#x58F0;&#x5177;&#x6709;&#x5E73;&#x6ED1;&#x4F5C;&#x7528;&#x3002;&#x5176;&#x539F;&#x7406;&#x662F;&#x5728;&#x56FE;&#x50CF;&#x7A7A;&#x95F4;&#x5229;&#x7528;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#x6A21;&#x677F;&#x4E0E;&#x56FE;&#x50CF;&#x8FDB;&#x884C;&#x90BB;&#x57DF;&#x5377;&#x79EF;&#x6765;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#x6A21;&#x677F;&#x4E00;&#x4E2A;&#x68C0;&#x6D4B;&#x6C34;&#x5E73;&#x8FB9;&#x7F18;&#xFF0C;&#x4E00;&#x4E2A;&#x68C0;&#x6D4B;&#x5782;&#x76F4;&#x8FB9;&#x7F18;&#x3002;<br><img src="/2019/09/16/cnnfilter/prewiit.png" alt="Soble&#x7B97;&#x5B50;&#x6570;&#x5B66;&#x516C;&#x5F0F;&#x8868;&#x793A;"><br>&#x7ECF;&#x5178;&#x7684;Prewiit&#x7B97;&#x5B50;&#x8BA4;&#x4E3A;&#xFF1A;&#x51E1;&#x7070;&#x5EA6;&#x65B0;&#x503C;&#x5927;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;&#x9608;&#x503C;&#x7684;&#x50CF;&#x7D20;&#x70B9;&#x90FD;&#x662F;&#x8FB9;&#x7F18;&#x70B9;&#x3002;&#x4F46;&#x8FD9;&#x79CD;&#x5224;&#x65AD;&#x662F;&#x6709;&#x7F3A;&#x9677;&#x7684;&#xFF0C;&#x4F1A;&#x9020;&#x6210;&#x8FB9;&#x7F18;&#x7684;&#x8BEF;&#x5224;&#xFF0C;&#x4F1A;&#x628A;&#x7070;&#x5EA6;&#x503C;&#x5927;&#x7684;&#x566A;&#x58F0;&#x70B9;&#x5224;&#x65AD;&#x4E3A;&#x8FB9;&#x7F18;&#x70B9;&#xFF0C;&#x628A;&#x5E45;&#x503C;&#x5C0F;&#x7684;&#x8FB9;&#x7F18;&#x70B9;&#x5224;&#x65AD;&#x4E3A;&#x975E;&#x8FB9;&#x7F18;&#x70B9;&#x3002;</p>
+<h3 id="Robert&#x7B97;&#x5B50;"><a href="#Robert&#x7B97;&#x5B50;" class="headerlink" title="Robert&#x7B97;&#x5B50;"></a>Robert&#x7B97;&#x5B50;</h3><p>Robert&#x7B97;&#x5B50;&#x662F;&#x4E00;&#x79CD;&#x5229;&#x7528;&#x5C40;&#x90E8;&#x5DEE;&#x5206;&#x7B97;&#x5B50;&#x5BFB;&#x627E;&#x8FB9;&#x7F18;&#x7684;&#x7B97;&#x5B50;&#xFF0C;Robert&#x7B97;&#x5B50;&#x56FE;&#x50CF;&#x5904;&#x7406;&#x540E;&#x7ED3;&#x679C;&#x8FB9;&#x7F18;&#x4E0D;&#x662F;&#x5F88;&#x5E73;&#x6ED1;&#x3002;&#x8FB9;&#x7F18;&#x5B9A;&#x4F4D;&#x51C6;&#x786E;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x566A;&#x58F0;&#x654F;&#x611F;&#x3002;&#x9002;&#x7528;&#x4E8E;&#x8FB9;&#x7F18;&#x660E;&#x663E;&#x4E14;&#x566A;&#x58F0;&#x8F83;&#x5C11;&#x7684;&#x56FE;&#x50CF;&#x5206;&#x5272;&#xFF0C;&#x5728;&#x56FE;&#x50CF;&#x589E;&#x5F3A;&#x4E2D;&#x7684;&#x9510;&#x5316;&#x90E8;&#x5206;&#x4E5F;&#x6709;&#x4F7F;&#x7528;&#x3002;</p>
+<p>Robert&#x7B97;&#x5B50;&#x662F;&#x4E00;&#x4E2A;&#x5947;&#x8469;&#x7B97;&#x5B50;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;2x2&#x7684;&#x6A21;&#x677F;&#xFF0C;&#x5BF9;&#x89D2;&#x505A;&#x5DEE;&#x3002;<br>&#x4EE5;&#x4E0B;&#x5750;&#x6807;&#x91C7;&#x7528;&#x7684;&#x662F;i&#xFF0C;j&#x5750;&#x6807;&#x7CFB;&#xFF0C;&#x5176;&#x4E2D;i=-y,j=x&#x3002;Robert&#x7B97;&#x5B50;&#x7684;&#x5F62;&#x5F0F;&#x662F;&#xFF1A;<br><img src="/2019/09/16/cnnfilter/robert.png" alt="Robert&#x7B97;&#x5B50;&#x6570;&#x5B66;&#x516C;&#x5F0F;&#x8868;&#x793A;"></p>
+<p>Robert&#x7B97;&#x5B50;&#x5904;&#x7406;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="/2019/09/16/cnnfilter/robert2.png" alt="Robert&#x7B97;&#x5B50;&#x6570;&#x5B66;&#x516C;&#x5F0F;&#x8868;&#x793A;"></p>
+<h3 id="Canny&#x7B97;&#x5B50;"><a href="#Canny&#x7B97;&#x5B50;" class="headerlink" title="Canny&#x7B97;&#x5B50;"></a>Canny&#x7B97;&#x5B50;</h3><p>Canny&#x7B97;&#x5B50;&#x7684;&#x601D;&#x60F3;&#x662F;&#x5148;&#x5E73;&#x6ED1;&#x540E;&#x6C42;&#x5BFC;&#xFF0C;&#x5177;&#x4F53;&#x7B97;&#x6CD5;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x7528;&#x9AD8;&#x65AF;&#x6EE4;&#x6CE2;&#x5668;&#x5E73;&#x6ED1;&#x56FE;&#x50CF;&#xFF1B;</li>
+<li>&#x7528;&#x4E00;&#x9636;&#x9A97;&#x5230;&#x6709;&#x9650;&#x5DEE;&#x5206;&#x8BA1;&#x7B97;&#x68AF;&#x5EA6;&#x5E45;&#x503C;&#x548C;&#x65B9;&#x5411;&#xFF1B;</li>
+<li>&#x5BF9;&#x68AF;&#x961F;&#x5E45;&#x503C;&#x8FDB;&#x884C;&#x975E;&#x6781;&#x5927;&#x503C;&#x6291;&#x5236;&#xFF1B;</li>
+<li>&#x7528;&#x53CC;&#x9608;&#x503C;&#x7B97;&#x6CD5;&#x68C0;&#x6D4B;&#x548C;&#x8FDE;&#x63A5;&#x8FB9;&#x7F18;&#x3002;</li>
+</ol>
+<p>Canny&#x7B97;&#x5B50;&#x4EA7;&#x751F;&#x7684;&#x8FB9;&#x7F18;&#x5F88;&#x7EC6;&#xFF0C;&#x7ED3;&#x679C;&#x51C6;&#x786E;&#xFF0C;&#x6CA1;&#x6709;&#x5F3A;&#x5F31;&#x4E4B;&#x5206;&#xFF0C;&#x4F46;&#x662F;&#x8BA1;&#x7B97;&#x91CF;&#x5927;&#x3002;</p>
+<h3 id="Laplacian&#x7B97;&#x5B50;"><a href="#Laplacian&#x7B97;&#x5B50;" class="headerlink" title="Laplacian&#x7B97;&#x5B50;"></a>Laplacian&#x7B97;&#x5B50;</h3><p>Laplacian&#x7B97;&#x5B50;&#x662F;n&#x7EF4;&#x6B27;&#x51E0;&#x91CC;&#x5FB7;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x4E8C;&#x9636;&#x5FAE;&#x5206;&#x7B97;&#x5B50;&#xFF0C;&#x5B9A;&#x4E49;&#x4E3A;&#x68AF;&#x5EA6;grad&#x7684;&#x6563;&#x5EA6;div&#x3002;&#x5B83;&#x7684;&#x4F7F;&#x7528;&#x662F;&#x57FA;&#x4E8E;&#x4EE5;&#x4E0B;&#x4E8B;&#x5B9E;&#xFF1A;&#x5728;&#x8FB9;&#x7F18;&#x533A;&#x57DF;&#x4E2D;&#xFF0C;&#x50CF;&#x7D20;&#x5F3A;&#x5EA6;&#x663E;&#x793A;&#x201D;&#x8DF3;&#x8DC3;&#x201C;&#x6216;&#x5F3A;&#x5EA6;&#x7684;&#x9AD8;&#x53D8;&#x5316;&#x3002;&#x5F97;&#x5230;&#x5F3A;&#x5EA6;&#x7684;&#x4E00;&#x9636;&#x5BFC;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x89C2;&#x5BDF;&#x5230;&#x8FB9;&#x7F18;&#x7684;&#x7279;&#x5F81;&#x662F;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4E8C;&#x9636;&#x5BFC;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x70B9;&#x5BFC;&#x6570;&#x4E3A;&#x96F6;&#x3002;</p>
+<p>Laplacian&#x7B97;&#x5B50;&#x5728;&#x56DB;&#x90BB;&#x57DF;&#x548C;&#x516B;&#x90BB;&#x57DF;&#x7CFB;&#x7EDF;&#x4E0B;&#x7684;&#x7B97;&#x5B50;&#x5F62;&#x5F0F;&#x4E3A;&#xFF1A;<br><img src="/2019/09/16/cnnfilter/laplacian.png" alt="Laplacian&#x7B97;&#x5B50;&#x6570;&#x5B66;&#x516C;&#x5F0F;&#x8868;&#x793A;"></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2019-09-16");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-09-16T13:23:32.000Z" itemprop="datePublished">2019-09-16</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/中文/'>中文</a>
+
+<a class="post-categories-list-item" href='/categories/中文/AI/'>AI</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/中文/" rel="tag">#&nbsp;中文</a>
+
+<a class="post-tags-list-item" href="/tags/AI/" rel="tag">#&nbsp;AI</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/09/03/cpp基础/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">cpp基础</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">Warren Zhao&#39; blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>
