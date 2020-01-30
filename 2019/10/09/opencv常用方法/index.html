@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>OpenCV知识点总结 | Warren Zhao&#39; blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content>
+
+<!-- Keywords -->
+<meta name="keywords" content=", 中文, AI">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Warren Zhao&#39; blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Warren Zhao&#39; blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="OpenCV知识点总结 | Warren Zhao&#39; blog">
+<meta property="og:site_name" content="Warren Zhao&#39; blog">
+
+<meta property="og:locale" content="en">
+
+<meta property="og:url" content="http://yoursite.com/2019/10/09/opencv常用方法/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content>
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2019-10-09T06:18:28.000Z">
+    <meta property="article:modified_time" content="2019-10-09T06:18:28.000Z">
+    <meta property="article:author" content="Warren Zhao">
+    <meta property="og:article:tag" content=", 中文, AI"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2019/10/09/opencv常用方法/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2019/10/09/opencv常用方法/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2019/10/09/opencv常用方法/"
+    },
+    "headline": "OpenCV知识点总结 | Warren Zhao&#39; blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-10-09T06:18:28.000Z",
+    "dateModified": "2019-10-09T14:12:00.061Z",
+    "author": {
+        "@type": "Person",
+        "name": "Warren Zhao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Warren Zhao&#39; blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 中文, AI",
+    "description": ""
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Warren Zhao&#39; blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Warren Zhao' blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Warren Zhao' blog&url=http://yoursite.com&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=OpenCV知识点总结" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=OpenCV知识点总结&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=OpenCV知识点总结" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3ay07EMBBE0fz/T8OGxYDcVdUhILvnZoNQXmckx3aXfX1seFygQIECtUBd4vh2w9f/q/Ov59Q17j2g5qCWja5ArV66eoa6v3wuqFGo6kWrRpk07PQjAPWeqA5k1amCAtUdgKvO9V++PlDbotJO7+c1rrNVgzaouSg1oX/y72PVDKitUTZ0EJ1eMvj+SeoCamuU6/RS6J2GDmomKh4sDVSFGlWAVg7IoI5GJYGpu9ZNBuNJI6gRKHejArkiVBUbtvMEdTRKvSAJWxO0+xBAzUKlg7Ca3HVDj1YxCuooVDX5rwrNNECTgWv1g0CNQNkLXeMUE8TkB4CaiVKNNFroCTbtKCCoeSgVOrhFxSTYTzpXUHNQaYAaL043F5BsOgzqSJRq4OnmnCQUsaEcqDEoN5lzRalaJGg9F9QYVBqmprhkk1i0AQfUsajOQlG3Q00LWVDzUCqwrwbedDHo1sI2qBGo9IWdRtza2ANqBOrORsEE7UIyuysI1LGoOwNnJ0z7VcAB6lhUuhlHhWWdDTjVeVCzUJ3iMS0uHk1dQI1GpSFGUniAek9UNeCq4sPhomoG1NGoZMOgm9SlnaXdgAPqeFRn0OxsBus2eFAzUDsdoECBAvVyfAJ2JJIREEVM4gAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">OpenCV知识点总结</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Warren Zhao's Avatar">
+        <span>2019-10-09</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=OpenCV知识点总结&url=http://yoursite.com/2019/10/09/opencv常用方法/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=OpenCV知识点总结&url=http://yoursite.com/2019/10/09/opencv常用方法/&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/opencv常用方法/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/opencv常用方法/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/10/09/opencv常用方法/&title=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Warren Zhao' blog&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2019/10/09/opencv常用方法/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2019/10/09/opencv常用方法/&text=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3ay07EMBBE0fz/T8OGxYDcVdUhILvnZoNQXmckx3aXfX1seFygQIECtUBd4vh2w9f/q/Ov59Q17j2g5qCWja5ArV66eoa6v3wuqFGo6kWrRpk07PQjAPWeqA5k1amCAtUdgKvO9V++PlDbotJO7+c1rrNVgzaouSg1oX/y72PVDKitUTZ0EJ1eMvj+SeoCamuU6/RS6J2GDmomKh4sDVSFGlWAVg7IoI5GJYGpu9ZNBuNJI6gRKHejArkiVBUbtvMEdTRKvSAJWxO0+xBAzUKlg7Ca3HVDj1YxCuooVDX5rwrNNECTgWv1g0CNQNkLXeMUE8TkB4CaiVKNNFroCTbtKCCoeSgVOrhFxSTYTzpXUHNQaYAaL043F5BsOgzqSJRq4OnmnCQUsaEcqDEoN5lzRalaJGg9F9QYVBqmprhkk1i0AQfUsajOQlG3Q00LWVDzUCqwrwbedDHo1sI2qBGo9IWdRtza2ANqBOrORsEE7UIyuysI1LGoOwNnJ0z7VcAB6lhUuhlHhWWdDTjVeVCzUJ3iMS0uHk1dQI1GpSFGUniAek9UNeCq4sPhomoG1NGoZMOgm9SlnaXdgAPqeFRn0OxsBus2eFAzUDsdoECBAvVyfAJ2JJIREEVM4gAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是OpenCV"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是OpenCV</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#预处理"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">预处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特征提取"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">特征提取</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分类器"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">分类器</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OpenCV能做什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">OpenCV能做什么</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="&#x4EC0;&#x4E48;&#x662F;OpenCV"><a href="#&#x4EC0;&#x4E48;&#x662F;OpenCV" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;OpenCV"></a>&#x4EC0;&#x4E48;&#x662F;OpenCV</h1><p>OpenCV&#x5168;&#x79F0;&#x662F;Open source Computer Vision Library&#xFF08;&#x5F00;&#x6E90;&#x8BA1;&#x7B97;&#x673A;&#x8BD7;&#x53E5;&#x5E93;&#xFF09;&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x56FE;&#x50CF;&#x5904;&#x7406;&#x3001;&#x5206;&#x6790;&#x3001;&#x673A;&#x5668;&#x89C6;&#x89C9;&#x65B9;&#x9762;&#x7684;&#x5F00;&#x6E90;&#x51FD;&#x6570;&#x5E93;&#x3002;&#x5B83;&#x7684;&#x6240;&#x6709;&#x6E90;&#x4EE3;&#x7801;&#x90FD;&#x662F;&#x516C;&#x5F00;&#x7684;&#x3002;</p>
+<p><strong>&#x4E00;&#x4E2A;&#x666F;&#x7ECF;&#x5178;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x7B97;&#x6CD5;</strong>&#xFF0C;&#x4E00;&#x822C;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ol>
+<li>&#x6570;&#x636E;&#x83B7;&#x53D6;&#xFF1B;</li>
+<li>&#x9884;&#x5904;&#x7406;&#xFF1B;</li>
+<li>&#x7279;&#x5F81;&#x63D0;&#x53D6;&#xFF1B;</li>
+<li>&#x7279;&#x5F81;&#x9009;&#x62E9;&#xFF1B;</li>
+<li>&#x5206;&#x7C7B;&#x5668;&#x8BBE;&#x8BA1;&#x4E0E;&#x8BAD;&#x7EC3;&#xFF1B;</li>
+<li>&#x5206;&#x7C7B;&#x5224;&#x522B;&#x3002;</li>
+</ol>
+<h2 id="&#x9884;&#x5904;&#x7406;"><a href="#&#x9884;&#x5904;&#x7406;" class="headerlink" title="&#x9884;&#x5904;&#x7406;"></a>&#x9884;&#x5904;&#x7406;</h2><p>&#x4E00;&#x822C;&#x7684;&#x505A;&#x6CD5;&#x5C31;&#x662F;&#x53BB;&#x9664;&#x6216;&#x8005;&#x964D;&#x4F4E;&#x566A;&#x58F0;&#xFF0C;&#x5149;&#x7167;&#x5F52;&#x4E00;&#x5316;&#xFF0C;&#x4EAE;&#x5EA6;&#x5F52;&#x4E00;&#x5316;&#xFF0C;&#x6A21;&#x7CCA;&#x5316;&#xFF0C;&#x9510;&#x5316;&#xFF0C;&#x81A8;&#x80C0;&#xFF0C;&#x8150;&#x8680;&#xFF0C;&#x5F00;&#x95ED;&#x7B49;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x3002;</p>
+<h2 id="&#x7279;&#x5F81;&#x63D0;&#x53D6;"><a href="#&#x7279;&#x5F81;&#x63D0;&#x53D6;" class="headerlink" title="&#x7279;&#x5F81;&#x63D0;&#x53D6;"></a>&#x7279;&#x5F81;&#x63D0;&#x53D6;</h2><p>&#x7279;&#x5F81;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x5C06;&#x82E5;&#x5E72;&#x4E2A;&#x5206;&#x7C7B;&#x53EF;&#x4EE5;&#x5C3D;&#x91CF;&#x5206;&#x5F00;&#x7684;&#x4E00;&#x79CD;&#x63CF;&#x8FF0;&#x3002;</p>
+<h2 id="&#x5206;&#x7C7B;&#x5668;"><a href="#&#x5206;&#x7C7B;&#x5668;" class="headerlink" title="&#x5206;&#x7C7B;&#x5668;"></a>&#x5206;&#x7C7B;&#x5668;</h2><p>OpenCV&#x63D0;&#x4F9B;&#x4E86;SVM&#xFF0C;CART&#xFF0C;boost&#xFF0C;bayes&#xFF0C;bdt&#xFF0C;ANN&#x8FD9;&#x51E0;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x7B97;&#x6CD5;&#x3002;</p>
+<h1 id="OpenCV&#x80FD;&#x505A;&#x4EC0;&#x4E48;"><a href="#OpenCV&#x80FD;&#x505A;&#x4EC0;&#x4E48;" class="headerlink" title="OpenCV&#x80FD;&#x505A;&#x4EC0;&#x4E48;"></a>OpenCV&#x80FD;&#x505A;&#x4EC0;&#x4E48;</h1><p>OpenCV&#x80FD;&#x591F;&#x5B8C;&#x6210;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x4EFB;&#x52A1;&#x3002;&#x66F4;&#x52A0;&#x7EC6;&#x5206;&#x7684;&#x9886;&#x57DF;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x5185;&#x7F6E;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x548C;&#x8F93;&#x5165;/&#x8F93;&#x51FA;&#xFF1B;</li>
+<li>&#x56FE;&#x50CF;&#x5904;&#x7406;&#x64CD;&#x4F5C;&#xFF1B;</li>
+<li>&#x6784;&#x5EFA;&#x56FE;&#x5F62;&#x7528;&#x6237;&#x754C;&#x9762;&#xFF1B;</li>
+<li>&#x89C6;&#x9891;&#x5206;&#x6790;&#xFF1B;</li>
+<li>3D&#x91CD;&#x5EFA;&#xFF1B;</li>
+<li>&#x7279;&#x5F81;&#x63D0;&#x53D6;&#xFF1B;</li>
+<li>&#x76EE;&#x6807;&#x68C0;&#x6D4B;&#xFF1B;</li>
+<li>&#x673A;&#x5668;&#x5B66;&#x4E60;&#xFF1B;</li>
+<li>&#x8BA1;&#x7B97;&#x6444;&#x5F71;&#xFF1B;</li>
+<li>&#x5F62;&#x72B6;&#x5206;&#x6790;&#xFF1B;</li>
+<li>&#x5149;&#x6D41;&#x7B97;&#x6CD5;&#xFF1B;</li>
+<li>&#x4EBA;&#x8138;&#x548C;&#x76EE;&#x6807;&#x8BC6;&#x522B;&#xFF1B;</li>
+<li>&#x8868;&#x9762;&#x5339;&#x914D;&#xFF1B;</li>
+<li>&#x6587;&#x672C;&#x68C0;&#x6D4B;&#x548C;&#x8BC6;&#x522B;&#x3002;</li>
+</ol>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2019-10-09");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-10-09T06:18:28.000Z" itemprop="datePublished">2019-10-09</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/中文/" rel="tag">#&nbsp;中文</a>
+
+<a class="post-tags-list-item" href="/tags/AI/" rel="tag">#&nbsp;AI</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2020/01/27/Tensorflow基础总结/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Tensorflow基础总结</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/10/02/Python知识点总结/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Python知识点总结</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">Warren Zhao&#39; blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

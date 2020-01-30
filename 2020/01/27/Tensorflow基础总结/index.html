@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>Tensorflow基础总结 | Warren Zhao&#39; blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="&amp;#x6982;&amp;#x5FF5...">
+
+<!-- Keywords -->
+<meta name="keywords" content=", 中文, tensorflow">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Warren Zhao&#39; blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Warren Zhao&#39; blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Tensorflow基础总结 | Warren Zhao&#39; blog">
+<meta property="og:site_name" content="Warren Zhao&#39; blog">
+
+<meta property="og:locale" content="en">
+
+<meta property="og:url" content="http://yoursite.com/2020/01/27/Tensorflow基础总结/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content="&amp;#x6982;&amp;#x5FF5...">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-01-27T10:22:01.000Z">
+    <meta property="article:modified_time" content="2020-01-27T10:22:01.000Z">
+    <meta property="article:author" content="Warren Zhao">
+    <meta property="og:article:tag" content=", 中文, tensorflow"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2020/01/27/Tensorflow基础总结/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2020/01/27/Tensorflow基础总结/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2020/01/27/Tensorflow基础总结/"
+    },
+    "headline": "Tensorflow基础总结 | Warren Zhao&#39; blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2020-01-27T10:22:01.000Z",
+    "dateModified": "2020-01-27T10:35:56.048Z",
+    "author": {
+        "@type": "Person",
+        "name": "Warren Zhao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Warren Zhao&#39; blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 中文, tensorflow",
+    "description": "&amp;#x6982;&amp;#x5FF5..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Warren Zhao&#39; blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Warren Zhao' blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Warren Zhao' blog&url=http://yoursite.com&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=Tensorflow基础总结" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Tensorflow基础总结&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=Tensorflow基础总结" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB1UlEQVR42u3awW6DMBCEYd7/pdtTpRR5d2YDBzz8XKJSBX+RjO0d+/h54HWAAgUK1AJ1NNe/L3zcW/3/7/75mZN2QOWglp2uaHT1wOpHqOed74PKQq0aqj6tBsT3z/dBvQ816fTVgAsKVIeqOnb1XVDvQ3ULtqoDryZl5wW4vEoA9XiU87A7Pm+rZkA9GiVDh6bwdCff21MXUI9GdR1xUgR0g6l6PqhclNvx3cm76vCjlSeo7VDqIeoF6BqcDqyg8lBVp+yC1a4Dd0BQuSgVQlQhhgrRnI0kULko1bha3DkDZPfjQWWinI3pS5vWzo8HFYfq/nYCWzeEtYpRUNuivlno2Y0MXiBQWSi1OXQ14OgOhYHKQ6lgy5183cHXCjhAbY9yD5yqyXi6AS5XCaC2RDkNfROATA/fgMpBOR1weiinCtNkkAsqDqUm0G4DSYVoVpEKKgqlClNn4FTF6rhwALU1ahrCOgWEe7AHVBZqcuBGBbJdh7YWkaAiUNNOq8K16cQOKhM12QhyigR1wKscpEFFoZzA1A1c3eAW1HtRXYHhFq6qgAD1XpQbgE2CDVCZqK5gUIF99QK4mwKg8lDOpNltBjkbmOMgFtS2qCddoECBAvVx/QKmVzGAvfxctAAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Tensorflow基础总结</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Warren Zhao's Avatar">
+        <span>2020-01-27</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/中文/">中文</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/中文/tensorflow/">tensorflow</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Tensorflow基础总结&url=http://yoursite.com/2020/01/27/Tensorflow基础总结/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Tensorflow基础总结&url=http://yoursite.com/2020/01/27/Tensorflow基础总结/&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/01/27/Tensorflow基础总结/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2020/01/27/Tensorflow基础总结/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/01/27/Tensorflow基础总结/&title=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Warren Zhao' blog&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2020/01/27/Tensorflow基础总结/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2020/01/27/Tensorflow基础总结/&text=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB1UlEQVR42u3awW6DMBCEYd7/pdtTpRR5d2YDBzz8XKJSBX+RjO0d+/h54HWAAgUK1AJ1NNe/L3zcW/3/7/75mZN2QOWglp2uaHT1wOpHqOed74PKQq0aqj6tBsT3z/dBvQ816fTVgAsKVIeqOnb1XVDvQ3ULtqoDryZl5wW4vEoA9XiU87A7Pm+rZkA9GiVDh6bwdCff21MXUI9GdR1xUgR0g6l6PqhclNvx3cm76vCjlSeo7VDqIeoF6BqcDqyg8lBVp+yC1a4Dd0BQuSgVQlQhhgrRnI0kULko1bha3DkDZPfjQWWinI3pS5vWzo8HFYfq/nYCWzeEtYpRUNuivlno2Y0MXiBQWSi1OXQ14OgOhYHKQ6lgy5183cHXCjhAbY9yD5yqyXi6AS5XCaC2RDkNfROATA/fgMpBOR1weiinCtNkkAsqDqUm0G4DSYVoVpEKKgqlClNn4FTF6rhwALU1ahrCOgWEe7AHVBZqcuBGBbJdh7YWkaAiUNNOq8K16cQOKhM12QhyigR1wKscpEFFoZzA1A1c3eAW1HtRXYHhFq6qgAD1XpQbgE2CDVCZqK5gUIF99QK4mwKg8lDOpNltBjkbmOMgFtS2qCddoECBAvVx/QKmVzGAvfxctAAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反向链式求导"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">反向链式求导</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定义输入节点的方法"><span class="post-toc-number">1.0.4.</span> <span class="post-toc-text">定义输入节点的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通过占位符"><span class="post-toc-number">1.0.4.1.</span> <span class="post-toc-text">通过占位符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通过字典类型的定义"><span class="post-toc-number">1.0.4.2.</span> <span class="post-toc-text">通过字典类型的定义</span></a></li></ol></li></ol></li></ol></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="&#x6982;&#x5FF5;"><a href="#&#x6982;&#x5FF5;" class="headerlink" title="&#x6982;&#x5FF5;"></a>&#x6982;&#x5FF5;</h1><h3 id="&#x56FE;"><a href="#&#x56FE;" class="headerlink" title="&#x56FE;"></a>&#x56FE;</h3><p>&#x56FE;&#x662F;&#x9759;&#x6001;&#x7684;&#xFF0C;&#x65E0;&#x8BBA;&#x4EFB;&#x4F55;&#x52A0;&#x3001;&#x51CF;&#x3001;&#x4E58;&#x3001;&#x9664;&#xFF0C;&#x4ED6;&#x4EEC;&#x53EA;&#x662F;&#x5C06;&#x5173;&#x7CFB;&#x642D;&#x5EFA;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55;&#x8FD0;&#x7B97;&#x3002;</p>
+<h3 id="&#x4F1A;&#x8BDD;"><a href="#&#x4F1A;&#x8BDD;" class="headerlink" title="&#x4F1A;&#x8BDD;"></a>&#x4F1A;&#x8BDD;</h3><p>&#x4F1A;&#x8BDD;&#x662F;&#x52A8;&#x6001;&#x7684;&#xFF0C;&#x53EA;&#x6709;&#x542F;&#x52A8;&#x4F1A;&#x8BDD;&#x540E;&#x624D;&#x4F1A;&#x5C06;&#x6570;&#x636E;&#x6D41;&#x5411;&#x56FE;&#x4E2D;&#xFF0C;&#x5E76;&#x6309;&#x7167;&#x56FE;&#x4E2D;&#x7684;&#x5173;&#x7CFB;&#x8FD0;&#x7B97;&#xFF0C;&#x5E76;&#x5C06;&#x6700;&#x7EC8;&#x7684;&#x7ED3;&#x679C;&#x4ECE;&#x56FE;&#x4E2D;&#x6D41;&#x51FA;&#x3002;</p>
+<h3 id="&#x53CD;&#x5411;&#x94FE;&#x5F0F;&#x6C42;&#x5BFC;"><a href="#&#x53CD;&#x5411;&#x94FE;&#x5F0F;&#x6C42;&#x5BFC;" class="headerlink" title="&#x53CD;&#x5411;&#x94FE;&#x5F0F;&#x6C42;&#x5BFC;"></a>&#x53CD;&#x5411;&#x94FE;&#x5F0F;&#x6C42;&#x5BFC;</h3><p>&#x53CD;&#x5411;&#x94FE;&#x5F0F;&#x6C42;&#x5BFC;&#x65B9;&#x6CD5;&#x662F;&#x5148;&#x4ECE;&#x6B63;&#x5411;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x5F00;&#x59CB;&#xFF0C;&#x8BA1;&#x7B97;&#x6B64;&#x65F6;&#x7ED3;&#x679C;&#x503C;&#x4E0E;&#x771F;&#x5B9E;&#x503C;&#x7684;&#x8BEF;&#x5DEE;&#xFF0C;&#x8FD9;&#x6837;&#x4F1A;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x7528;&#x5B66;&#x4E60;&#x53C2;&#x6570;&#x8868;&#x793A;&#x8BEF;&#x5DEE;&#x7684;&#x65B9;&#x7A0B;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x65B9;&#x7A0B;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x53C2;&#x6570;&#x6C42;&#x5BFC;&#xFF0C;&#x5F97;&#x5230;&#x5176;&#x68AF;&#x5EA6;&#x4FEE;&#x6B63;&#x503C;&#xFF0C;&#x540C;&#x65F6;&#x53CD;&#x63A8;&#x51FA;&#x4E0A;&#x4E00;&#x5C42;&#x7684;&#x8BEF;&#x5DEE;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x5C06;&#x76D6;&#x5C42;&#x8282;&#x70B9;&#x7684;&#x8BEF;&#x5DEE;&#x6309;&#x7167;&#x6B63;&#x5411;&#x7684;&#x76F8;&#x53CD;&#x65B9;&#x5411;&#x4F20;&#x5230;&#x4E0A;&#x4E00;&#x5C42;&#xFF0C;&#x5E76;&#x63A5;&#x7740;&#x8BA1;&#x7B97;&#x4E0A;&#x4E00;&#x5C42;&#x7684;&#x4FEE;&#x6B63;&#x503C;&#xFF0C;&#x5982;&#x6B64;&#x53CD;&#x590D;&#x4E0B;&#x53BB;&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x5730;&#x8FDB;&#x884C;&#x4F20;&#x64AD;&#xFF0C;&#x76F4;&#x5230;&#x4F20;&#x64AD;&#x5230;&#x6B63;&#x5411;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x3002;</p>
+<h3 id="&#x5B9A;&#x4E49;&#x8F93;&#x5165;&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;"><a href="#&#x5B9A;&#x4E49;&#x8F93;&#x5165;&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;" class="headerlink" title="&#x5B9A;&#x4E49;&#x8F93;&#x5165;&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;"></a>&#x5B9A;&#x4E49;&#x8F93;&#x5165;&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;</h3><h4 id="&#x901A;&#x8FC7;&#x5360;&#x4F4D;&#x7B26;"><a href="#&#x901A;&#x8FC7;&#x5360;&#x4F4D;&#x7B26;" class="headerlink" title="&#x901A;&#x8FC7;&#x5360;&#x4F4D;&#x7B26;"></a>&#x901A;&#x8FC7;&#x5360;&#x4F4D;&#x7B26;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X = tf.placeholder(&quot;float&quot;)</span><br><span class="line">Y = tf.placeholder(&quot;float&quot;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="&#x901A;&#x8FC7;&#x5B57;&#x5178;&#x7C7B;&#x578B;&#x7684;&#x5B9A;&#x4E49;"><a href="#&#x901A;&#x8FC7;&#x5B57;&#x5178;&#x7C7B;&#x578B;&#x7684;&#x5B9A;&#x4E49;" class="headerlink" title="&#x901A;&#x8FC7;&#x5B57;&#x5178;&#x7C7B;&#x578B;&#x7684;&#x5B9A;&#x4E49;"></a>&#x901A;&#x8FC7;&#x5B57;&#x5178;&#x7C7B;&#x578B;&#x7684;&#x5B9A;&#x4E49;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">input_dict = {</span><br><span class="line">	&apos;x&apos;: tf.placeholder(&quot;float&quot;)</span><br><span class="line">	&apos;y&apos;: tf.placeholder(&quot;float&quot;)</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-01-27");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-01-27T10:22:01.000Z" itemprop="datePublished">2020-01-27</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/中文/'>中文</a>
+
+<a class="post-categories-list-item" href='/categories/中文/tensorflow/'>tensorflow</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/中文/" rel="tag">#&nbsp;中文</a>
+
+<a class="post-tags-list-item" href="/tags/tensorflow/" rel="tag">#&nbsp;tensorflow</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/10/09/opencv常用方法/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">OpenCV知识点总结</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">Warren Zhao&#39; blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>jdbc | Warren Zhao&#39; blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content>
+
+<!-- Keywords -->
+<meta name="keywords" content=", 中文, javaweb">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Warren Zhao&#39; blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Warren Zhao&#39; blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="jdbc | Warren Zhao&#39; blog">
+<meta property="og:site_name" content="Warren Zhao&#39; blog">
+
+<meta property="og:locale" content="en">
+
+<meta property="og:url" content="http://yoursite.com/2018/03/19/jdbc/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content>
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2018-03-19T11:55:42.000Z">
+    <meta property="article:modified_time" content="2018-03-19T11:55:42.000Z">
+    <meta property="article:author" content="Warren Zhao">
+    <meta property="og:article:tag" content=", 中文, javaweb"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2018/03/19/jdbc/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2018/03/19/jdbc/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2018/03/19/jdbc/"
+    },
+    "headline": "jdbc | Warren Zhao&#39; blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2018-03-19T11:55:42.000Z",
+    "dateModified": "2018-03-19T12:14:36.000Z",
+    "author": {
+        "@type": "Person",
+        "name": "Warren Zhao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Warren Zhao&#39; blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 中文, javaweb",
+    "description": ""
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Warren Zhao&#39; blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Warren Zhao' blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Warren Zhao' blog&url=http://yoursite.com&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=jdbc" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=jdbc&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=jdbc" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABj0lEQVR42u3a2wrCMBCE4b7/S+uVUCQ7O6ulncDfG7Xa9BNCsocer4DjAAECxBaIQxzn7z/vV6/nsdxxQWQjlpNmcaPqXPebEgoiGrGakN8XOxNxMi6IPRGrRUYBuutB7I+oFp7VRHT+BIh9EGqjqW4kN6crd1EQtyO6QPfX10ujbRC3IdqkVQ1S3PjyrBzErYgq8a0+VxtXFdwoJIhchBpIYSbn7A0MxOOIKnh1FicVBDkLGYhchApg3cKJg5cTE0QMwtmUHIBamMo/CCIWIX8oEtvuaAsrICIRk2aKsxCNgmQQsQgnUJkWT51iGog9EGowt+gOYn+EU/RoCx5Ns8ZKfkBEIJyHdpyFSl03CnRBPI5wk6Cu4aoS5/IciFhEF5h2Qe/0wT8Q+QinEac2NKe4dklzFsQtCLdhr5prbjIkgxoQUQj1AE4XrHQNGbsbCCIO4QQmXSL88wYGYiuE03zviup/T0wQkQjVPHFuCGI/xGhCGRPRavCCiEV0ge7kYY0uGAKRj3jyAAECRDTiDd7j6UnKTq+PAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">jdbc</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Warren Zhao's Avatar">
+        <span>2018-03-19</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/中文/">中文</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/中文/javaweb/">javaweb</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=jdbc&url=http://yoursite.com/2018/03/19/jdbc/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=jdbc&url=http://yoursite.com/2018/03/19/jdbc/&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/19/jdbc/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2018/03/19/jdbc/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2018/03/19/jdbc/&title=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Warren Zhao' blog&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2018/03/19/jdbc/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2018/03/19/jdbc/&text=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABj0lEQVR42u3a2wrCMBCE4b7/S+uVUCQ7O6ulncDfG7Xa9BNCsocer4DjAAECxBaIQxzn7z/vV6/nsdxxQWQjlpNmcaPqXPebEgoiGrGakN8XOxNxMi6IPRGrRUYBuutB7I+oFp7VRHT+BIh9EGqjqW4kN6crd1EQtyO6QPfX10ujbRC3IdqkVQ1S3PjyrBzErYgq8a0+VxtXFdwoJIhchBpIYSbn7A0MxOOIKnh1FicVBDkLGYhchApg3cKJg5cTE0QMwtmUHIBamMo/CCIWIX8oEtvuaAsrICIRk2aKsxCNgmQQsQgnUJkWT51iGog9EGowt+gOYn+EU/RoCx5Ns8ZKfkBEIJyHdpyFSl03CnRBPI5wk6Cu4aoS5/IciFhEF5h2Qe/0wT8Q+QinEac2NKe4dklzFsQtCLdhr5prbjIkgxoQUQj1AE4XrHQNGbsbCCIO4QQmXSL88wYGYiuE03zviup/T0wQkQjVPHFuCGI/xGhCGRPRavCCiEV0ge7kYY0uGAKRj3jyAAECRDTiDd7j6UnKTq+PAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#访问数据库的接口"><span class="post-toc-number">1.</span> <span class="post-toc-text">访问数据库的接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JDBC的编程步骤"><span class="post-toc-number">2.</span> <span class="post-toc-text">JDBC的编程步骤</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h3 id="&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x7684;&#x63A5;&#x53E3;"><a href="#&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x7684;&#x63A5;&#x53E3;" class="headerlink" title="&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x7684;&#x63A5;&#x53E3;"></a>&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x7684;&#x63A5;&#x53E3;</h3><p>ODBC&#xFF1A;&#x5FAE;&#x8F6F;&#x5E73;&#x53F0;&#x3002;<br>JDBC&#xFF1A;java&#x5E73;&#x53F0;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x7684;&#x552F;&#x4E00;&#x63A5;&#x53E3;&#x3002;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x5B8C;&#x7F8E;&#xFF0C;&#x56E0;&#x6B64;hibernate&#x6D41;&#x884C;&#x4E86;&#xFF0C;&#x5B8C;&#x5168;&#x5C4F;&#x853D;&#x4E86;&#x4E0D;&#x540C;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x5FAE;&#x5C0F;&#x533A;&#x522B;&#x3002;</p>
+<h3 id="JDBC&#x7684;&#x7F16;&#x7A0B;&#x6B65;&#x9AA4;"><a href="#JDBC&#x7684;&#x7F16;&#x7A0B;&#x6B65;&#x9AA4;" class="headerlink" title="JDBC&#x7684;&#x7F16;&#x7A0B;&#x6B65;&#x9AA4;"></a>JDBC&#x7684;&#x7F16;&#x7A0B;&#x6B65;&#x9AA4;</h3><ol>
+<li>&#x627E;&#x5230;&#x6570;&#x636E;&#x5E93;&#x63D0;&#x4F9B;&#x7684;&#x8FDE;&#x63A5;&#x7C7B;&#x5E93;&#x3002;Load the Driver&#x3002;&#x6DFB;&#x52A0;BuildPath&#x5C31;&#x884C;&#x3002;&#x4E3A;&#x4E86;&#x964D;&#x4F4E;&#x8026;&#x5408;&#x6027;&#xFF0C;&#x81EA;&#x5DF1;&#x7684;jar&#x5305;&#x81EA;&#x5DF1;&#x7BA1;&#xFF0C;&#x5C3D;&#x91CF;&#x964D;&#x4F4E;&#x548C;&#x522B;&#x4EBA;&#x7684;&#x9879;&#x76EE;&#x7684;&#x51B2;&#x7A81;&#x3002;</li>
+<li>Connect to the DataBase.&#x4F7F;&#x7528;DriverManager&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#x3002;</li>
+<li>Execute the SQL&#x3002;</li>
+<li></li>
+</ol>
+<p>&#x5927;&#x5199;&#x7684;<code>Class</code>&#x548C;<code>class</code>&#x7684;&#x533A;&#x522B;&#x3002;</p>
+<p>&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ol>
+<li>new&#x4E00;&#x4E2A;diver&#x51FA;&#x6765;&#x3002;</li>
+<li>&#x62FF;&#x5230;Connection&#x3002;</li>
+<li></li>
+</ol>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2018-03-19");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2018-03-19T11:55:42.000Z" itemprop="datePublished">2018-03-19</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/中文/'>中文</a>
+
+<a class="post-categories-list-item" href='/categories/中文/javaweb/'>javaweb</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/中文/" rel="tag">#&nbsp;中文</a>
+
+<a class="post-tags-list-item" href="/tags/javaweb/" rel="tag">#&nbsp;javaweb</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2018/03/28/springbootbasic/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Spring Boot Basic</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2018/03/12/jsp/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Jsp</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">Warren Zhao&#39; blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

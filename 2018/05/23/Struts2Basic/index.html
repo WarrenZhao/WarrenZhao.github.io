@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>Struts2 Basic | Warren Zhao&#39; blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content>
+
+<!-- Keywords -->
+<meta name="keywords" content=", 中文, Struts2">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Warren Zhao&#39; blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Warren Zhao&#39; blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Struts2 Basic | Warren Zhao&#39; blog">
+<meta property="og:site_name" content="Warren Zhao&#39; blog">
+
+<meta property="og:locale" content="en">
+
+<meta property="og:url" content="http://yoursite.com/2018/05/23/Struts2Basic/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content>
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2018-05-23T12:23:25.000Z">
+    <meta property="article:modified_time" content="2018-05-23T12:23:25.000Z">
+    <meta property="article:author" content="Warren Zhao">
+    <meta property="og:article:tag" content=", 中文, Struts2"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2018/05/23/Struts2Basic/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2018/05/23/Struts2Basic/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2018/05/23/Struts2Basic/"
+    },
+    "headline": "Struts2 Basic | Warren Zhao&#39; blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2018-05-23T12:23:25.000Z",
+    "dateModified": "2018-05-25T07:40:41.000Z",
+    "author": {
+        "@type": "Person",
+        "name": "Warren Zhao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Warren Zhao&#39; blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 中文, Struts2",
+    "description": ""
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Warren Zhao&#39; blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Warren Zhao' blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Warren Zhao' blog&url=http://yoursite.com&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=Struts2 Basic" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Struts2 Basic&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=Struts2 Basic" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB1ElEQVR42u3a267CMAxE0f7/T3NeUZV4xqFHSqa7LwgKzUJybo6vz4bXBQoUKFAD1FVc3/enD7rdm31XtQMqC+U0Nnrw/fPR+/tr1Q6oLNQowNXn6rXzPFDvQalBU6E67YB6D6oKVucC9U5UJ5BHYLcDPLJKALU9yg3QX18f3c2A2hZlJR4KrPO7f8m6gNoWNWtk9MAq8TEDzAZae5UAKgalEKNGZn9CLfhA5aFmk+ZooT9b/Dvvq6QaqByUSkaowO9CqkkaVBbKTVx0cKrDyEAHdTSqDMDFzao7YYPKRKmNZ7UBqDqBSqCBykWppH53MVglQ9qrBFBHoWaYbgHO6uAJKhOlAtI5SFQJjKoDgcpEdRb87qDoFIGBykS5hzvuArDbQUBlodxgdgbL6o+qwwNQWShVIOMcFjlJOHkwCSoC5RaJVlAHrjYcoHJQnYKZTvGNcyBlVQWBOg6lFvadhGqnYAJULsoNUlWwtZIomybNQB2N6iY4OofY7oYUVB6qmnzdSXWpOEJlXUAdjXKSFlXQdot47ENIUJGolXvq+zLBASoW9UvCTBX3LA+eoI5AVRPyaoGzM7GXgyeoY1HuxsEJ/k6neGQ3A2o71E4XKFCgQH1df1x8QH/ABV2rAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Struts2 Basic</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Warren Zhao's Avatar">
+        <span>2018-05-23</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/中文/">中文</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/中文/Struts2/">Struts2</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Struts2 Basic&url=http://yoursite.com/2018/05/23/Struts2Basic/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Struts2 Basic&url=http://yoursite.com/2018/05/23/Struts2Basic/&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/23/Struts2Basic/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2018/05/23/Struts2Basic/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2018/05/23/Struts2Basic/&title=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Warren Zhao' blog&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2018/05/23/Struts2Basic/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2018/05/23/Struts2Basic/&text=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB1ElEQVR42u3a267CMAxE0f7/T3NeUZV4xqFHSqa7LwgKzUJybo6vz4bXBQoUKFAD1FVc3/enD7rdm31XtQMqC+U0Nnrw/fPR+/tr1Q6oLNQowNXn6rXzPFDvQalBU6E67YB6D6oKVucC9U5UJ5BHYLcDPLJKALU9yg3QX18f3c2A2hZlJR4KrPO7f8m6gNoWNWtk9MAq8TEDzAZae5UAKgalEKNGZn9CLfhA5aFmk+ZooT9b/Dvvq6QaqByUSkaowO9CqkkaVBbKTVx0cKrDyEAHdTSqDMDFzao7YYPKRKmNZ7UBqDqBSqCBykWppH53MVglQ9qrBFBHoWaYbgHO6uAJKhOlAtI5SFQJjKoDgcpEdRb87qDoFIGBykS5hzvuArDbQUBlodxgdgbL6o+qwwNQWShVIOMcFjlJOHkwCSoC5RaJVlAHrjYcoHJQnYKZTvGNcyBlVQWBOg6lFvadhGqnYAJULsoNUlWwtZIomybNQB2N6iY4OofY7oYUVB6qmnzdSXWpOEJlXUAdjXKSFlXQdot47ENIUJGolXvq+zLBASoW9UvCTBX3LA+eoI5AVRPyaoGzM7GXgyeoY1HuxsEJ/k6neGQ3A2o71E4XKFCgQH1df1x8QH/ABV2rAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Struts2框架简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">Struts2框架简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Struts2框架的优点"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Struts2框架的优点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Struts2框架的缺点"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Struts2框架的缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Struts2-MVC框架"><span class="post-toc-number">2.</span> <span class="post-toc-text">Struts2 MVC框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Struts2第一个程序Hello-World"><span class="post-toc-number">3.</span> <span class="post-toc-text">Struts2第一个程序Hello World</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原理"><span class="post-toc-number">4.</span> <span class="post-toc-text">原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#namespace"><span class="post-toc-number">5.</span> <span class="post-toc-text">namespace</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Action"><span class="post-toc-number">6.</span> <span class="post-toc-text">Action</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#访问过程"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">访问过程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#action中的class执行的机制"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">action中的class执行的机制</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#路径问题的说明"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">路径问题的说明</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ActionMethod-DMI动态方法调用"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">ActionMethod_DMI动态方法调用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ActionWildcard-通配符"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">ActionWildcard_通配符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用action的属性接受参数"><span class="post-toc-number">6.6.</span> <span class="post-toc-text">用action的属性接受参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#中文参数的处理"><span class="post-toc-number">6.7.</span> <span class="post-toc-text">中文参数的处理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#简单的数据验证"><span class="post-toc-number">6.8.</span> <span class="post-toc-text">简单的数据验证</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#访问Web元素"><span class="post-toc-number">6.9.</span> <span class="post-toc-text">访问Web元素</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模块包含"><span class="post-toc-number">6.10.</span> <span class="post-toc-text">模块包含</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#默认Action"><span class="post-toc-number">6.11.</span> <span class="post-toc-text">默认Action</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结"><span class="post-toc-number">6.12.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Result配置"><span class="post-toc-number">7.</span> <span class="post-toc-text">Result配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#result类型"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">result类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Global-Result全局结果集"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">Global_Result全局结果集</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dynamic-result动态结果集和带参结果集"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">dynamic_result动态结果集和带参结果集</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OGNL"><span class="post-toc-number">8.</span> <span class="post-toc-text">OGNL</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标签"><span class="post-toc-number">9.</span> <span class="post-toc-text">标签</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#拦截器"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">拦截器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用token拦截器控制重复提交的问题"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">使用token拦截器控制重复提交的问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类型转换"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">类型转换</span></a></li></ol></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h3 id="Struts2&#x6846;&#x67B6;&#x7B80;&#x4ECB;"><a href="#Struts2&#x6846;&#x67B6;&#x7B80;&#x4ECB;" class="headerlink" title="Struts2&#x6846;&#x67B6;&#x7B80;&#x4ECB;"></a>Struts2&#x6846;&#x67B6;&#x7B80;&#x4ECB;</h3><p>Struts2&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;MVC&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;Web&#x5E94;&#x7528;&#x6846;&#x67B6;&#xFF0C;&#x5B83;&#x5B9E;&#x8D28;&#x4E0A;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;servlet&#xFF0C;&#x5728;MVC&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;Struts2&#x4F5C;&#x4E3A;&#x63A7;&#x5236;&#x524D;&#x6765;&#x5EFA;&#x7ACB;&#x6A21;&#x578B;&#x4E8E;&#x662F;&#x56FE;&#x7684;&#x6570;&#x636E;&#x4EA4;&#x4E92;&#x3002;</p>
+<h4 id="Struts2&#x6846;&#x67B6;&#x7684;&#x4F18;&#x70B9;"><a href="#Struts2&#x6846;&#x67B6;&#x7684;&#x4F18;&#x70B9;" class="headerlink" title="Struts2&#x6846;&#x67B6;&#x7684;&#x4F18;&#x70B9;"></a>Struts2&#x6846;&#x67B6;&#x7684;&#x4F18;&#x70B9;</h4><ol>
+<li>POJO&#x8868;&#x5355;&#x53CA;POJO&#x64CD;&#x4F5C;</li>
+<li>&#x6807;&#x7B7E;&#x652F;&#x6301;</li>
+<li>AJAX&#x652F;&#x6301;</li>
+<li>&#x6613;&#x4E8E;&#x6574;&#x5408;</li>
+<li>&#x652F;&#x6301;&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x751F;&#x6210;&#x89C6;&#x56FE;</li>
+<li>&#x63D2;&#x4EF6;&#x4E30;&#x5BCC;</li>
+<li>&#x4E3A;&#x8C03;&#x8BD5;&#x548C;&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x63D0;&#x4F9B;&#x7EFC;&#x5408;&#x7684;&#x6027;&#x80FD;&#x5206;&#x6790;</li>
+<li>&#x6613;&#x4E8E;&#x4FEE;&#x6539;&#x6807;&#x7B7E;</li>
+<li>&#x4FC3;&#x8FDB;&#x51CF;&#x5C11;&#x914D;&#x7F6E;</li>
+<li>&#x4E3A;&#x591A;&#x4E2D;&#x89C6;&#x56FE;&#x9009;&#x9879;&#xFF08;JSP&#x3001;Freemarker&#x3001;Velocity&#x3001;XSLT&#x7B49;&#xFF09;&#x63D0;&#x4F9B;&#x6280;&#x652F;&#x6301;</li>
+</ol>
+<h4 id="Struts2&#x6846;&#x67B6;&#x7684;&#x7F3A;&#x70B9;"><a href="#Struts2&#x6846;&#x67B6;&#x7684;&#x7F3A;&#x70B9;" class="headerlink" title="Struts2&#x6846;&#x67B6;&#x7684;&#x7F3A;&#x70B9;"></a>Struts2&#x6846;&#x67B6;&#x7684;&#x7F3A;&#x70B9;</h4><ol>
+<li>&#x66F4;&#x5927;&#x7684;&#x5B66;&#x4E60;&#x66F2;&#x7EBF;</li>
+<li>&#x6587;&#x6863;&#x7F3A;&#x4E4F;</li>
+<li>&#x4E0D;&#x591F;&#x900F;&#x660E;</li>
+</ol>
+<h3 id="Struts2-MVC&#x6846;&#x67B6;"><a href="#Struts2-MVC&#x6846;&#x67B6;" class="headerlink" title="Struts2 MVC&#x6846;&#x67B6;"></a>Struts2 MVC&#x6846;&#x67B6;</h3><p>&#x6A21;&#x578B;&#xFF08;Model&#xFF09;-&#x89C6;&#x56FE;&#xFF08;View&#xFF09;-&#x63A7;&#x5236;&#x5668;&#xFF08;Controller&#xFF09;&#xFF0C;&#x901A;&#x5E38;&#x7B80;&#x79F0;MVC&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x5F00;&#x53D1;web&#x5E94;&#x7528;&#x7684;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x3002;&#x8BE5;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7531;&#x4E00;&#x4E0B;&#x4E09;&#x90E8;&#x5206;&#x7EC4;&#x6210;&#xFF1A;</p>
+<ul>
+<li><strong>&#x6A21;&#x578B;</strong>&#x2014;&#x2014;&#x5C5E;&#x4E8E;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;&#x5E95;&#x5C42;&#x57FA;&#x7840;&#xFF0C;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;&#x6570;&#x636E;&#x7EF4;&#x62A4;&#x3002;</li>
+<li><strong>&#x89C6;&#x56FE;</strong>&#x2014;&#x2014;&#x8FD9;&#x90E8;&#x5206;&#x662F;&#x8D1F;&#x8D23;&#x5411;&#x7528;&#x6237;&#x5448;&#x73B0;&#x5168;&#x90E8;&#x6216;&#x8005;&#x90E8;&#x5206;&#x6570;&#x636E;&#x3002;</li>
+<li><strong>&#x63A7;&#x5236;&#x5668;</strong>&#x2014;&#x2014;&#x901A;&#x8FC7;&#x8F6F;&#x4EF6;&#x4EE3;&#x7801;&#x63A7;&#x5236;&#x6A21;&#x578B;&#x548C;&#x89C6;&#x56FE;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x3002;</li>
+</ul>
+<p>MVC&#x533A;&#x5206;&#x4E86;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x903B;&#x8F91;&#x5C42;&#x548C;&#x7528;&#x6237;&#x754C;&#x9762;&#x5C42;&#xFF0C;&#x5E76;&#x652F;&#x6301;&#x5F00;&#x53D1;&#x5173;&#x6CE8;&#x70B9;&#x7684;&#x5206;&#x79BB;&#x3002;&#x5728;MVC&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x63A7;&#x5236;&#x5668;&#x63A5;&#x6536;&#x4E86;&#x6765;&#x81EA;&#x6240;&#x6709;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x8BF7;&#x6C42;&#x540E;&#xFF0C;&#x8C03;&#x7528;&#x6A21;&#x578B;&#x53BB;&#x51C6;&#x5907;&#x89C6;&#x56FE;&#x6240;&#x9700;&#x8981;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x7136;&#x540E;&#x89C6;&#x56FE;&#x4F7F;&#x7528;&#x63A7;&#x5236;&#x5668;&#x63D0;&#x4F9B;&#x7684;&#x6570;&#x636E;&#x6700;&#x7EC8;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x53EF;&#x89C6;&#x7684;&#x54CD;&#x5E94;&#x3002;</p>
+<h3 id="Struts2&#x7B2C;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;Hello-World"><a href="#Struts2&#x7B2C;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;Hello-World" class="headerlink" title="Struts2&#x7B2C;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;Hello World"></a>Struts2&#x7B2C;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;Hello World</h3><ol>
+<li>&#x5728;src&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x914D;&#x7F6E;struts.xml&#x3002;</li>
+<li>&#x5728;web&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x65B0;&#x5EFA;hello.jsp&#x6587;&#x4EF6;&#x3002;</li>
+<li>&#x914D;&#x7F6E;web/WEB-INF&#x4E0B;&#x9762;&#x7684;web.xml&#x6587;&#x4EF6;&#x3002;</li>
+<li>&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x8DEF;&#x5F84;&#x4E3A;localhost:8080/&#x9879;&#x76EE;&#x540D;/actionname&#x3002;</li>
+</ol>
+<h3 id="&#x539F;&#x7406;"><a href="#&#x539F;&#x7406;" class="headerlink" title="&#x539F;&#x7406;"></a>&#x539F;&#x7406;</h3><p>request -&gt; tomcat -&gt; webapplication -&gt; namespace -&gt; action -&gt; result -&gt; return</p>
+<p>Struts2&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#xFF1A;&#x5C06;&#x5BA2;&#x6237;&#x7684;&#x8BF7;&#x6C42;&#x548C;&#x5C55;&#x73B0;&#xFF08;&#x89C6;&#x56FE;&#xFF09;&#x5206;&#x79BB;&#x3002;</p>
+<h3 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h3><ol>
+<li>package name=&#x201D;front&#x201D;&#x8868;&#x793A;&#x524D;&#x53F0;&#x3002;</li>
+<li>namespace=&#x201D;/front&#x201D;&#x5B9A;&#x4E49;&#x4E86;&#x8BBF;&#x95EE;&#x8DEF;&#x5F84;&#xFF0C;namespace=&#x201D;&#x201D;&#x53EA;&#x8981;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x7CBE;&#x786E;action&#x7684;name&#xFF0C;&#x5C31;&#x5168;&#x90FD;&#x8FD4;&#x56DE;&#x7ED9;&#x8FD9;&#x4E2A;action&#x3002;</li>
+<li><result>&#x8868;&#x793A;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;success&#x3002;</result></li>
+</ol>
+<p><font color="red">&#x62F7;&#x8D1D;&#x9879;&#x76EE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x66F4;&#x6539;web-contact&#x7684;&#x8DEF;&#x5F84;&#x3002;</font></p>
+<p>&#x5F15;&#x5165;&#x9879;&#x76EE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8981;&#x6CE8;&#x610F;&#x62F7;&#x8D1D;&#x6240;&#x6709;&#x7684;&#x6587;&#x8FDB;&#x3002;</p>
+<p>&#x5982;&#x4F55;&#x8C03;&#x4EF7;JRE&#x7684;lib&#x3002;</p>
+<h3 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h3><p>&#x5F53;&#x7528;&#x6237;&#x8FDB;&#x884C;&#x8BF7;&#x6C42;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x89C6;&#x56FE;&#x53EF;&#x4EE5;&#x7531;&#x7528;&#x6237;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#xFF0C;&#x5728;struts.xml&#x6587;&#x4EF6;&#x4E2D;&#x8FDB;&#x884C;&#x5B9A;&#x4E49;&#x3002;</p>
+<p>struts2&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x90FD;&#x4F1A;new&#x4E00;&#x4E2A;&#x65B0;&#x7684;action&#x5BF9;&#x8C61;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5185;&#x5B58;&#x4F18;&#x5316;&#x4E0D;&#x7528;&#x8003;&#x8651;&#x3002;</p>
+<p>&#x5F53;&#x4E0D;&#x5BF9;class&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7528;&#x7684;&#x662F;ActionSupport&#x5BF9;&#x8C61;&#x7684;excute&#x65B9;&#x6CD5;&#x3002;</p>
+<h4 id="&#x8BBF;&#x95EE;&#x8FC7;&#x7A0B;"><a href="#&#x8BBF;&#x95EE;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x8BBF;&#x95EE;&#x8FC7;&#x7A0B;"></a>&#x8BBF;&#x95EE;&#x8FC7;&#x7A0B;</h4><p>request -&gt; tomcat -&gt; webapplication -&gt; namespace -&gt; action&#xFF08;&#x53D1;&#x73B0;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x5728;Struts2&#x8BBF;&#x95EE;&#x7684;&#x65F6;&#x5019;&#x5C31;new&#x4E86;&#xFF09;-&gt;&#x6267;&#x884C;&#x5BF9;&#x8C61;&#x7684;excecute()&#x65B9;&#x6CD5; -&gt;&#x6839;&#x636E;&#x8FD4;&#x56DE;&#x503C;&#x8FD4;&#x56DE;&#x76F8;&#x5E94;&#x7684;jsp -&gt; result -&gt; return</p>
+<h4 id="action&#x4E2D;&#x7684;class&#x6267;&#x884C;&#x7684;&#x673A;&#x5236;"><a href="#action&#x4E2D;&#x7684;class&#x6267;&#x884C;&#x7684;&#x673A;&#x5236;" class="headerlink" title="action&#x4E2D;&#x7684;class&#x6267;&#x884C;&#x7684;&#x673A;&#x5236;"></a>action&#x4E2D;&#x7684;class&#x6267;&#x884C;&#x7684;&#x673A;&#x5236;</h4><ol>
+<li>&#x5728;Action&#x6CA1;&#x6709;&#x914D;&#x7F6E;&#xFF0C;&#x6267;&#x884C;ActionSupport&#x5BF9;&#x8C61;&#x7684;excecute&#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x5B9A;&#x4E49;&#x7C7B;&#x5B9E;&#x73B0;action&#x63A5;&#x53E3;&#xFF0C;&#x8C03;&#x7528;&#x5176;execute&#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x5B9A;&#x4E49;&#x7C7B;&#x7EE7;&#x627F;ActionSupport&#x7C7B;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x6700;&#x5E38;&#x7528;&#x7684;&#xFF0C;&#x597D;&#x5904;&#x5728;&#x4E8E;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;Struts2&#x5C01;&#x88C5;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#x3002;</li>
+</ol>
+<h4 id="&#x8DEF;&#x5F84;&#x95EE;&#x9898;&#x7684;&#x8BF4;&#x660E;"><a href="#&#x8DEF;&#x5F84;&#x95EE;&#x9898;&#x7684;&#x8BF4;&#x660E;" class="headerlink" title="&#x8DEF;&#x5F84;&#x95EE;&#x9898;&#x7684;&#x8BF4;&#x660E;"></a>&#x8DEF;&#x5F84;&#x95EE;&#x9898;&#x7684;&#x8BF4;&#x660E;</h4><p>Struts2&#x4E2D;&#x7684;&#x8DEF;&#x5F84;&#x662F;&#x6839;&#x636E;action&#x7684;&#x8DEF;&#x5F84;&#x800C;&#x4E0D;&#x662F;jsp&#x8DEF;&#x5F84;&#x6765;&#x786E;&#x5B9A;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;1.&#x4F7F;&#x7528;jsp&#x5B9A;&#x4E49;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF1B;2.&#x4F7F;&#x7528;<bath>&#x6807;&#x7B7E;&#x3002;</bath></p>
+<h4 id="ActionMethod-DMI&#x52A8;&#x6001;&#x65B9;&#x6CD5;&#x8C03;&#x7528;"><a href="#ActionMethod-DMI&#x52A8;&#x6001;&#x65B9;&#x6CD5;&#x8C03;&#x7528;" class="headerlink" title="ActionMethod_DMI&#x52A8;&#x6001;&#x65B9;&#x6CD5;&#x8C03;&#x7528;"></a>ActionMethod_DMI&#x52A8;&#x6001;&#x65B9;&#x6CD5;&#x8C03;&#x7528;</h4><ol>
+<li>&#x5728;action&#x4E2D;&#x914D;&#x7F6E;method&#x5C5E;&#x6027;&#xFF0C;&#x5728;&#x7C7B;&#x4E2D;&#x5C06;&#x65B9;&#x6CD5;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x7F6E;&#x4E3A;String&#x3002;&#xFF08;&#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#xFF09;</li>
+<li>&#x5728;action&#x4E2D;&#x4E0D;&#x914D;&#x7F6E;method&#xFF0C;&#x5728;url&#x4E2D;&#x901A;&#x8FC7;<code>!</code>&#x8FDB;&#x884C;&#x65B9;&#x6CD5;&#x6307;&#x5B9A;&#x3002;</li>
+</ol>
+<h4 id="ActionWildcard-&#x901A;&#x914D;&#x7B26;"><a href="#ActionWildcard-&#x901A;&#x914D;&#x7B26;" class="headerlink" title="ActionWildcard_&#x901A;&#x914D;&#x7B26;"></a>ActionWildcard_&#x901A;&#x914D;&#x7B26;</h4><ol>
+<li>Struts2&#x7684;&#x901A;&#x914D;&#x7B26;&#x662F;<code>*</code>&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x5728;<action>&#x6807;&#x7B7E;&#x4E2D;&#x7684;name&#x5C5E;&#x6027;&#x548C;method&#x5C5E;&#x6027;&#x3002;</action></li>
+<li>&#x4E00;&#x5B9A;&#x8981;&#x9075;&#x5B88;&#x201C;&#x7EA6;&#x5B9A;&#x4F18;&#x4E8E;&#x914D;&#x7F6E;&#x201D;&#x3002;</li>
+<li>&#x4E0D;&#x8BBA;&#x6709;&#x591A;&#x5C11;&#x4E2A;<code>*</code>&#xFF0C;&#x8BA1;&#x6570;&#x8981;&#x4ECE;1&#x5F00;&#x59CB;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;action&#x90FD;&#x7B26;&#x5408;&#xFF0C;&#x4F18;&#x5148;&#x5339;&#x914D;&#x7CBE;&#x786E;&#x5339;&#x914D;&#x7684;&#xFF0C;&#x975E;&#x7CBE;&#x786E;&#x5339;&#x914D;&#x7684;&#xFF0C;&#x6309;&#x7167;&#x987A;&#x5E8F;&#x5339;&#x914D;&#x3002;</li>
+</ol>
+<p><font color="red">&#x6CE8;&#x610F;&#xFF1A;&#x4F7F;&#x7528;&#x901A;&#x914D;&#x7B26;&#x53EF;&#x4EE5;&#x7B80;&#x5316;&#x914D;&#x7F6E;&#xFF01;</font></p>
+<h4 id="&#x7528;action&#x7684;&#x5C5E;&#x6027;&#x63A5;&#x53D7;&#x53C2;&#x6570;"><a href="#&#x7528;action&#x7684;&#x5C5E;&#x6027;&#x63A5;&#x53D7;&#x53C2;&#x6570;" class="headerlink" title="&#x7528;action&#x7684;&#x5C5E;&#x6027;&#x63A5;&#x53D7;&#x53C2;&#x6570;"></a>&#x7528;action&#x7684;&#x5C5E;&#x6027;&#x63A5;&#x53D7;&#x53C2;&#x6570;</h4><p><font color="red">&#x90E8;&#x7F72;&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#xFF1A;jdk&#x7F16;&#x8BD1;&#x7248;&#x672C;&#xFF0C;tomcat&#x9009;&#x62E9;&#x7684;jdk&#x7248;&#x672C;&#xFF08;&#x5982;&#x679C;&#x6709;&#x8BBE;&#x7F6E;&#xFF09;</font></p>
+<p>&#x63A5;&#x6536;&#x53C2;&#x6570;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<ol>
+<li>&#x548C;Action&#x6307;&#x5411;&#x7684;class&#x4E2D;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#xFF0C;&#x539F;&#x7406;&#x662F;&#x901A;&#x8FC7;getter&#x3001;setter&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#x3002;</li>
+<li><font color="red">&#x4F7F;&#x7528;&#x6700;&#x591A;&lt;/fontDomainModel&#x63A5;&#x6536;&#x53C2;&#x6570;Model&#xFF08;&#x57DF;&#x6A21;&#x578B;&#xFF09;&#xFF0C;&#x5728;Action&#x6307;&#x5411;&#x7684;&#x7C7B;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x5B9A;&#x4E49;get&#x3001;set&#x65B9;&#x6CD5;&#xFF0C;<font color="red">&#x4E0D;&#x9700;&#x8981;new&#x5BF9;&#x8C61;</font>&#x3002;&#x5982;&#x679C;&#x9047;&#x5230;&#x4E86;&#x53C2;&#x6570;&#x548C;&#x57DF;&#x6A21;&#x578B;&#x6709;&#x533A;&#x522B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x9002;&#x7528;&#x4E86;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;VO&#x6216;&#x8005;DTO&#x3002;&#x4E3E;&#x4F8B;&#xFF1A;&#x7528;&#x6237;&#x540D;&#x3001;&#x5BC6;&#x7801;&#x3001;&#x5BC6;&#x7801;&#x786E;&#x8BA4;&#xFF0C;&#x7528;&#x6237;&#x7684;&#x7C7B;&#x53EA;&#x9700;&#x8981;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#xFF0C;&#x5B58;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x3002;VO&#x53EF;&#x4EE5;&#x589E;&#x52A0;&#x5BC6;&#x7801;&#x786E;&#x8BA4;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#xFF0C;&#x7528;VO&#x751F;&#x6210;&#x7528;&#x6237;&#x3002;</font></li>
+<li>ModelDriven&#xFF08;&#x4E0D;&#x5E38;&#x7528;&#xFF0C;&#x91CD;&#x70B9;&#x5B66;&#x4E60;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x7684;&#x601D;&#x60F3;&#xFF09;&#x3002;new&#x51FA;&#x6765;&#x4E86;action&#x4E4B;&#x540E;&#xFF0C;Struts2&#x53D1;&#x73B0;&#x5B9E;&#x73B0;&#x5B9E;&#x73B0;&#x4E86;ModelDriven&#x63A5;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x53EF;&#x4EE5;&#x8C03;&#x7528;getModel&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#x53EF;&#x4EE5;&#x8C03;&#x7528;User&#x7684;setName&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#x3002;</li>
+</ol>
+<p><font color="red">DTO&#xFF1A;Domain transfer object&#x3002;&#x540E;&#x53F0;&#x5BF9;&#x8C61;&#x548C;&#x4F20;&#x8F93;&#x53C2;&#x6570;&#x5BF9;&#x4E0D;&#x4E0A;&#x7684;&#x65F6;&#x5019;&#x7528;&#x3002;</font></p>
+<p>Struts2&#x4E2D;&#x7684;&#x63A7;&#x5236;&#x5668;&#xFF1A;action&#xFF1B;&#x89C6;&#x56FE;&#xFF1A;JSP&#xFF1B;M&#xFF1A;model&#x3002;&#x7531;&#x63A7;&#x5236;&#x5668;&#x6765;&#x964D;&#x4F4E;&#x8026;&#x5408;&#x5EA6;&#x3002;&#x5176;&#x4E2D;Strtus2&#x91CD;&#x70B9;&#x662F;&#x5173;&#x6CE8;&#x63A7;&#x5236;&#x5668;&#x3002;</p>
+<h4 id="&#x4E2D;&#x6587;&#x53C2;&#x6570;&#x7684;&#x5904;&#x7406;"><a href="#&#x4E2D;&#x6587;&#x53C2;&#x6570;&#x7684;&#x5904;&#x7406;" class="headerlink" title="&#x4E2D;&#x6587;&#x53C2;&#x6570;&#x7684;&#x5904;&#x7406;"></a>&#x4E2D;&#x6587;&#x53C2;&#x6570;&#x7684;&#x5904;&#x7406;</h4><p>&#x5982;&#x679C;&#x6709;&#x4E2D;&#x6587;&#xFF0C;&#x5C31;&#x5C3D;&#x91CF;&#x4E0D;&#x7528;get&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5728;Struts2&#x7684;<code>Struts</code>&#x6807;&#x7B7E;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;<code>&lt;constant name=&quot;struts.i18n.encoding&quot; value=&quot;GBK&quot; /&gt;</code>&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x4E2D;&#x6587;&#x7F16;&#x7801;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x751F;&#x6548;&#x53EF;&#x80FD;&#x662F;&#x6846;&#x67B6;bug&#x6216;&#x8005;&#x8BD5;&#x4E00;&#x8BD5;filter&#x7684;&#x529E;&#x6CD5;&#x89E3;&#x51B3;&#x3002;</p>
+<p>&#x5728;&#x5B9E;&#x9645;&#x7684;&#x5DE5;&#x4F5C;&#x4E2D;&#xFF0C;&#x81EA;&#x5B66;&#x7684;&#x65B9;&#x6CD5;&#x4E00;&#x822C;&#x662F;1.&#x642D;&#x5EFA;hello world&#x7136;&#x540E;&#x4E00;&#x70B9;&#x4E00;&#x70B9;&#x7F51;&#x4E0A;&#x9762;&#x52A0;&#x4E1C;&#x897F;&#xFF0C;&#x6D4B;&#x8BD5;&#xFF0C;&#x5B66;&#x4E60;&#x3002;<font color="red">Struts2&#x7684;&#x4E00;&#x624B;&#x8D44;&#x6599;&#x5728;&#x5B98;&#x7F51;&#x4E0A;&#x9762;&#x5427;</font>&#x3002;</p>
+<h4 id="&#x7B80;&#x5355;&#x7684;&#x6570;&#x636E;&#x9A8C;&#x8BC1;"><a href="#&#x7B80;&#x5355;&#x7684;&#x6570;&#x636E;&#x9A8C;&#x8BC1;" class="headerlink" title="&#x7B80;&#x5355;&#x7684;&#x6570;&#x636E;&#x9A8C;&#x8BC1;"></a>&#x7B80;&#x5355;&#x7684;&#x6570;&#x636E;&#x9A8C;&#x8BC1;</h4><ul>
+<li>&#x4F7F;&#x7528;Struts2&#x7684;&#x8868;&#x4EB2;&#x9700;&#x8981;&#x5728;JSP&#x9875;&#x9762;&#x4E2D;&#x52A0;&#x5165;<code>&lt;%@taglib url=&quot;/struts-tages&quot; prefix=&quot;s&quot; %&gt;</code>&#x6807;&#x7B7E;&#x3002;</li>
+<li>&lt;s:property&gt;&#x6807;&#x7B7E;&#xFF0C;&#x80FD;&#x53D6;&#x5230;&#x503C;&#x6808;&#xFF0C;actioncontext&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x53D6;&#x5230;&#x7684;&#x662F;&#x4E00;&#x4E2A;map&#xFF0C;&#x901A;&#x8FC7;OGNL&#x8868;&#x8FBE;&#x5F0F;&#x53D6;&#x5F97;&#x76F8;&#x5E94;&#x7684;&#x503C;&#x3002;</li>
+<li>&lt;s:debug&gt;&#x6807;&#x7B7E;&#x80FD;&#x591F;&#x5C55;&#x793A;&#x5F88;&#x591A;&#x503C;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5E2E;&#x52A9;&#x7F16;&#x8BD1;&#x3002;</li>
+</ul>
+<h4 id="&#x8BBF;&#x95EE;Web&#x5143;&#x7D20;"><a href="#&#x8BBF;&#x95EE;Web&#x5143;&#x7D20;" class="headerlink" title="&#x8BBF;&#x95EE;Web&#x5143;&#x7D20;"></a>&#x8BBF;&#x95EE;Web&#x5143;&#x7D20;</h4><p><code>request&#x3001;session&#x548C;application</code>:</p>
+<ul>
+<li>&#x901A;&#x8FC7;ActionContext&#x53EF;&#x4EE5;&#x83B7;&#x53D6;request&#x3001;Session&#x548C;application&#x3002;</li>
+<li>&#x5B9E;&#x73B0;RequestAware&#x3001;SessionAware&#x548C;ApplicationAware&#x63A5;&#x53E3;&#x3002;(&#x5B9E;&#x9645;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#xFF09;</li>
+</ul>
+<p><code>HttpServletRequest&#x3001;HttpSession&#x548C;ServletContext</code>:</p>
+<ul>
+<li>&#x901A;&#x8FC7;ServletActionContext&#x5F97;&#x5230;HttpServletRequest&#xFF0C;&#x901A;&#x8FC7;HttpServletRequest&#x5F97;&#x5230;HttpSession&#xFF0C;&#x901A;&#x8FC7;HttpSession&#x5F97;&#x5230;ServletContext&#x3002;</li>
+<li>&#x5B9E;&#x73B0;ServletRequestAware&#x63A5;&#x53E3;&#x3002;</li>
+</ul>
+<p>DI&#xFF1A;dependency injection&#xFF0C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x3002;<br>IoC&#xFF1A;Inversion of Control&#xFF0C;&#x63A7;&#x5236;&#x53CD;&#x8F6C;&#x3002;<br>&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x4E24;&#x4E2A;&#x6982;&#x5FF5;&#x7B49;&#x540C;&#x3002;</p>
+<p>&#x7C7B;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x4F9D;&#x8D56;&#x6846;&#x67B6;&#x5C06;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x6CE8;&#x5165;&#xFF0C;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x5C06;&#x63A7;&#x5236;&#x7684;&#x6743;&#x9650;&#x4EA4;&#x7ED9;Struts2&#x6846;&#x67B6;&#x8FDB;&#x884C;&#x63A7;&#x5236;&#xFF08;&#x521D;&#x59CB;&#x5316;&#xFF09;&#x3002;</p>
+<h4 id="&#x6A21;&#x5757;&#x5305;&#x542B;"><a href="#&#x6A21;&#x5757;&#x5305;&#x542B;" class="headerlink" title="&#x6A21;&#x5757;&#x5305;&#x542B;"></a>&#x6A21;&#x5757;&#x5305;&#x542B;</h4><p>Struts2&#x7684;xml&#x4E2D;&#x4F7F;&#x7528;<include>&#x6807;&#x7B7E;&#x5C06;&#x522B;&#x4EBA;&#x7684;xml&#x7684;&#x914D;&#x7F6E;&#x5305;&#x542B;&#x8FDB;&#x5165;xml&#x6587;&#x4EF6;&#x4E2D;&#x3002;</include></p>
+<h4 id="&#x9ED8;&#x8BA4;Action"><a href="#&#x9ED8;&#x8BA4;Action" class="headerlink" title="&#x9ED8;&#x8BA4;Action"></a>&#x9ED8;&#x8BA4;Action</h4><p>&#x4F7F;&#x7528;&#x6807;&#x7B7E;<default-action-ref>&#x6807;&#x7B7E;&#xFF0C;&#x5F53;Action&#x4E0D;&#x5B58;&#x5728;&#x662F;&#x8BBF;&#x95EE;&#x9ED8;&#x8BA4;Action&#x3002;</default-action-ref></p>
+<h4 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h4><ul>
+<li>&#x5B9E;&#x73B0;Action&#x6700;&#x957F;&#x7528;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;&#x4ECE;ActionSupport&#x7EE7;&#x627F;&#x3002;</li>
+<li>DMI&#x52A8;&#x6001;&#x65B9;&#x6CD5;&#x8C03;&#x7528;<code>!</code>&#x3002;</li>
+<li>&#x901A;&#x914D;&#x7B26;&#x914D;&#x7F6E;<code>*</code>,<code>{1}</code>,<code>{2}</code>&#x3002;</li>
+<li>&#x63A5;&#x6536;&#x53C2;&#x6570;&#x7684;&#x65B9;&#x6CD5;&#xFF08;&#x4E00;&#x822C;&#x7528;DomainModel&#x63A5;&#x6536;&#xFF09;&#x3002;</li>
+<li>&#x7B80;&#x5355;&#x53C2;&#x6570;&#x9A8C;&#x8BC1;addFieldError&#xFF0C;&#x8FD9;&#x65F6;&#x4E00;&#x822C;&#x4E0D;&#x9002;&#x7528;Struts2&#x7684;UI&#x6807;&#x7B7E;&#x3002;</li>
+<li>&#x8BBF;&#x95EE;Web&#x5143;&#x7D20;&#xFF1A;1.Map&#x7C7B;&#x578B;;2.&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x3002;&#xFF08;IoC&#x65B9;&#x5F0F;&#x4F9D;&#x8D56;Struts2&#x65B9;&#x5F0F;&#xFF09;&#x3002;</li>
+<li>&#x5305;&#x542B;&#x6587;&#x4EF6;&#x914D;&#x7F6E;&#x3002;</li>
+<li>&#x9ED8;&#x8BA4;action&#x5904;&#x7406;&#x3002;</li>
+</ul>
+<h3 id="Result&#x914D;&#x7F6E;"><a href="#Result&#x914D;&#x7F6E;" class="headerlink" title="Result&#x914D;&#x7F6E;"></a>Result&#x914D;&#x7F6E;</h3><h4 id="result&#x7C7B;&#x578B;"><a href="#result&#x7C7B;&#x578B;" class="headerlink" title="result&#x7C7B;&#x578B;"></a>result&#x7C7B;&#x578B;</h4><ul>
+<li>&#x9ED8;&#x8BA4;&#x662F;dispatcher&#x5373;&#x8FD0;&#x7528;&#x670D;&#x52A1;&#x5668;&#x8DF3;&#x8F6C;&#x5230;&#x89C6;&#x56FE;&#x3002;</li>
+<li>redirect&#x8DF3;&#x8F6C;&#x5230;&#x89C6;&#x56FE;&#x3002;</li>
+<li>chain&#x8DF3;&#x8F6C;&#x5230;action&#x3002;</li>
+<li>redirectAction&#x8DF3;&#x8F6C;&#x5230;action&#x3002;</li>
+<li>&#x5176;&#x4ED6;&#x7684;&#x77E5;&#x9053;&#x5373;&#x53EF;&#xFF0C;&#x91CD;&#x70B9;&#x662F;&#x524D;&#x9762;&#x4E24;&#x79CD;&#x3002;</li>
+</ul>
+<p>&#x5176;&#x4ED6;&#xFF1A;&#x670D;&#x52A1;&#x5668;&#x8DF3;&#x8F6C;&#xFF08;&#x5730;&#x5740;&#x4E0D;&#x53D8;&#xFF09;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8DF3;&#x8F6C;&#xFF08;&#x5730;&#x5740;&#x6539;&#x53D8;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x8DF3;&#x8F6C;&#x5230;&#x522B;&#x7684;&#x5305;&#xFF0C;&#x9700;&#x8981;&#x7528;param&#x6307;&#x5B9A;namespace&#x3002;</p>
+<h4 id="Global-Result&#x5168;&#x5C40;&#x7ED3;&#x679C;&#x96C6;"><a href="#Global-Result&#x5168;&#x5C40;&#x7ED3;&#x679C;&#x96C6;" class="headerlink" title="Global_Result&#x5168;&#x5C40;&#x7ED3;&#x679C;&#x96C6;"></a>Global_Result&#x5168;&#x5C40;&#x7ED3;&#x679C;&#x96C6;</h4><p>package&#x6807;&#x7B7E;&#x4E2D;&#x7684;extends&#x5C5E;&#x6027;&#xFF0C;&#x8868;&#x793A;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#xFF0C;&#x4E0D;&#x7528;&#x5199;&#x592A;&#x591A;&#x91CD;&#x590D;&#x7684;action&#x3002;</p>
+<p>struts-default.xml&#x4E2D;&#x6709;&#x5F88;&#x591A;&#x7684;&#x7684;&#x5B9A;&#x4E49;&#x3002;</p>
+<h4 id="dynamic-result&#x52A8;&#x6001;&#x7ED3;&#x679C;&#x96C6;&#x548C;&#x5E26;&#x53C2;&#x7ED3;&#x679C;&#x96C6;"><a href="#dynamic-result&#x52A8;&#x6001;&#x7ED3;&#x679C;&#x96C6;&#x548C;&#x5E26;&#x53C2;&#x7ED3;&#x679C;&#x96C6;" class="headerlink" title="dynamic_result&#x52A8;&#x6001;&#x7ED3;&#x679C;&#x96C6;&#x548C;&#x5E26;&#x53C2;&#x7ED3;&#x679C;&#x96C6;"></a>dynamic_result&#x52A8;&#x6001;&#x7ED3;&#x679C;&#x96C6;&#x548C;&#x5E26;&#x53C2;&#x7ED3;&#x679C;&#x96C6;</h4><p><code>$</code>&#x7B26;&#x53F7;&#x8868;&#x793A;&#x53D6;&#x5F97;&#x503C;&#x6808;&#x4E2D;&#x503C;&#x3002;&#x4E0D;&#x5E38;&#x7528;&#x3002;</p>
+<p>forward&#x8FC7;&#x7A0B;&#xFF0C;&#x591A;&#x4E2A;action&#x5171;&#x4EAB;&#x540C;&#x4E00;&#x4E2A;&#x503C;&#x6808;&#xFF0C;&#x800C;&#x4E00;&#x6B21;request&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x503C;&#x6808;&#x3002;</p>
+<p>redirect&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6709;&#x4E24;&#x6B21;request&#x4E5F;&#x5C31;&#x6709;&#x4E24;&#x4E2A;&#x503C;&#x6808;&#xFF0C;&#x4F20;&#x53C2;&#x7684;&#x65F6;&#x5019;&#x8981;&#x5728;<result>&#x539F;&#x5B9A;&#x4E49;&#x7684;&#x6807;&#x7B7E;&#x4E4B;&#x540E;&#x6DFB;&#x52A0;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5728;&#x503C;&#x6808;&#x4E2D;&#x53D6;&#x4E0D;&#x5230;&#x503C;&#xFF0C;&#x9700;&#x8981;&#x4ECE;actioncontact&#x4E2D;&#x53D6;&#x503C;&#x3002;</result></p>
+<h3 id="OGNL"><a href="#OGNL" class="headerlink" title="OGNL"></a>OGNL</h3><p>OGNL&#xFF1A;Object graph navigation language.<br>&#x6807;&#x7B7E;&#x91CC;&#x9762;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5728;&#x53CC;&#x5F15;&#x53F7;&#x90E8;&#x5206;&#x7684;&#x662F;OGNL&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
+<ul>
+<li>user.xxx&#x53EA;&#x6709;&#x4F20;&#x9012;&#x4E86;&#x53C2;&#x6570;&#x624D;&#x4F1A;&#x6784;&#x9020;&#x3002;</li>
+<li>&#x60F3;&#x8981;&#x521D;&#x59CB;&#x5316;Domain Model&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;new&#x4E5F;&#x53EF;&#x4EE5;&#x4F20;&#x53C2;&#xFF0C;&#x4F46;&#x662F;model&#x5FC5;&#x987B;&#x8981;&#x63D0;&#x4F9B;&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#x7684;&#x9ED8;&#x8BA4;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x8BBF;&#x95EE;&#x503C;&#x6808;&#x4E2D;&#x5BF9;&#x8C61;&#x7684;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x3002;</li>
+<li>&#x8BBF;&#x95EE;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x683C;&#x5F0F;+&#x914D;&#x7F6E;&#xFF08;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#xFF09;&#x3002;</li>
+<li>&#x8BBF;&#x95EE;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x3002;</li>
+<li>&#x8BBF;&#x95EE;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x8BBF;&#x95EE;&#x96C6;&#x5408;&#xFF08;list&#x548C;&#x6570;&#x7EC4;&#x65B9;&#x5F0F;&#x4E00;&#x81F4;&#xFF09;&#x3002;users.{age}&#x5C06;users&#x7684;age&#x62FF;&#x51FA;&#x6765;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;list&#x3002;&#x8BBF;&#x95EE;map&#x65F6;&#x7684;&#x5199;&#x6CD5;dogMap.dog101&#x3002;</li>
+<li>&#x6295;&#x5F71;&#xFF08;&#x8FC7;&#x6EE4;&#xFF09;&#x3002;users.{?#this.age==1}.{age}&#x6216;&#x8005;users.{^#this.age&gt;1}.{age}&#x6216;&#x8005;users.{$#this.age==1}.{age}&#x3002;</li>
+<li>[]&#x4EE3;&#x8868;&#x8BBF;&#x95EE;action&#x5BF9;&#x8C61;&#x3002;&#x5F53;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x8DF3;&#x8F6C;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x51FA;&#x73B0;&#x4E24;&#x4E2A;action&#x3002;</li>
+</ul>
+<h3 id="&#x6807;&#x7B7E;"><a href="#&#x6807;&#x7B7E;" class="headerlink" title="&#x6807;&#x7B7E;"></a>&#x6807;&#x7B7E;</h3><p>object&#x7C7B;&#x7684;&#x6807;&#x7B7E;&#x53CC;&#x5F15;&#x53F7;&#x4E2D;&#x9ED8;&#x8BA4;&#x662F;OGNL&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x53D6;&#x5F97;&#x5B57;&#x7B26;&#x4E32;&#x9700;&#x8981;&#x52A0;&#x5355;&#x5F15;&#x53F7;&#xFF0C;&#x4EE3;&#x8868;&#x4E0D;&#x9700;&#x8981;struts2&#x6846;&#x67B6;&#x89E3;&#x6790;&#x3002;</p>
+<p><code>%{}</code>&#x8868;&#x793A;&#x628A;&#x5927;&#x62EC;&#x53F7;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5F3A;&#x5236;&#x8BA4;&#x4E3A;&#x662F;OGNL&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
+<ul>
+<li>$&#x7528;&#x4E8E;i18n&#x548C;struts&#x914D;&#x7F6E;&#x6587;&#x4EF6;</li>
+<li>#&#x53D6;&#x5F97;ActionContext&#x7684;&#x503C;</li>
+<li>%&#x5C06;&#x539F;&#x672C;&#x7684;&#x6587;&#x672C;&#x5C5E;&#x6027;&#x89E3;&#x6790;&#x4E3A;ognl&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5BF9;&#x4E8E;&#x672C;&#x6765;&#x5C31;&#x662F;ognl&#x7684;&#x5C5E;&#x6027;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;</li>
+<li>&#x5B9A;&#x4E49;&#x53D8;&#x91CF;&#x7528;var&#x5C5E;&#x6027;</li>
+<li>if&#x3001;elseif&#x6761;&#x4EF6;&#x7528;&#x5C5E;&#x6027;test&#x5199;&#x5224;&#x65AD;&#x6761;&#x4EF6;</li>
+<li>iterator&#x53EF;&#x4EE5;&#x904D;&#x5386;&#x96C6;&#x5408;&#xFF0C;status&#x5C5E;&#x6027;&#x6CE8;&#x610F;&#x4E00;&#x4E0B;&#x3002;</li>
+<li>ui&#xFF1A;&#x6240;&#x6709;&#x4E3B;&#x9898;&#x5B9A;&#x4E49;&#x4E3A;simple&#xFF0C;fielderror&#x7279;&#x6B8A;&#x5904;&#x7406;&#xFF0C;&#x81EA;&#x5DF1;&#x63A7;&#x5236;&#x5176;&#x4ED6;&#x6807;&#x7B7E;&#x7684;&#x5C55;&#x73B0;&#x3002;</li>
+</ul>
+<p>####&#x5F02;&#x5E38;&#x5904;&#x7406;</p>
+<p>&#x65B9;&#x6CD5;&#xFF1A;1&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x52A0;&#x5165;throw(e)&#xFF0C;&#x5728;action&#x4E2D;&#x5B9A;&#x4E49;result&#x51FA;&#x9519;&#x8FD4;&#x56DE;&#x7684;&#x754C;&#x9762;&#x3002;</p>
+<h4 id="&#x62E6;&#x622A;&#x5668;"><a href="#&#x62E6;&#x622A;&#x5668;" class="headerlink" title="&#x62E6;&#x622A;&#x5668;"></a>&#x62E6;&#x622A;&#x5668;</h4><p>&#x7C7B;&#x4F3C;&#x4E8E;tomcat&#x4E2D;&#x7684;Filter&#xFF0C;&#x5728;invoke&#x65B9;&#x6CD5;&#x524D;&#x540E;&#x4F1A;&#x6709;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x5B9A;&#x4E49;&#x65B0;&#x7684;interceptor&#x4E00;&#x822C;&#x662F;&#x52A0;&#x5728;&#x539F;&#x6765;&#x7684;interceptor&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x3002;</p>
+<p>&#x5E94;&#x7528;&#xFF1A;1.&#x66FF;&#x6362;&#x654F;&#x611F;&#x5B57;&#x7B26;&#xFF1B;2.&#x6743;&#x9650;&#x68C0;&#x67E5;&#x7B49;&#x3002;&#x4F53;&#x73B0;&#x4E86;AOP&#xFF08;&#x9762;&#x5411;&#x5207;&#x9762;&#x7684;&#x7F16;&#x7A0B;&#x601D;&#x60F3;&#xFF09;&#x3002;</p>
+<p>&#x6743;&#x9650;&#x6846;&#x67B6;&#xFF1A;acegi&#x6216;&#x8005;spring security&#xFF0C;&#x4E0D;&#x8981;&#x91CD;&#x590D;&#x53D1;&#x660E;&#x8F6E;&#x5B50;&#x3002;</p>
+<p><font color="red">&#x7A0B;&#x5E8F;&#x5458;&#x5728;&#x6280;&#x672F;&#x8FBE;&#x5230;&#x4E00;&#x5B9A;&#x5730;&#x6B65;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E94;&#x8BE5;&#x4E13;&#x6CE8;&#x5206;&#x6790;&#x548C;&#x4E1A;&#x52A1;&#x3002;</font></p>
+<h4 id="&#x4F7F;&#x7528;token&#x62E6;&#x622A;&#x5668;&#x63A7;&#x5236;&#x91CD;&#x590D;&#x63D0;&#x4EA4;&#x7684;&#x95EE;&#x9898;"><a href="#&#x4F7F;&#x7528;token&#x62E6;&#x622A;&#x5668;&#x63A7;&#x5236;&#x91CD;&#x590D;&#x63D0;&#x4EA4;&#x7684;&#x95EE;&#x9898;" class="headerlink" title="&#x4F7F;&#x7528;token&#x62E6;&#x622A;&#x5668;&#x63A7;&#x5236;&#x91CD;&#x590D;&#x63D0;&#x4EA4;&#x7684;&#x95EE;&#x9898;"></a>&#x4F7F;&#x7528;token&#x62E6;&#x622A;&#x5668;&#x63A7;&#x5236;&#x91CD;&#x590D;&#x63D0;&#x4EA4;&#x7684;&#x95EE;&#x9898;</h4><p><font color="red">&#x5F88;&#x5C11;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x5F88;&#x591A;&#x5176;&#x4ED6;&#x7684;&#x529E;&#x6CD5;&#x89E3;&#x51B3;&#x3002;</font></p>
+<p>&#x9632;&#x6B62;&#x91CD;&#x590D;&#x63D0;&#x4EA4;&#x7684;&#x529E;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>&#x4F7F;&#x7528;post&#x65B9;&#x5F0F;&#x63D0;&#x4EA4;&#x6570;&#x636E;&#x3002;</li>
+<li>struts2&#x4E2D;&#x4F7F;&#x7528;token&#x3002;&#xFF08;&#x539F;&#x7406;&#xFF1A;&#x751F;&#x6210;&#x968F;&#x673A;&#x6570;&#x653E;&#x5165;session&#xFF09;&#x63D0;&#x4EA4;&#x65F6;&#xFF0C;&#x9A8C;&#x8BC1;&#x968F;&#x673A;&#x6570;&#xFF0C;&#x4EA4;&#x4E00;&#x6B21;&#x4E4B;&#x540E;&#x5E9F;&#x5F03;&#x3002;</li>
+<li>&#x53EA;&#x9700;&#x8981;&#x5728;struts.xml&#x4E2D;&#x6DFB;&#x52A0;<interceptor-ref name="token"></interceptor-ref>&#x548C;<result name="invalid.token"></result>&#x6807;&#x7B7E;&#x5373;&#x53EF;&#x3002;</li>
+<li><font color="red">&#x5E76;&#x4E0D;&#x80FD;&#x89E3;&#x51B3;&#x91CD;&#x5B9A;&#x5411;&#x4E4B;&#x540E;&#x518D;&#x63D0;&#x4EA4;&#x7684;&#x95EE;&#x9898;&#x3002;</font></li>
+</ol>
+<h4 id="&#x7C7B;&#x578B;&#x8F6C;&#x6362;"><a href="#&#x7C7B;&#x578B;&#x8F6C;&#x6362;" class="headerlink" title="&#x7C7B;&#x578B;&#x8F6C;&#x6362;"></a>&#x7C7B;&#x578B;&#x8F6C;&#x6362;</h4><p>&#x5728;http&#x4F20;&#x53C2;&#x6570;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7C7B;&#x578B;&#x90FD;&#x662F;String&#x7C7B;&#x578B;&#x3002;</p>
+<p>struts2&#x8F6C;&#x6362;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x6309;&#x7167;&#x5176;&#x56FA;&#x5B9A;&#x683C;&#x5F0F;&#x518D;&#x4F7F;&#x7528;struts2&#x76F8;&#x5E94;&#x7684;&#x6807;&#x7B7E;&#x5373;&#x53EF;&#x3002;&#x4F20;&#x591A;&#x4E2A;&#x503C;&#xFF08;&#x6BD4;&#x5982;checkbox&#xFF09;&#x4F7F;&#x7528;set&#x3001;list&#x6216;&#x8005;&#x6570;&#x7EC4;&#x540E;&#x53F0;&#x63A5;&#x6536;&#x5373;&#x53EF;&#x3002;map&#x4F20;&#x53C2;&#x4F7F;&#x7528;&#x8F83;&#x5C11;&#x3002;&#x5BF9;&#x4E8E;&#x7279;&#x6B8A;&#x5BF9;&#x8C61;&#xFF08;&#x5982;&#x6CA1;&#x6709;set&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x8F6C;&#x6362;&#x5668;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x3002;</p>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x8F6C;&#x6362;&#x5668;&#x7EE7;&#x627F;DefaultTypeConverter&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x6CE8;&#x518C;&#x8F6C;&#x6362;&#x5668;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<ol>
+<li>&#x6CE8;&#x518C;&#x7ED9;action&#xFF0C;&#x548C;&#x7528;&#x5230;&#x8F6C;&#x6362;&#x5668;&#x7684;action&#x653E;&#x5230;&#x540C;&#x4E00;&#x4E2A;&#x5305;&#xFF0C;&#x547D;&#x540D;&#x662F;Action&#x540D;-conversion.properties&#xFF0C;&#x5C06;&#x9700;&#x8981;&#x8F6C;&#x6362;&#x7684;&#x540D;&#x5B57;&#x5199;&#x5230;&#x5176;&#x4E2D;&#x3002;</li>
+<li>&#x5168;&#x5C40;&#x8F6C;&#x6362;&#x5668;xwork-conversion.properties(&#x540D;&#x5B57;&#x56FA;&#x5B9A;&#xFF09;</li>
+<li>&#x6CE8;&#x89E3;</li>
+</ol>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2018-05-25");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2018-05-23T12:23:25.000Z" itemprop="datePublished">2018-05-23</time>
+
+    , Updated at&nbsp;<time datetime="2018-05-25T07:40:41.000Z" itemprop="dateModified">2018-05-25</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/中文/'>中文</a>
+
+<a class="post-categories-list-item" href='/categories/中文/Struts2/'>Struts2</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/中文/" rel="tag">#&nbsp;中文</a>
+
+<a class="post-tags-list-item" href="/tags/Struts2/" rel="tag">#&nbsp;Struts2</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2018/05/25/HibernateBasic/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Hibernate Basic</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2018/03/28/springbootbasic/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Spring Boot Basic</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">Warren Zhao&#39; blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

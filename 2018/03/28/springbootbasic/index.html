@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>Spring Boot Basic | Warren Zhao&#39; blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="SpringBoot&amp;#x7279;&amp;#x70B9...">
+
+<!-- Keywords -->
+<meta name="keywords" content=", 中文, JavaWeb, SpringBoot">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Warren Zhao&#39; blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Warren Zhao&#39; blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Spring Boot Basic | Warren Zhao&#39; blog">
+<meta property="og:site_name" content="Warren Zhao&#39; blog">
+
+<meta property="og:locale" content="en">
+
+<meta property="og:url" content="http://yoursite.com/2018/03/28/springbootbasic/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content="SpringBoot&amp;#x7279;&amp;#x70B9...">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2018-03-28T11:51:30.000Z">
+    <meta property="article:modified_time" content="2018-03-28T11:51:30.000Z">
+    <meta property="article:author" content="Warren Zhao">
+    <meta property="og:article:tag" content=", 中文, JavaWeb, SpringBoot"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2018/03/28/springbootbasic/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2018/03/28/springbootbasic/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2018/03/28/springbootbasic/"
+    },
+    "headline": "Spring Boot Basic | Warren Zhao&#39; blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2018-03-28T11:51:30.000Z",
+    "dateModified": "2018-03-28T14:01:05.000Z",
+    "author": {
+        "@type": "Person",
+        "name": "Warren Zhao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Warren Zhao&#39; blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 中文, JavaWeb, SpringBoot",
+    "description": "SpringBoot&amp;#x7279;&amp;#x70B9..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Warren Zhao&#39; blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Warren Zhao' blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Warren Zhao' blog&url=http://yoursite.com&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=Spring Boot Basic" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Spring Boot Basic&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=Spring Boot Basic" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB30lEQVR42u3a0WrEMAxE0fz/T7dPCylYM6OQgq29eVmou8lZkGNJ9vWz4XWBAgUK1AJ1ieszfv/f1eefGy/ukTwH1CzUMuiKv98fUGE69wM1F6UCXAW5mhzVJCknEqivQLngVePVjwIFKpkA6Rio70G5wEySOJUAvpolgNoelRQOb3y+Xs2A2hKVLqQqYFXC9y9dF1Bbo1SBIIMyGEvvA2oWqlp0Vzd3Y2nSV00EUDNQKplTDYwkyUsTQlCzUEnDQr3wnny/lSWAOh6lXozxSzD8TlQ4gDoa5RZVt9h2mh42SwB1LCpdWNVGpCsaVDEBah4qWTTdRnYa4G5hBjUH5YKxKhwSoCoWZKCDOhbVaVhEi6o5NPG4wQHqGJQKQpekpU2zRw0OUMei1GKpXprq8EMc2O7wKaijUWlil4ypv0cNDlBjUJ3NoXSss0kOagaqk/xXPyQJ8qRhC2omKjmA09mwTBtsoOagkgaG27BWTdbWBAI1AmU3m02jLD3A45JBUHNQnQPNnQQvLRxAzUSlm9tuA6jbhH1UIYM6BpUGeOeAl9t4inccQI1CuYd3C4bWyxPUWFRSqCabS3bzG9QoVPpAVWh2Jw+ouaikcHCFQHLZwxegRqB2ukCBAgXqdv0CC90+ncFx9IgAAAAASUVORK5CYII=" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Spring Boot Basic</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Warren Zhao's Avatar">
+        <span>2018-03-28</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/中文/">中文</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/中文/Javaweb/">Javaweb</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/中文/Javaweb/SpringBoot/">SpringBoot</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Spring Boot Basic&url=http://yoursite.com/2018/03/28/springbootbasic/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Spring Boot Basic&url=http://yoursite.com/2018/03/28/springbootbasic/&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/28/springbootbasic/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2018/03/28/springbootbasic/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2018/03/28/springbootbasic/&title=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Warren Zhao' blog&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2018/03/28/springbootbasic/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2018/03/28/springbootbasic/&text=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB30lEQVR42u3a0WrEMAxE0fz/T7dPCylYM6OQgq29eVmou8lZkGNJ9vWz4XWBAgUK1AJ1ieszfv/f1eefGy/ukTwH1CzUMuiKv98fUGE69wM1F6UCXAW5mhzVJCknEqivQLngVePVjwIFKpkA6Rio70G5wEySOJUAvpolgNoelRQOb3y+Xs2A2hKVLqQqYFXC9y9dF1Bbo1SBIIMyGEvvA2oWqlp0Vzd3Y2nSV00EUDNQKplTDYwkyUsTQlCzUEnDQr3wnny/lSWAOh6lXozxSzD8TlQ4gDoa5RZVt9h2mh42SwB1LCpdWNVGpCsaVDEBah4qWTTdRnYa4G5hBjUH5YKxKhwSoCoWZKCDOhbVaVhEi6o5NPG4wQHqGJQKQpekpU2zRw0OUMei1GKpXprq8EMc2O7wKaijUWlil4ypv0cNDlBjUJ3NoXSss0kOagaqk/xXPyQJ8qRhC2omKjmA09mwTBtsoOagkgaG27BWTdbWBAI1AmU3m02jLD3A45JBUHNQnQPNnQQvLRxAzUSlm9tuA6jbhH1UIYM6BpUGeOeAl9t4inccQI1CuYd3C4bWyxPUWFRSqCabS3bzG9QoVPpAVWh2Jw+ouaikcHCFQHLZwxegRqB2ukCBAgXqdv0CC90+ncFx9IgAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SpringBoot"><span class="post-toc-number">1.</span> <span class="post-toc-text">SpringBoot</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SpringBoot–和微服务有什么关联？"><span class="post-toc-number">2.</span> <span class="post-toc-text">SpringBoot–和微服务有什么关联？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Springdata"><span class="post-toc-number">3.</span> <span class="post-toc-text">Springdata</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#全局捕获异常"><span class="post-toc-number">4.</span> <span class="post-toc-text">全局捕获异常</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SpringBoot整合JSP"><span class="post-toc-number">5.</span> <span class="post-toc-text">SpringBoot整合JSP</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JPA框架"><span class="post-toc-number">6.</span> <span class="post-toc-text">JPA框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SpringBoot整合mybatis"><span class="post-toc-number">7.</span> <span class="post-toc-text">SpringBoot整合mybatis</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h3 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h3><p>&#x7279;&#x70B9;&#xFF1A;</p>
+<ol>
+<li>&#x654F;&#x6377;&#x5F00;&#x53D1;&#xFF08;&#x6574;&#x5408;&#x6846;&#x67B6;&#xFF09;&#xFF0C;&#x5F0A;&#x7AEF;&#xFF1A;&#x5C01;&#x88C5;&#x592A;&#x597D;&#x4E86;&#xFF0C;&#x4E0D;&#x65B9;&#x4FBF;&#x62D3;&#x5C55;&#x3002;&#x5176;&#x5B9E;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5C01;&#x88C5;&#x4F9D;&#x8D56;&#x7684;&#x3002;</li>
+<li>&#x65E0;&#x9700;Tomcat&#xFF08;&#x901A;&#x8FC7;java&#x8FD0;&#x884C;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;jar&#x5305;&#xFF09;&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x5185;&#x7F6E;Tomcat&#x3002;</li>
+<li>&#x51CF;&#x5C11;xml&#x914D;&#x7F6E;&#xFF08;&#x6CA1;&#x6709;xml&#xFF09;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;</li>
+<li>SpringCloud+SpringBoot&#x3002;</li>
+<li>&#x6CE8;&#x89E3;&#xFF0C;&#x5E38;&#x7528;&#x7684;&#x6CE8;&#x89E3;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;</li>
+</ol>
+<p>Note&#x7F51;&#x7AD9;&#xFF1A;&#x8682;&#x8681;&#x8BFE;&#x5802;&#x3002;</p>
+<h3 id="SpringBoot&#x2013;&#x548C;&#x5FAE;&#x670D;&#x52A1;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x8054;&#xFF1F;"><a href="#SpringBoot&#x2013;&#x548C;&#x5FAE;&#x670D;&#x52A1;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x8054;&#xFF1F;" class="headerlink" title="SpringBoot&#x2013;&#x548C;&#x5FAE;&#x670D;&#x52A1;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x8054;&#xFF1F;"></a>SpringBoot&#x2013;&#x548C;&#x5FAE;&#x670D;&#x52A1;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x8054;&#xFF1F;</h3><p>&#x76EE;&#x524D;&#x6765;&#x8BF4;SpringCloud&#xFF08;http&#x63A5;&#x53E3;+rest&#xFF09;&#xFF0C;&#x57FA;&#x4E8E;SpringBoot web&#x7EC4;&#x4EF6;&#x5C01;&#x88C5;SpringMVC&#x3002;</p>
+<p>&#x4E4B;&#x540E;&#x7684;&#x4E92;&#x8054;&#x7F51;&#x9879;&#x76EE;&#xFF0C;&#x9762;&#x5411;&#x670D;&#x52A1;&#x67B6;&#x6784;&#xFF08;SOA&#xFF09;&#x8F6C;&#x53D8;&#x5230;&#x4E86;&#x5FAE;&#x670D;&#x52A1;&#x67B6;&#x6784;&#x3002;</p>
+<h3 id="Springdata"><a href="#Springdata" class="headerlink" title="Springdata"></a>Springdata</h3><p>springdata&#xFF1A;&#x64CD;&#x4F5C;&#x6301;&#x4E45;&#x5C42;&#x6846;&#x67B6;&#xFF0C;&#x4E0E;Springmvc&#x3002;</p>
+<p>###SpringBoot&#x5B89;&#x5168;&#x5417;&#xFF1F;<br>&#x56E0;&#x4E3A;&#x5C01;&#x88C5;&#x7684;&#x597D;&#xFF0C;&#x6240;&#x4EE5;&#x5B89;&#x5168;&#xFF1F;</p>
+<p>###SpringBoot&#x7B2C;&#x4E00;&#x4E2A;&#x9879;&#x76EE;</p>
+<ol>
+<li>&#x5F15;&#x5165;&#x7236;&#x7C7B;&#x4F9D;&#x8D56;</li>
+<li>&#x5F15;&#x5165;springboot-web&#x7EC4;&#x4EF6;</li>
+</ol>
+<p>###&#x4F7F;&#x7528;SpringBoot&#x5199;&#x7B2C;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF08;&#x670D;&#x52A1;&#xFF09;</p>
+<p>RestController:&#x8868;&#x793A;&#x63A5;&#x53E3;&#x5168;&#x90E8;&#x8FD4;&#x56DE;json&#x683C;&#x5F0F;&#x7684;&#x3002;<br>&#x4E3B;&#x51FD;&#x6570;&#xFF0C;&#x9700;&#x8981;&#x5165;&#x53E3;&#x7A0B;&#x5E8F;&#xFF0C;&#x8FD0;&#x884C;springboot</p>
+<p>###&#x6807;&#x7B7E;&#x7684;&#x7528;&#x6CD5;<br>@EnableAutoConfiguration<br>@RestController = @Controller+@ResponseBody</p>
+<p>###&#x9879;&#x76EE;&#x5165;&#x53E3;<br>&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;main&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x7A0B;&#x5E8F;&#x7684;&#x5165;&#x53E3;&#xFF0C;&#x9700;&#x8981;3&#x4E2A;&#x6CE8;&#x89E3;@ComponentScan(&#x201C;<code>&#x9700;&#x8981;&#x626B;&#x63CF;&#x7684;&#xFF0C;&#x6709;servlet&#x7684;&#x5305;&#x540D;</code>&#x201C;)<br>@EnableAutoConfiguration</p>
+<p>###Web&#x5F00;&#x53D1;</p>
+<p>####&#x8BBF;&#x95EE;&#x9759;&#x6001;&#x8D44;&#x6E90;<br>&#x9ED8;&#x8BA4;&#x5C31;&#x662F;&#x8BBF;&#x95EE;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x3002;</p>
+<p>&#x5F00;&#x53D1;&#x7684;&#x4E00;&#x822C;&#x5F62;&#x5F0F;&#xFF1A;&#x52A8;&#x9759;&#x5206;&#x79BB;&#x2013;&#x540E;&#x53F0;&#x670D;&#x52A1;&#x4E0E;&#x524D;&#x53F0;&#x9875;&#x9762;&#x56FE;&#x7247;.</p>
+<p><span style="color:red"><em>Note</em>: &#x9759;&#x6001;&#x8D44;&#x6E90;CDN&#x52A0;&#x901F;</span></p>
+<h3 id="&#x5168;&#x5C40;&#x6355;&#x83B7;&#x5F02;&#x5E38;"><a href="#&#x5168;&#x5C40;&#x6355;&#x83B7;&#x5F02;&#x5E38;" class="headerlink" title="&#x5168;&#x5C40;&#x6355;&#x83B7;&#x5F02;&#x5E38;"></a>&#x5168;&#x5C40;&#x6355;&#x83B7;&#x5F02;&#x5E38;</h3><p>&#x5728;web&#x5F00;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F02;&#x5E38;&#x9700;&#x8981;&#x6BD4;&#x8F83;&#x53CB;&#x597D;&#x7684;&#x663E;&#x793A;&#x7ED9;&#x7528;&#x6237;&#x3002;</p>
+<p>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7C7B;&#x8FDB;&#x884C;&#x5168;&#x5C40;&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x3002;&#x4F7F;&#x7528;@ControllerAdvice&#xFF0C;&#x5177;&#x4F53;&#x5199;&#x6CD5;&#x89C1;&#x622A;&#x56FE;&#x3002;</p>
+<p>&#x5F02;&#x5E38;&#x4F1A;&#x8D70;&#x54EA;&#x4E00;&#x79CD;&#x901A;&#x77E5;&#xFF1F;&#x5F02;&#x5E38;&#x901A;&#x77E5;&#x3002;<br><span style="color:red"><em>Note</em>: Spring aop&#x7684;&#x4E94;&#x79CD;&#x901A;&#x77E5;</span></p>
+<p>###SpringBoot&#x6574;&#x5408;&#x9875;&#x9762;<br>SpringBoot&#x6709;&#x9650;&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;jsp&#x3002;</p>
+<p>&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF1A;&#x52A8;&#x6001;html&#x5B9E;&#x73B0;&#xFF0C;&#x4F2A;html&#x683C;&#x5F0F;&#x3002;&#x63D0;&#x9AD8;&#x641C;&#x7D22;&#x5F15;&#x64CE;&#x641C;&#x7D22;&#x3002;</p>
+<p>freemarker:&#x52A8;&#x6001;&#x9875;&#x9762;&#x9759;&#x6001;&#x5316;&#x3002;</p>
+<p>&#x5982;&#x4F55;&#x4F7F;&#x7528;freemarker&#xFF1F;</p>
+<ol>
+<li>pom&#x6587;&#x4EF6;&#x5F15;&#x5165;&#xFF1B;</li>
+<li>&#x540E;&#x53F0;&#x4EE3;&#x7801;&#xFF1B;  </li>
+</ol>
+<h3 id="SpringBoot&#x6574;&#x5408;JSP"><a href="#SpringBoot&#x6574;&#x5408;JSP" class="headerlink" title="SpringBoot&#x6574;&#x5408;JSP"></a>SpringBoot&#x6574;&#x5408;JSP</h3><p>&#x5982;&#x679C;&#x60F3;&#x7528;springboot&#x6574;&#x5408;jsp&#x4E0D;&#x80FD;&#x65B0;&#x5EFA;jar&#x7C7B;&#x578B;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x53EA;&#x80FD;&#x65B0;&#x5EFA;war&#x7C7B;&#x578B;&#x7684;&#x9879;&#x76EE;&#x3002;</p>
+<p>SpringBoot&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x800C;&#x4E0D;&#x662F;&#x4F7F;&#x7528;jsp&#x3002;</p>
+<p>###&#x6570;&#x636E;&#x8BBF;&#x95EE;</p>
+<ol>
+<li>&#x52A0;&#x5165;&#x4F9D;&#x8D56;&#x7EC4;&#x4EF6;&#xFF0C;pom&#x6587;&#x4EF6;&#x3002;</li>
+<li>&#x52A0;&#x5165;&#x6570;&#x636E;&#x6E90;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;</li>
+</ol>
+<h3 id="JPA&#x6846;&#x67B6;"><a href="#JPA&#x6846;&#x67B6;" class="headerlink" title="JPA&#x6846;&#x67B6;"></a>JPA&#x6846;&#x67B6;</h3><p>jpa&#x662F;&#x5BF9;hibernate&#x8FDB;&#x884C;&#x4E86;&#x5C01;&#x88C5;&#x4E86;&#x3002;jpa&#x662F;&#x6CE8;&#x89E3;&#x5F62;&#x5F0F;&#x7684;&#xFF0C;hibernate&#x6709;&#x7684;&#x529F;&#x80FD;jpa&#x4E5F;&#x6709;&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#xFF1A;</p>
+<ol>
+<li>@EnableJpaRepositories(&#x201C;&#x201D;)&#x52A0;&#x5165;dao&#x5C42;&#xFF1B;</li>
+<li>@EntityScan(&#x201C;&#x201D;)&#x52A0;&#x5165;&#x5B9E;&#x4F53;&#x7C7B;</li>
+</ol>
+<h3 id="SpringBoot&#x6574;&#x5408;mybatis"><a href="#SpringBoot&#x6574;&#x5408;mybatis" class="headerlink" title="SpringBoot&#x6574;&#x5408;mybatis"></a>SpringBoot&#x6574;&#x5408;mybatis</h3><p>mybatis&#x4E24;&#x4E2A;&#x7248;&#x672C;&#xFF1A;&#x6CE8;&#x89E3;&#x7248;&#x548C;xml&#x7248;&#x672C;&#x3002;</p>
+<p>###SpringBootApplication&#x7528;&#x6CD5;<br>@SpringBootApplication&#x6CE8;&#x89E3;&#x7684;&#x4F5C;&#x7528;&#xFF1A;&#x542F;&#x52A8;&#x9879;&#x76EE;&#xFF0C;&#x6574;&#x5408;&#x5E38;&#x7528;&#x6CE8;&#x89E3;&#xFF0C;&#x5E76;&#x4E14;&#x626B;&#x5305;&#xFF08;&#x53EA;&#x80FD;&#x5728;&#x5F53;&#x524D;&#x540C;&#x7EA7;&#x5305;&#x4E0B;&#x9762;&#x751F;&#x6548;&#xFF09;</p>
+<p>&#x5176;&#x5B9E;&#x662F;&#x6574;&#x5408;&#x4E86;&#x4E09;&#x4E2A;&#x6CE8;&#x89E3;&#xFF1A;@ComponentScan@EnableAutoConfiguration@Configuration</p>
+<p>&#x63D0;&#x5347;SpringBootApplication&#x6CE8;&#x89E3;&#x7684;&#x7C7B;&#x6240;&#x5728;&#x7684;&#x5305;&#x7EA7;&#x522B;&#x3002;</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2018-03-28");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2018-03-28T11:51:30.000Z" itemprop="datePublished">2018-03-28</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/中文/'>中文</a>
+
+<a class="post-categories-list-item" href='/categories/中文/Javaweb/'>Javaweb</a>
+
+<a class="post-categories-list-item" href='/categories/中文/Javaweb/SpringBoot/'>SpringBoot</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/中文/" rel="tag">#&nbsp;中文</a>
+
+<a class="post-tags-list-item" href="/tags/JavaWeb/" rel="tag">#&nbsp;JavaWeb</a>
+
+<a class="post-tags-list-item" href="/tags/SpringBoot/" rel="tag">#&nbsp;SpringBoot</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2018/05/23/Struts2Basic/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Struts2 Basic</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2018/03/19/jdbc/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">jdbc</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">Warren Zhao&#39; blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>
