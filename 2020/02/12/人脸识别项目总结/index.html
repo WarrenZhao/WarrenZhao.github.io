@@ -264,7 +264,7 @@ window.oldVersion = [
     },
     
     "datePublished": "2020-02-12T08:01:08.000Z",
-    "dateModified": "2020-02-12T09:46:30.315Z",
+    "dateModified": "2020-02-12T16:02:44.688Z",
     "author": {
         "@type": "Person",
         "name": "Warren Zhao",
@@ -508,20 +508,25 @@ window.oldVersion = [
                     
                         
                             <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">项目背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#技术点一：人脸检测"><span class="post-toc-number">2.</span> <span class="post-toc-text">技术点一：人脸检测</span></a></li></ol>
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">项目背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#技术点一：人脸检测"><span class="post-toc-number">2.</span> <span class="post-toc-text">技术点一：人脸检测</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算法框架"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">算法框架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CNN架构"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">CNN架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#训练"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">训练</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#技术点二：人脸识别"><span class="post-toc-number">3.</span> <span class="post-toc-text">技术点二：人脸识别</span></a></li></ol>
                             </div>
                         
                     
                     <article id="post-content">
                         <h1 id="&#x9879;&#x76EE;&#x80CC;&#x666F;"><a href="#&#x9879;&#x76EE;&#x80CC;&#x666F;" class="headerlink" title="&#x9879;&#x76EE;&#x80CC;&#x666F;"></a>&#x9879;&#x76EE;&#x80CC;&#x666F;</h1><p>&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x662F;&#x5F53;&#x524D;AI&#x5E94;&#x7528;&#x843D;&#x5730;&#x7684;&#x65B9;&#x5411;&#x4E4B;&#x4E00;&#xFF0C;&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x9879;&#x76EE;&#x4E00;&#x822C;&#x6709;&#x4E24;&#x4E2A;&#x6280;&#x672F;&#x70B9;&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A;&#x70B9;&#x662F;&#x5728;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x4E2D;&#x68C0;&#x6D4B;&#x51FA;&#x4EBA;&#x8138;&#x90E8;&#x5206;&#xFF0C;&#x6807;&#x51FA;&#x4EBA;&#x8138;&#x7684;&#x5750;&#x6807;&#xFF0C;&#x627E;&#x51FA;&#x4EBA;&#x8138;&#x7684;&#x5173;&#x952E;&#x70B9;&#xFF08;landmarks&#xFF0C;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x7684;&#x662F;&#x4E94;&#x4E2A;&#x5173;&#x952E;&#x70B9;&#xFF0C;&#x53CC;&#x773C;&#x3001;&#x9F3B;&#x5934;&#x548C;&#x5634;&#x5DF4;&#x5DE6;&#x53F3;&#x4E24;&#x4E2A;&#x70B9;&#xFF09;&#xFF1B;&#x7B2C;&#x4E8C;&#x4E2A;&#x6280;&#x672F;&#x70B9;&#x662F;&#x5C06;&#x68C0;&#x6D4B;&#x51FA;&#x6765;&#x7684;&#x4EBA;&#x8138;&#x8FDB;&#x884C;&#x8BC6;&#x522B;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x8BC6;&#x522B;&#x51FA;&#x6765;&#x7684;&#x5177;&#x4F53;&#x4FE1;&#x606F;&#x518D;&#x8FDB;&#x884C;&#x5DE5;&#x7A0B;&#x5904;&#x7406;&#xFF0C;&#x7ED9;&#x51FA;&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#x8FBE;&#x5230;&#x8BC6;&#x522B;&#x76EE;&#x7684;&#x3002;</p>
 <p>&#x5728;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;&#x90E8;&#x5206;&#xFF0C;&#x672C;&#x6587;&#x53C2;&#x8003;&#x7684;&#x4E3B;&#x8981;&#x6587;&#x732E;&#x662F;2016&#x5E74;&#x53D1;&#x8868;&#x5728;IEEE Single Processing Letters&#x671F;&#x520A;&#x4E0A;&#x7684;Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks&#x6587;&#x7AE0;&#xFF0C;&#x8BE5;&#x671F;&#x520A;&#x5728;2019&#x5E74;CCF&#xFF08;&#x4E2D;&#x56FD;&#x8BA1;&#x7B97;&#x673A;&#x5B66;&#x4F1A;&#xFF09;&#x63A8;&#x8350;&#x7684;&#x671F;&#x520A;&#x76EE;&#x5F55;&#x4E2D;&#x5C5E;&#x4E8E;&#x662F;C&#x7C7B;&#x671F;&#x520A;&#xFF0C;&#x4F46;&#x662F;&#x5F71;&#x54CD;&#x56E0;&#x5B50;&#x5728;&#x9010;&#x5E74;&#x589E;&#x9AD8;&#x3002;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;:</p>
-<p><img src="/2020/02/12/&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x9879;&#x76EE;&#x603B;&#x7ED3;/yingxiangyinzi.png" alt="MacDown Screenshot"></p>
-<p>&#x5F53;&#x7136;&#xFF0C;&#x5148;&#x4E0D;&#x8BF4;&#x671F;&#x520A;&#x5982;&#x4F55;&#xFF0C;&#x8BBA;&#x6587;&#x63D0;&#x51FA;&#x7684;MTCNN&#x7F51;&#x7EDC;&#x6548;&#x679C;&#x8FD8;&#x662F;&#x5F88;&#x597D;&#x7684;&#x3002;</p>
-<h1 id="&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;"><a href="#&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;" class="headerlink" title="&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;"></a>&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;</h1><p>Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x5C06;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;&#x548C;&#x4EBA;&#x8138;&#x5BF9;&#x9F50;&#x4E24;&#x4E2A;&#x4EFB;&#x52A1;&#x5408;&#x5E76;&#x5728;&#x4E86;&#x4E00;&#x8D77;&#xFF0C;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x7684;three-stage&#xFF08;&#x4E09;&#x9636;&#x6BB5;&#xFF09;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x7F51;&#x7EDC;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x5728;&#x7EBF;&#x56F0;&#x96BE;&#x6837;&#x672C;&#x6316;&#x6398;&#x7B56;&#x7565;&#x8FDB;&#x884C;&#x6837;&#x672C;&#x9009;&#x62E9;&#x3002;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x96C6;&#x6709;&#xFF1A;</p>
+<p><img src="/2020/02/12/&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x9879;&#x76EE;&#x603B;&#x7ED3;/yingxiangyinzi.png" alt></p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x8BBA;&#x6587;&#x63D0;&#x51FA;&#x7684;MTCNN&#x7F51;&#x7EDC;&#x6548;&#x679C;&#x8FD8;&#x662F;&#x5F88;&#x597D;&#x7684;&#xFF0C;&#x6709;&#x5982;&#x4E0B;&#x4EAE;&#x70B9;&#xFF1A;</p>
 <ul>
-<li>FDDB</li>
-<li>WIDER FACE</li>
-<li>AFLW</li>
+<li>&#x6DF1;&#x5EA6;&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</li>
+<li>&#x5C42;&#x53E0;&#x7F51;&#x7EDC;&#x591A;&#x4EFB;&#x52A1;</li>
+<li>&#x53C8;&#x7C97;&#x5230;&#x7EC6;&#x9010;&#x6B65;&#x5B9A;&#x4F4D;&#x7269;&#x4F53;</li>
+</ul>
+<h1 id="&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;"><a href="#&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;" class="headerlink" title="&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;"></a>&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;</h1><p>Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x5C06;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;&#x548C;&#x4EBA;&#x8138;&#x5BF9;&#x9F50;&#x4E24;&#x4E2A;&#x4EFB;&#x52A1;&#x5408;&#x5E76;&#x5728;&#x4E86;&#x4E00;&#x8D77;&#xFF0C;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x7684;three-stage&#xFF08;&#x4E09;&#x9636;&#x6BB5;&#xFF09;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x7F51;&#x7EDC;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x5728;&#x7EBF;&#x56F0;&#x96BE;&#x6837;&#x672C;&#x6316;&#x6398;&#x7B56;&#x7565;&#xFF08;&#x53EA;&#x4F7F;&#x7528;&#x524D;&#x5411;&#x4F20;&#x64AD;loss&#x7531;&#x5927;&#x5230;&#x5C0F;&#x524D;70%&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#xFF09;&#x8FDB;&#x884C;&#x6837;&#x672C;&#x9009;&#x62E9;&#x3002;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x96C6;&#x6709;&#xFF1A;</p>
+<ul>
+<li>FDDB: Face Detection Data Set and Benchmark</li>
+<li>WIDER FACE: </li>
+<li>AFLW: Annotation Facial Landmarks in the Wild</li>
 </ul>
 <p>&#x5728;&#x6B64;&#x4E4B;&#x95F4;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x6587;&#x7AE0;&#x4E3B;&#x8981;&#x63D0;&#x5230;&#x4E86;&#xFF1A;1.&#x5E0C;&#x5C14;&#x7279;&#x5F81;&#x63D0;&#x53D6;+Adaboost&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x65E0;&#x6CD5;&#x9002;&#x7528;&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;&#xFF1B;2.DPM(deformable part models)&#xFF0C;&#x9700;&#x8981;&#x5927;&#x91CF;&#x7684;&#x8BA1;&#x7B97;&#x5F00;&#x9500;&#x548C;&#x6D77;&#x91CF;&#x6807;&#x6CE8;&#xFF1B;3.&#x57FA;&#x4E8E;CNN&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6A21;&#x578B;&#x7ED3;&#x6784;&#x590D;&#x6742;&#xFF0C;&#x5E76;&#x4E14;&#x5FFD;&#x7565;&#x4E86;bound-box&#x548C;landmarks&#x7684;&#x5185;&#x5728;&#x5173;&#x8054;&#x3002;</p>
 <p>&#x5173;&#x4E8E;&#x5355;&#x72EC;&#x7684;&#x4EBA;&#x8138;&#x5BF9;&#x9F50;&#xFF0C;&#x6709;&#x57FA;&#x4E8E;&#x56DE;&#x5F52;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x57FA;&#x4E8E;&#x6A21;&#x677F;&#x62DF;&#x5408;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
@@ -531,6 +536,25 @@ window.oldVersion = [
 <li>&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x56F0;&#x96BE;&#x6837;&#x672C;&#x5728;&#x7EBF;&#x9009;&#x62E9;&#xFF0C;&#x7528;&#x4E8E;&#x63D0;&#x9AD8;&#x6A21;&#x578B;&#x7684;&#x8868;&#x73B0;&#xFF1B;</li>
 <li>&#xFF08;&#x7A7A;&#x8BDD;&#xFF09;&#x4E3A;&#x4E86;&#x5C55;&#x793A;&#x6A21;&#x578B;&#x7684;&#x6548;&#x679C;&#x548C;&#x73B0;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x6BD4;&#xFF0C;&#x8FDB;&#x884C;&#x4E86;&#x5E7F;&#x6CDB;&#x5B9E;&#x9A8C;&#x3002;</li>
 </ol>
+<h2 id="&#x7B97;&#x6CD5;&#x6846;&#x67B6;"><a href="#&#x7B97;&#x6CD5;&#x6846;&#x67B6;" class="headerlink" title="&#x7B97;&#x6CD5;&#x6846;&#x67B6;"></a>&#x7B97;&#x6CD5;&#x6846;&#x67B6;</h2><ol>
+<li>resize-&gt;image pyramid&#x56FE;&#x50CF;&#x91D1;&#x5B57;&#x5854;&#xFF1B;</li>
+<li>P-Net&#xFF08;Proposal Net&#xFF09;-&gt;&#x5019;&#x9009;&#x6846;&#x7A97;&#x53E3;&#x548C;bounding box&#x7684;&#x56DE;&#x5F52;&#x5411;&#x91CF;-&gt;NMS&#xFF08;&#x975E;&#x6781;&#x5927;&#x503C;&#x6291;&#x5236;&#xFF09;&#x53BB;&#x9664;&#x91CD;&#x53E0;&#x8FC7;&#x591A;&#x7684;&#x5019;&#x9009;&#x6846;&#xFF1B;</li>
+<li>R-Net&#xFF08;Refine Net&#xFF09;-&gt;bounding box&#x7684;&#x56DE;&#x5F52;&#x64CD;&#x4F5C;&#x548C;NMS&#x8FDB;&#x4E00;&#x6B65;&#x53BB;&#x9664;&#x591A;&#x4F59;&#x7684;&#x5019;&#x9009;&#x6846;&#xFF1B;</li>
+<li>O-Net&#xFF08;Output Net&#xFF09;-&gt;&#x4E0E;R-Net&#x529F;&#x80FD;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x8F93;&#x51FA;&#x7684;&#x7EC6;&#x8282;&#x66F4;&#x591A;&#xFF0C;&#x5305;&#x62EC;bounding box&#x548C;&#x8138;&#x90E8;&#x7684;landmarks&#x5750;&#x6807;&#xFF1B;</li>
+</ol>
+<h2 id="CNN&#x67B6;&#x6784;"><a href="#CNN&#x67B6;&#x6784;" class="headerlink" title="CNN&#x67B6;&#x6784;"></a>CNN&#x67B6;&#x6784;</h2><p>&#x4F7F;&#x7528;&#x4E86;3*3&#x7684;&#x5377;&#x79EF;&#x6838;&#x540C;&#x65F6;&#x589E;&#x52A0;&#x4E86;&#x6DF1;&#x5EA6;&#xFF08;&#x6211;&#x731C;&#x6D4B;&#x5E94;&#x7ED9;&#x662F;&#x901A;&#x9053;&#x6570;&#xFF09;&#x6765;&#x83B7;&#x5F97;&#x66F4;&#x591A;&#x7684;&#x7EC6;&#x8282;&#x548C;&#x66F4;&#x597D;&#x7684;&#x8868;&#x73B0;&#x3002;&#x5BF9;&#x6BD4;&#x7684;&#x6587;&#x732E;&#x662F;2015&#x5E74;CVPR&#x7684;&#x6587;&#x7AE0;A convolutional neural network cascade for face detection&#x3002;</p>
+<h2 id="&#x8BAD;&#x7EC3;"><a href="#&#x8BAD;&#x7EC3;" class="headerlink" title="&#x8BAD;&#x7EC3;"></a>&#x8BAD;&#x7EC3;</h2><p>&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x62C6;&#x5206;&#x51FA;&#x4E86;&#x4E09;&#x4E2A;&#x5B50;&#x4EFB;&#x52A1;&#x3002;&#x7B2C;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x662F;&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#xFF0C;&#x76EE;&#x6807;&#x662F;&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x4EBA;&#x8138;&#xFF0C;&#x635F;&#x5931;&#x51FD;&#x6570;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x4EA4;&#x53C9;&#x71B5;&#x3002;</p>
+<p><img src="/2020/02/12/&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x9879;&#x76EE;&#x603B;&#x7ED3;/fcloss.png" alt></p>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x5B50;&#x4EFB;&#x52A1;&#x662F;&#x627E;&#x51FA;bounding box&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#xFF0C;&#x91C7;&#x7528;&#x7684;&#x662F;&#x6B27;&#x5F0F;&#x8DDD;&#x79BB;&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF0C;&#x91C7;&#x7528;&#x7684;&#x70B9;&#x662F;&#x77E9;&#x5F62;&#x6846;&#x5DE6;&#x4E0A;&#x89D2;&#x70B9;&#x7684;&#x5750;&#x6807;+&#x77E9;&#x5F62;&#x6846;&#x7684;&#x5BBD;&#x548C;&#x9AD8;&#xFF0C;&#x56E0;&#x6B64;&#x6709;&#x56DB;&#x4E2A;&#x503C;&#x3002;</p>
+<p><img src="/2020/02/12/&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x9879;&#x76EE;&#x603B;&#x7ED3;/bbloss.png" alt></p>
+<p>&#x7B2C;&#x4E09;&#x4E2A;&#x5B50;&#x4EFB;&#x52A1;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#xFF0C;&#x91C7;&#x7528;&#x7684;&#x4F9D;&#x65E7;&#x662F;&#x6B27;&#x5F0F;&#x8DDD;&#x79BB;&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF0C;&#x70B9;&#x5750;&#x6807;&#x91C7;&#x7528;&#x7684;&#x662F;landmarks&#x7684;&#x4E94;&#x4E2A;&#x70B9;&#x7684;&#x5750;&#x6807;&#xFF0C;&#x56E0;&#x6B64;&#x6709;10&#x4E2A;&#x503C;&#x3002;</p>
+<p><img src="/2020/02/12/&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x9879;&#x76EE;&#x603B;&#x7ED3;/landmarkloss.png" alt></p>
+<p>&#x5BF9;&#x4E8E;&#x6574;&#x4F53;&#x7684;loss&#x51FD;&#x6570;&#xFF0C;&#x6587;&#x7AE0;&#x8BBE;&#x8BA1;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2020/02/12/&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x9879;&#x76EE;&#x603B;&#x7ED3;/multiloss.png" alt></p>
+<p>&#x5BF9;&#x4E8E;&#x6587;&#x7AE0;&#x4E2D;&#x8BBE;&#x8BA1;&#x51FA;&#x6765;&#x7684;&#x4E09;&#x4E2A;&#x7F51;&#x7EDC;&#xFF0C;&#x4E0D;&#x540C;&#x7F51;&#x7EDC;&#x7684;&#x4E3B;&#x8981;&#x4EFB;&#x52A1;&#x4E0D;&#x540C;&#xFF0C;&#x56E0;&#x6B64;&#x7F51;&#x7EDC;&#x4E2D;&#x7684;&#x6743;&#x91CD;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x5BF9;&#x4E8E;P-Net&#x548C;R-Net&#xFF0C;&#x7531;&#x4E8E;&#x66F4;&#x52A0;&#x6CE8;&#x91CD;&#x4EFB;&#x52A1;&#x4E00;&#x548C;&#x4EFB;&#x52A1;&#x4E8C;&#xFF0C;&#x56E0;&#x6B64;$\alpha_i$&#x6709;&#x6240;&#x4E0D;&#x540C;&#xFF0C;$\alpha_{det}=1$, $\alpha_{box}=0.5$, $\alpha_{landmark}=0.5$&#x3002;&#x5728;O-Net&#x4E2D;&#xFF0C;&#x7531;&#x4E8E;&#x7F51;&#x7EDC;&#x9700;&#x8981;&#x8F93;&#x51FA;landmarks$\alpha_{det}=1$, $\alpha_{box}=0.5$, $\alpha_{landmark}=1$&#x3002;&#x800C;$\beta_i^j$&#x662F;&#x6837;&#x672C;&#x6307;&#x793A;&#x5668;&#x53D6;&#x503C;&#x4E3A;0&#x6216;&#x8005;1&#xFF0C;&#x5F53;&#x5224;&#x65AD;&#x4E3A;&#x975E;&#x4EBA;&#x8138;&#x65F6;&#xFF0C;box&#x548C;landmark&#x53D6;&#x503C;&#x4E3A;0&#xFF0C;&#x5224;&#x65AD;&#x4E3A;&#x4EBA;&#x8138;&#x65F6;box&#x548C;landmark&#x53D6;&#x503C;&#x4E3A;1&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x6570;&#x636E;&#x7684;&#x9009;&#x53D6;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;mini-batch&#x90FD;&#x8F93;&#x5165;&#x7F51;&#x7EDC;&#x8FDB;&#x884C;&#x524D;&#x5411;&#x4F20;&#x64AD;&#xFF08;&#x7531;input&#x5230;output&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x53EA;&#x53D6;loss&#x7531;&#x5927;&#x5230;&#x5C0F;&#x524D;70%&#x7684;&#x6570;&#x636E;&#x4F5C;&#x4E3A;hard sample&#xFF0C;&#x8FDB;&#x884C;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x64CD;&#x4F5C;&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x5B8C;&#x6210;&#x4E86;online hard sample mining&#x3002;&#x6839;&#x636E;&#x4F5C;&#x8005;&#x7684;&#x8BF4;&#x6CD5;&#xFF0C;&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#x6709;&#x663E;&#x8457;&#x7684;&#x63D0;&#x5347;&#x3002;</p>
+<h1 id="&#x6280;&#x672F;&#x70B9;&#x4E8C;&#xFF1A;&#x4EBA;&#x8138;&#x8BC6;&#x522B;"><a href="#&#x6280;&#x672F;&#x70B9;&#x4E8C;&#xFF1A;&#x4EBA;&#x8138;&#x8BC6;&#x522B;" class="headerlink" title="&#x6280;&#x672F;&#x70B9;&#x4E8C;&#xFF1A;&#x4EBA;&#x8138;&#x8BC6;&#x522B;"></a>&#x6280;&#x672F;&#x70B9;&#x4E8C;&#xFF1A;&#x4EBA;&#x8138;&#x8BC6;&#x522B;</h1><p>&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x7684;&#x5173;&#x952E;&#x6280;&#x672F;&#x662F;&#x4E09;&#x5143;&#x635F;&#x5931;&#x51FD;&#x6570;&#x7684;&#x5EFA;&#x7ACB;&#xFF0C;&#x5373;Triplet loss&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF0C;&#x635F;&#x5931;&#x51FD;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2020/02/12/&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x9879;&#x76EE;&#x603B;&#x7ED3;/tripletloss.png" alt></p>
 
                     </article>
                     
@@ -538,7 +562,7 @@ window.oldVersion = [
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
-        var dateUpdate = Date.parse("2020-02-12");
+        var dateUpdate = Date.parse("2020-02-13");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -552,6 +576,8 @@ window.oldVersion = [
 
 
 <p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-02-12T08:01:08.000Z" itemprop="datePublished">2020-02-12</time>
+
+    , Updated at&nbsp;<time datetime="2020-02-12T16:02:44.688Z" itemprop="dateModified">2020-02-13</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
