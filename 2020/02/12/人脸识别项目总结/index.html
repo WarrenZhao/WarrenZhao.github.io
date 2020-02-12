@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>人脸识别项目总结 | Warren Zhao&#39; blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content>
+
+<!-- Keywords -->
+<meta name="keywords" content=", 中文, AI">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Warren Zhao&#39; blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Warren Zhao&#39; blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="人脸识别项目总结 | Warren Zhao&#39; blog">
+<meta property="og:site_name" content="Warren Zhao&#39; blog">
+
+<meta property="og:locale" content="en">
+
+<meta property="og:url" content="http://yoursite.com/2020/02/12/人脸识别项目总结/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content>
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-02-12T08:01:08.000Z">
+    <meta property="article:modified_time" content="2020-02-12T08:01:08.000Z">
+    <meta property="article:author" content="Warren Zhao">
+    <meta property="og:article:tag" content=", 中文, AI"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2020/02/12/人脸识别项目总结/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2020/02/12/人脸识别项目总结/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2020/02/12/人脸识别项目总结/"
+    },
+    "headline": "人脸识别项目总结 | Warren Zhao&#39; blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2020-02-12T08:01:08.000Z",
+    "dateModified": "2020-02-12T09:46:30.315Z",
+    "author": {
+        "@type": "Person",
+        "name": "Warren Zhao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Warren Zhao&#39; blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 中文, AI",
+    "description": ""
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Warren Zhao&#39; blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Warren Zhao' blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Warren Zhao' blog&url=http://yoursite.com&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=人脸识别项目总结" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=人脸识别项目总结&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=人脸识别项目总结" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB50lEQVR42u2bQY4CMQwE5/+f3r2yyHaXZ0GKPZ0LaAhJITlOuxOunwPbZShDGcpQAdRVNPL5n0GD79B5DLULKgy6lwne+0Xvs37R82geQ+2DigI86/M+aBTUdBEY6nlQWbKkyVSNZ6jnQWUBnW22WbAb6nlQ1UZJnmeb9VdUgqGOh1KFw6deP1rNGOpYKGk6CNhKBKpFcdt1MdTRUNGAxMToJkz0Iwy1BkoJu6wQzUwOsgBQRjfUSKjKuCCJsUqQlakrM7qhxkMpMzUTa9WCUElVBrqhxkJRMUfFICkcymLUUKOhVELrJMhOEg77GmodFA1KvMECw8RQ+6AqwU+LgGoT/7fIM9Q4KCS+igs11cFjt3gw1E6oanL1GRWNWOQZaiTUnQsQpAClydZQ+6Aq81WKMrAAqDlnqF1Q6gIyNfGpcMQbsqHGQlXiq5sUqYmGVp+hRkJVyVCJuEokdi4NGmofFDG+qkTYOeQuxzXUCih1YEgLTdqnVTgYaiQUOVy8k1A7AW6oXVAkIOmfLrqBjYtRQ42DIgGuDC9i6qpCxVC7oEhi7E5EFlDL4DDUCigq6FShSQoPQz0Lipis9CAS3Qoy1HgoZc53BJ06pEwFo6HWQLWNiE4xAA8jDbUH6qRmKEMZylAv7ReJlw++3N63hAAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">人脸识别项目总结</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Warren Zhao's Avatar">
+        <span>2020-02-12</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/AI/">AI</a><span class="suka-devide-dot"></span><a class="category-link" href="/categories/AI/中文/">中文</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=人脸识别项目总结&url=http://yoursite.com/2020/02/12/人脸识别项目总结/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=人脸识别项目总结&url=http://yoursite.com/2020/02/12/人脸识别项目总结/&via=Warren Zhao" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/12/人脸识别项目总结/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2020/02/12/人脸识别项目总结/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/02/12/人脸识别项目总结/&title=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Warren Zhao' blog&title=Warren Zhao' blog&summary=&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2020/02/12/人脸识别项目总结/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2020/02/12/人脸识别项目总结/&text=Warren Zhao' blog" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB50lEQVR42u2bQY4CMQwE5/+f3r2yyHaXZ0GKPZ0LaAhJITlOuxOunwPbZShDGcpQAdRVNPL5n0GD79B5DLULKgy6lwne+0Xvs37R82geQ+2DigI86/M+aBTUdBEY6nlQWbKkyVSNZ6jnQWUBnW22WbAb6nlQ1UZJnmeb9VdUgqGOh1KFw6deP1rNGOpYKGk6CNhKBKpFcdt1MdTRUNGAxMToJkz0Iwy1BkoJu6wQzUwOsgBQRjfUSKjKuCCJsUqQlakrM7qhxkMpMzUTa9WCUElVBrqhxkJRMUfFICkcymLUUKOhVELrJMhOEg77GmodFA1KvMECw8RQ+6AqwU+LgGoT/7fIM9Q4KCS+igs11cFjt3gw1E6oanL1GRWNWOQZaiTUnQsQpAClydZQ+6Aq81WKMrAAqDlnqF1Q6gIyNfGpcMQbsqHGQlXiq5sUqYmGVp+hRkJVyVCJuEokdi4NGmofFDG+qkTYOeQuxzXUCih1YEgLTdqnVTgYaiQUOVy8k1A7AW6oXVAkIOmfLrqBjYtRQ42DIgGuDC9i6qpCxVC7oEhi7E5EFlDL4DDUCigq6FShSQoPQz0Lipis9CAS3Qoy1HgoZc53BJ06pEwFo6HWQLWNiE4xAA8jDbUH6qRmKEMZylAv7ReJlw++3N63hAAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">项目背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#技术点一：人脸检测"><span class="post-toc-number">2.</span> <span class="post-toc-text">技术点一：人脸检测</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="&#x9879;&#x76EE;&#x80CC;&#x666F;"><a href="#&#x9879;&#x76EE;&#x80CC;&#x666F;" class="headerlink" title="&#x9879;&#x76EE;&#x80CC;&#x666F;"></a>&#x9879;&#x76EE;&#x80CC;&#x666F;</h1><p>&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x662F;&#x5F53;&#x524D;AI&#x5E94;&#x7528;&#x843D;&#x5730;&#x7684;&#x65B9;&#x5411;&#x4E4B;&#x4E00;&#xFF0C;&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x9879;&#x76EE;&#x4E00;&#x822C;&#x6709;&#x4E24;&#x4E2A;&#x6280;&#x672F;&#x70B9;&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A;&#x70B9;&#x662F;&#x5728;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x4E2D;&#x68C0;&#x6D4B;&#x51FA;&#x4EBA;&#x8138;&#x90E8;&#x5206;&#xFF0C;&#x6807;&#x51FA;&#x4EBA;&#x8138;&#x7684;&#x5750;&#x6807;&#xFF0C;&#x627E;&#x51FA;&#x4EBA;&#x8138;&#x7684;&#x5173;&#x952E;&#x70B9;&#xFF08;landmarks&#xFF0C;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x7684;&#x662F;&#x4E94;&#x4E2A;&#x5173;&#x952E;&#x70B9;&#xFF0C;&#x53CC;&#x773C;&#x3001;&#x9F3B;&#x5934;&#x548C;&#x5634;&#x5DF4;&#x5DE6;&#x53F3;&#x4E24;&#x4E2A;&#x70B9;&#xFF09;&#xFF1B;&#x7B2C;&#x4E8C;&#x4E2A;&#x6280;&#x672F;&#x70B9;&#x662F;&#x5C06;&#x68C0;&#x6D4B;&#x51FA;&#x6765;&#x7684;&#x4EBA;&#x8138;&#x8FDB;&#x884C;&#x8BC6;&#x522B;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x8BC6;&#x522B;&#x51FA;&#x6765;&#x7684;&#x5177;&#x4F53;&#x4FE1;&#x606F;&#x518D;&#x8FDB;&#x884C;&#x5DE5;&#x7A0B;&#x5904;&#x7406;&#xFF0C;&#x7ED9;&#x51FA;&#x8BC6;&#x522B;&#x7ED3;&#x679C;&#x8FBE;&#x5230;&#x8BC6;&#x522B;&#x76EE;&#x7684;&#x3002;</p>
+<p>&#x5728;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;&#x90E8;&#x5206;&#xFF0C;&#x672C;&#x6587;&#x53C2;&#x8003;&#x7684;&#x4E3B;&#x8981;&#x6587;&#x732E;&#x662F;2016&#x5E74;&#x53D1;&#x8868;&#x5728;IEEE Single Processing Letters&#x671F;&#x520A;&#x4E0A;&#x7684;Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks&#x6587;&#x7AE0;&#xFF0C;&#x8BE5;&#x671F;&#x520A;&#x5728;2019&#x5E74;CCF&#xFF08;&#x4E2D;&#x56FD;&#x8BA1;&#x7B97;&#x673A;&#x5B66;&#x4F1A;&#xFF09;&#x63A8;&#x8350;&#x7684;&#x671F;&#x520A;&#x76EE;&#x5F55;&#x4E2D;&#x5C5E;&#x4E8E;&#x662F;C&#x7C7B;&#x671F;&#x520A;&#xFF0C;&#x4F46;&#x662F;&#x5F71;&#x54CD;&#x56E0;&#x5B50;&#x5728;&#x9010;&#x5E74;&#x589E;&#x9AD8;&#x3002;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;:</p>
+<p><img src="/2020/02/12/&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#x9879;&#x76EE;&#x603B;&#x7ED3;/yingxiangyinzi.png" alt="MacDown Screenshot"></p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x5148;&#x4E0D;&#x8BF4;&#x671F;&#x520A;&#x5982;&#x4F55;&#xFF0C;&#x8BBA;&#x6587;&#x63D0;&#x51FA;&#x7684;MTCNN&#x7F51;&#x7EDC;&#x6548;&#x679C;&#x8FD8;&#x662F;&#x5F88;&#x597D;&#x7684;&#x3002;</p>
+<h1 id="&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;"><a href="#&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;" class="headerlink" title="&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;"></a>&#x6280;&#x672F;&#x70B9;&#x4E00;&#xFF1A;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;</h1><p>Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x5C06;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;&#x548C;&#x4EBA;&#x8138;&#x5BF9;&#x9F50;&#x4E24;&#x4E2A;&#x4EFB;&#x52A1;&#x5408;&#x5E76;&#x5728;&#x4E86;&#x4E00;&#x8D77;&#xFF0C;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x7684;three-stage&#xFF08;&#x4E09;&#x9636;&#x6BB5;&#xFF09;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x7F51;&#x7EDC;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x5728;&#x7EBF;&#x56F0;&#x96BE;&#x6837;&#x672C;&#x6316;&#x6398;&#x7B56;&#x7565;&#x8FDB;&#x884C;&#x6837;&#x672C;&#x9009;&#x62E9;&#x3002;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x96C6;&#x6709;&#xFF1A;</p>
+<ul>
+<li>FDDB</li>
+<li>WIDER FACE</li>
+<li>AFLW</li>
+</ul>
+<p>&#x5728;&#x6B64;&#x4E4B;&#x95F4;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x6587;&#x7AE0;&#x4E3B;&#x8981;&#x63D0;&#x5230;&#x4E86;&#xFF1A;1.&#x5E0C;&#x5C14;&#x7279;&#x5F81;&#x63D0;&#x53D6;+Adaboost&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x65E0;&#x6CD5;&#x9002;&#x7528;&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;&#xFF1B;2.DPM(deformable part models)&#xFF0C;&#x9700;&#x8981;&#x5927;&#x91CF;&#x7684;&#x8BA1;&#x7B97;&#x5F00;&#x9500;&#x548C;&#x6D77;&#x91CF;&#x6807;&#x6CE8;&#xFF1B;3.&#x57FA;&#x4E8E;CNN&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6A21;&#x578B;&#x7ED3;&#x6784;&#x590D;&#x6742;&#xFF0C;&#x5E76;&#x4E14;&#x5FFD;&#x7565;&#x4E86;bound-box&#x548C;landmarks&#x7684;&#x5185;&#x5728;&#x5173;&#x8054;&#x3002;</p>
+<p>&#x5173;&#x4E8E;&#x5355;&#x72EC;&#x7684;&#x4EBA;&#x8138;&#x5BF9;&#x9F50;&#xFF0C;&#x6709;&#x57FA;&#x4E8E;&#x56DE;&#x5F52;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x57FA;&#x4E8E;&#x6A21;&#x677F;&#x62DF;&#x5408;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x4F5C;&#x8005;&#x628A;&#x6587;&#x7AE0;&#x7684;&#x4E3B;&#x8981;&#x8D21;&#x732E;&#x603B;&#x7ED3;&#x4E3A;&#xFF1A;</p>
+<ol>
+<li>&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x7EA7;&#x8054;&#x7684;&#x3001;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;CNN&#x67B6;&#x6784;&#xFF0C;&#x5E76;&#x4E14;&#x5177;&#x6709;&#x5B9E;&#x65F6;&#x76D1;&#x6D4B;&#x529F;&#x80FD;&#xFF1B;</li>
+<li>&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x56F0;&#x96BE;&#x6837;&#x672C;&#x5728;&#x7EBF;&#x9009;&#x62E9;&#xFF0C;&#x7528;&#x4E8E;&#x63D0;&#x9AD8;&#x6A21;&#x578B;&#x7684;&#x8868;&#x73B0;&#xFF1B;</li>
+<li>&#xFF08;&#x7A7A;&#x8BDD;&#xFF09;&#x4E3A;&#x4E86;&#x5C55;&#x793A;&#x6A21;&#x578B;&#x7684;&#x6548;&#x679C;&#x548C;&#x73B0;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x6BD4;&#xFF0C;&#x8FDB;&#x884C;&#x4E86;&#x5E7F;&#x6CDB;&#x5B9E;&#x9A8C;&#x3002;</li>
+</ol>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2020-02-12");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-02-12T08:01:08.000Z" itemprop="datePublished">2020-02-12</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/AI/'>AI</a>
+
+<a class="post-categories-list-item" href='/categories/AI/中文/'>中文</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/中文/" rel="tag">#&nbsp;中文</a>
+
+<a class="post-tags-list-item" href="/tags/AI/" rel="tag">#&nbsp;AI</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/02/11/Python语法糖总结/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Python语法糖总结</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">Warren Zhao&#39; blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>
